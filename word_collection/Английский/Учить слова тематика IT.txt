@@ -1,0 +1,68 @@
+dummy — ламер
+event — событие (программное)
+example — пример
+fault-tolerant — отказоустойчивость
+folder — папка (на компьютере)
+access — доступ
+algorithm — алгоритм
+byte — байт
+class — класс
+cluster — кластер
+code — код
+computer — компьютер
+computing — вычисление
+configuration — конфигурация
+constructor — конструктор
+customization — настройка
+database — база данных
+debug — отлаживать (программу)
+debugger — отладчик (программа для отладки кода)
+destructor — деструктор
+develop — разрабатывать
+developer — разработчик
+developing — разработка
+diskette — дискета
+distributed system — распределенная система
+function — функция
+hacker — хакер
+hard disk — жесткий диск
+implementation — реализация
+import — импорт
+include — включение
+keyboard — клавиатура
+lamer — ламер
+language — язык
+literal — литерал
+legal notes — юридическое заявление
+level — уровень
+library — библиотека (функций)
+life-cycle — жизненный цикл
+load — загружать
+loop — цикл
+loop body — тело цикла
+network — сеть
+notebook — ноутбук
+object — объект
+package — пакет (библиотека)
+platform — платформа
+process — процесс
+processing — обработка
+programmer — программист
+programming — программирование
+low-level — низкоуровневый
+low-level language — язык низкого уровня
+mail — почта
+method — метод
+mouse — мышь
+random — случайный
+replica — точная копия
+table — таблица
+variable — переменная
+reset — сброс
+schedule — расписание
+sign in — войти, зарегистрироваться
+signature — подпись
+software — программное обеспечение
+speech — речь
+staff — штат
+statement — оператор
