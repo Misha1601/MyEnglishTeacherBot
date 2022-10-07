@@ -38,9 +38,8 @@ async def main():
     logger.info("Starting bot")
     config = load_config(".env")
 
-    storage = RedisStorage2() if config.tg_bot.use_redis else MemoryStorage()
     bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
-    dp = Dispatcher(bot, storage=storage)
+    dp = Dispatcher(bot)
 
     bot['config'] = config
 
@@ -52,8 +51,6 @@ async def main():
     try:
         await dp.start_polling()
     finally:
-        await dp.storage.close()
-        await dp.storage.wait_closed()
         await bot.session.close()
 
 
