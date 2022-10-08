@@ -4,13 +4,8 @@ from tgbot.config import load_config
 
 
 # запускаем логгирование, логи выводятся только в консоль
-logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
-#Выводим в консоль информацию о запуске скрипта
-logging.basicConfig(
-    level=logging.INFO,
-    format=u'%(filename)s:%(lineno)d #%(levelname)-8s [%(asctime)s] - %(name)s - %(message)s')
-logger.info("Starting bot")
 # Загружаем из .env настройки, шаблон настроек в .env_shablon
 config = load_config(".env")
 # Создаем объект бота и диспетчера
