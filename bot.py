@@ -1,6 +1,7 @@
 import asyncio
 import logging
 
+from aiogram import Bot, Dispatcher, executor, types
 from aiogram import Bot, Dispatcher
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.fsm_storage.redis import RedisStorage2
@@ -43,7 +44,7 @@ async def main():
 
     bot['config'] = config
 
-    register_all_middlewares(dp, config)
+    # register_all_middlewares(dp, config)
     register_all_filters(dp)
     register_all_handlers(dp)
 
