@@ -1,4 +1,4 @@
 # Словарь глаголов (verb)
-correct = {}
+correct = {"love" : ["любить"], "play" : ["играть"]}
 
 incorrect = {}

@@ -1,5 +1,5 @@
 import random
-from parts_of_speech.pronoun import PeP
+from .parts_of_speech.pronoun import PeP
 
 
 class Offer_g():

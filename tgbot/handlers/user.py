@@ -6,4 +6,4 @@ from bot import dp, test
 async def user_start(message: types.Message):
     chat_id = message.chat.id
     await message.answer(f"Hello, user! id {chat_id}")
-    await test()
+    await test() # тестовая функция
