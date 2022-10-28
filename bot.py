@@ -4,12 +4,10 @@ from aiogram import Bot, Dispatcher, executor, types
 from tgbot.config import load_config
 
 
-# запускаем логгирование, логи выводятся только в консоль
 logging.basicConfig(level=logging.INFO)
 
 # Загружаем из .env настройки, шаблон настроек в .env_shablon
 config = load_config(".env")
-# Создаем объект бота и диспетчера
 bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
 dp = Dispatcher(bot)
 
