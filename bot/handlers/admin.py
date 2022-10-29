@@ -1,5 +1,5 @@
 from aiogram import types
-from bot import dp
+from main import dp
 
 
 @dp.message_handler(commands=["admin"]) #, is_admin=True)

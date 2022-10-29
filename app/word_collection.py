@@ -25,4 +25,5 @@ verb = {"correct":{"love" : ["любить"], "play" : ["играть"]},
         "incorrect":{}
         }
 if __name__ == "__main__":
-    print(verb.keys())
+    print(list(verb.get('correct').keys()))
+    print(list(verb.keys()))

@@ -2,7 +2,7 @@ from aiogram.utils.callback_data import CallbackData
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
 
 from keyboards.callback_datas import view_product, buying_callback, cancellation_callback
-from bot import db
+from main import db
 
 
 # Клавиатура покупки или отмены покупки

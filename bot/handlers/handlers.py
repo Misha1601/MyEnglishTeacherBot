@@ -1,9 +1,9 @@
 import random
 from aiogram import types
-from bot import dp
-from tgbot.keyboards.keyboards_menu import buttons_menu
-from app.offer_generator import Offer_g
-from app.parts_of_speech.verb import correct
+from main import dp
+from bot.keyboards.keyboards_menu import buttons_menu
+from app.generator import Generate
+from app.word_collection import verb
 
 
 @dp.message_handler(commands="start")
@@ -19,8 +19,5 @@ async def info(message: types.Message):
 
 @dp.message_handler(commands="Play")
 async def info(message: types.Message):
-    word = random.choice(tuple(correct.keys()))
-    word1 = Offer_g(word)
-    await message.answer("Работа основной логики бота")
-    await message.answer(word1.generator())
+    await message.answer(Generate().offer(), reply_markup=buttons_menu())
 
