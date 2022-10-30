@@ -2,6 +2,7 @@ import random
 from aiogram import types
 from main import dp
 from bot.keyboards.keyboards_menu import buttons_menu
+from bot.keyboards.keyboards import buttons_answer
 from app.generator import Generate
 from app.word_collection import verb
 
@@ -19,5 +20,5 @@ async def info(message: types.Message):
 
 @dp.message_handler(commands="Play")
 async def info(message: types.Message):
-    await message.answer(Generate().offer(), reply_markup=buttons_menu())
+    await message.answer(Generate().offer(), reply_markup=buttons_answer())
 
