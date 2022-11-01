@@ -13,6 +13,7 @@ async def start(message: types.Message):
                         "Для получения информации о возможностях бота используйте команду /info\n"
                         "Что бы начать изучение, нажмите /Play",
                         reply_markup=buttons_menu())
+    await message.delete()
 
 @dp.message_handler(commands="info")
 async def info(message: types.Message):

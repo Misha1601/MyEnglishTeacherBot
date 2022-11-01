@@ -36,6 +36,7 @@ class Dialog(StatesGroup):
 @dp.message_handler(commands="start")
 async def start(msg: types.Message):
     await Dialog.name.set()
+    await msg.delete()
 
 
 @dp.message_handler(state=Dialog.name)
@@ -99,6 +100,10 @@ def create_kb(count: int):
         button = KeyboardButton(text=f"{num}")
         kb.add(button)
     return kb
+
+def del_mes(msg: types.Message):
+    msg.delete()
+
 
 
 if __name__ == '__main__':
