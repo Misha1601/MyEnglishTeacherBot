@@ -1,5 +1,6 @@
 from ast import Delete
 import random
+import datetime
 from aiogram import types
 from main import dp, bot
 from bot.keyboards.keyboards_menu import buttons_menu
@@ -8,6 +9,7 @@ from app.generator import Generate
 from app.word_collection import verb
 
 MS = {}
+# MS = {471378174: [[623, datetime.datetime(2022, 11, 5, 8, 1, 15)]]}
 
 async def del_mes(message):
     if MS == False:
@@ -19,7 +21,7 @@ async def del_mes(message):
     element = MS.get(message.chat.id)
     if element:
         for i in element:
-            await bot.delete_message(message.chat.id, i)
+            await bot.delete_message(message.chat.id, i[0])
             element.remove(i)
 
 
@@ -30,19 +32,24 @@ async def start(message: types.Message):
                         "Для получения информации о возможностях бота используйте команду /info\n"
                         "Что бы начать изучение, нажмите /Play",
                         reply_markup=buttons_menu())
-    MS[msid.chat.id].append(msid.message_id)
+    MS[msid.chat.id].append([msid.message_id, msid.date])
     await message.delete()
 
 @dp.message_handler(commands="info")
 async def info(message: types.Message):
     await del_mes(message)
-    msid = await message.answer("В дальнейшем тут будет выведена информация по работе бота, и команда для запуска тестирования") # /start
+    msid = await message.answer("В дальнейшем тут будет выведена информация по работе бота, и команда для запуска тестирования",
+                                reply_markup=buttons_menu()) # /start
     await message.delete()
-    MS[msid.chat.id].append(msid.message_id)
+    MS[msid.chat.id].append([msid.message_id, msid.date])
 
 @dp.message_handler(commands="Play")
 async def info(message: types.Message):
     await del_mes(message)
-    msid = await message.answer(Generate().offer(), reply_markup=buttons_answer())
+    msid = await message.answer(f"{Generate().offer()}\n"
+                                "||Tут будет перевод предложения||",
+                                parse_mode='MarkdownV2',
+                                reply_markup=buttons_answer())
     await message.delete()
-    MS[msid.chat.id].append(msid.message_id)
+    MS[msid.chat.id].append([msid.message_id, msid.date])
+

@@ -6,4 +6,5 @@ from main import dp
 async def user_start(message: types.Message):
     chat_id = message.chat.id
     mes = message.chat
-    await message.answer(f"Hello, user! {mes}")
+    info_message = await message.answer(f"Hello, user! {mes}")
+    print(info_message)
