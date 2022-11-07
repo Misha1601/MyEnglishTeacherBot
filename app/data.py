@@ -11,7 +11,6 @@ async def del_old_messege(message):
     if not info_message_id or not info_message_id[message.chat.id]:
         return None
     element = info_message_id[message.chat.id]
-    print(element)
     for i in element:
         await bot.delete_message(message.chat.id, i)
         # element.remove(i)
@@ -46,16 +45,15 @@ async def napominanie(reminder=20): # необходим ореализоват�
                                 f"||Tут будет перевод предложения||",
                                 parse_mode='MarkdownV2',
                                 reply_markup=buttons_answer())
-                save_info_messege(msid)
+                await save_info_messege(msid)
                 info_message_time[key].clear()
             else:
                 min_time_sleep.append(tm)
-
         if min_time_sleep:
             if len(min_time_sleep) > 1:
                 sleep_min = reminder - max(min_time_sleep)
                 await asyncio.sleep(sleep_min)
             else:
-                await asyncio.sleep(int(min_time_sleep[0]))
+                await asyncio.sleep(reminder - int(min_time_sleep[0]))
         else:
             await asyncio.sleep(reminder)
