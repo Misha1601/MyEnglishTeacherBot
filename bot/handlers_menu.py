@@ -1,6 +1,6 @@
 from aiogram import types
 from main import dp
-from bot.handlers import message_del_old_save_new
+from app.data import del_old_messege, save_info_messege
 from bot.keyboards import buttons_menu
 
 
@@ -10,11 +10,13 @@ async def vibor_product(message: types.Message):
                                parse_mode='MarkdownV2',
                                reply_markup=buttons_menu())
     await message.delete()
-    await message_del_old_save_new(mes)
+    await del_old_messege(mes)
+    await save_info_messege(mes)
 
 @dp.message_handler(text="Статистика")
 async def vibor_product(message: types.Message):
     mes = await message.answer("Информация по статистике, будет позже",
                                reply_markup=buttons_menu())
     await message.delete()
-    await message_del_old_save_new(mes)
+    await del_old_messege(mes)
+    await save_info_messege(mes)
