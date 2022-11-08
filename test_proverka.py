@@ -1,3 +1,6 @@
-a = [5]
-for i in a:
-    print(i)
+from app.data import statistics
+from app import data
+
+s = data.STAT
+
+print(s)

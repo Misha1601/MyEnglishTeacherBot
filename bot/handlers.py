@@ -16,6 +16,7 @@ async def start(message: types.Message):
     await message.delete()
     await del_old_messege(msid)
     await save_info_messege(msid)
+    # await statistics(msid, start=True)
 
 @dp.message_handler(commands="info")
 async def info(message: types.Message):
@@ -35,7 +36,7 @@ async def info(message: types.Message):
     await message.delete()
     await del_old_messege(msid)
     await save_info_messege(msid)
-    await statistics(msid)
+    await statistics(message=msid, quest=True)
 
 @dp.callback_query_handler(play_collback.filter(yes_or_no="yes"))
 async def inline_yes(call: CallbackQuery, callback_data: dict):
@@ -44,7 +45,7 @@ async def inline_yes(call: CallbackQuery, callback_data: dict):
     msid = await call.message.answer(f"Вы нажали кнопку {press}", reply_markup=buttons_menu())
     await call.message.edit_reply_markup()
     await save_info_messege(msid)
-    await statistics(msid, yes=True)
+    await statistics(message=msid, yes=True)
 
 @dp.callback_query_handler(play_collback.filter(yes_or_no="no"))
 async def inline_no(call: CallbackQuery, callback_data: dict):
@@ -53,4 +54,4 @@ async def inline_no(call: CallbackQuery, callback_data: dict):
     msid = await call.message.answer(f"Вы нажали кнопку {press}", reply_markup=buttons_menu())
     await call.message.edit_reply_markup()
     await save_info_messege(msid)
-    await statistics(msid, no=True)
+    await statistics(message=msid, no=True)

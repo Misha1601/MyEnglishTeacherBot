@@ -6,7 +6,7 @@ from app.generator import Generate
 
 INFO_MESSAGE_ID = {}
 INFO_MESSAGE_TIME = {}
-STATISTICS = {} # в значении словарь [кол-во play, yes, no]
+STAT = {} # в значении словарь [кол-во play, yes, no]
 
 async def del_old_messege(message):
     if not INFO_MESSAGE_ID or not INFO_MESSAGE_ID[message.chat.id]:
@@ -17,20 +17,15 @@ async def del_old_messege(message):
         # element.remove(i)
     INFO_MESSAGE_ID[message.chat.id].clear()
 
-def statistics(message=True, yes=False, no=False, stat=False):
-    if not STATISTICS or not STATISTICS[message.chat.id]:
-        STATISTICS[message.chat.id] = [0, 0, 0]
-    # if not STATISTICS[message.chat.id]:
-    #     STATISTICS[message.chat.id] = [0, 0, 0]
-    if message:
-        STATISTICS[message.chat.id][0] += 1
-    if yes == True:
-        STATISTICS[message.chat.id][1] += 1
-    if no == True:
-        STATISTICS[message.chat.id][2] += 1
-    if stat == True:
-        return STATISTICS[message.chat.id]
-
+async def statistics(message=False, quest=False, yes=False, no=False, stat=False):
+    if not STAT.get(message.chat.id):
+        STAT[message.chat.id] = [0, 0, 0]
+    if message and quest:
+        STAT[message.chat.id][0] += 1
+    if message and yes:
+        STAT[message.chat.id][1] += 1
+    if message and no:
+        STAT[message.chat.id][2] += 1
 
 
 async def save_info_messege(message):
@@ -62,6 +57,7 @@ async def napominanie(reminder=3600): # необходим ореализова�
                                 parse_mode='MarkdownV2',
                                 reply_markup=buttons_answer())
                 await save_info_messege(msid)
+                await statistics(message=msid, quest=True)
                 INFO_MESSAGE_TIME[key].clear()
             else:
                 min_time_sleep.append(tm)
