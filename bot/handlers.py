@@ -1,8 +1,10 @@
 from aiogram import types
-from main import dp
+from aiogram.types import CallbackQuery
+from main import dp, bot
 from bot.keyboards import buttons_answer, buttons_menu
 from app.generator import Generate
-from app.data import del_old_messege, save_info_messege
+from app.data import del_old_messege, save_info_messege, statistics
+from bot.callback_datas import play_collback
 
 
 @dp.message_handler(commands="start")
@@ -33,3 +35,22 @@ async def info(message: types.Message):
     await message.delete()
     await del_old_messege(msid)
     await save_info_messege(msid)
+    await statistics(msid)
+
+@dp.callback_query_handler(play_collback.filter(yes_or_no="yes"))
+async def inline_yes(call: CallbackQuery, callback_data: dict):
+    await call.answer()
+    press = callback_data.get("yes_or_no")
+    msid = await call.message.answer(f"Вы нажали кнопку {press}", reply_markup=buttons_menu())
+    await call.message.edit_reply_markup()
+    await save_info_messege(msid)
+    await statistics(msid, yes=True)
+
+@dp.callback_query_handler(play_collback.filter(yes_or_no="no"))
+async def inline_no(call: CallbackQuery, callback_data: dict):
+    await call.answer()
+    press = callback_data.get("yes_or_no")
+    msid = await call.message.answer(f"Вы нажали кнопку {press}", reply_markup=buttons_menu())
+    await call.message.edit_reply_markup()
+    await save_info_messege(msid)
+    await statistics(msid, no=True)
