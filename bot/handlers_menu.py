@@ -4,12 +4,15 @@ from app.data import del_old_messege, save_info_messege, statistics
 from app import data
 from bot.keyboards import buttons_menu, buttons_answer
 from app.generator import Generate
+from app.translate import Translate
 
 
 @dp.message_handler(text="Потренеруемся ещё")
 async def vibor_product(message: types.Message):
-    mes = await message.answer(f"{Generate().offer()}\n"
-                                "||Tут будет перевод предложения||",
+    word = Generate().offer()
+    word_translate = Translate(word=word).perevod()
+    mes = await message.answer(f"{word}\n"
+                                f"||{word_translate}||",
                                 parse_mode='MarkdownV2',
                                 reply_markup=buttons_answer())
     await message.delete()

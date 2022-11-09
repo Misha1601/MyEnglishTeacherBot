@@ -6,10 +6,7 @@ from . import word_collection
 class Generate:
     """Класс для генерации предложения, слова или ...
        для генерации необходимо вызвать соответствующий метод
-       (на данном этапе генерируем только предложение, метод offer(Generate().offer()))"""
-
-    # def __init__(self, word):
-    #     self.word = word
+       (на данном этапе генерируем только предложение, метод Generate().offer())"""
 
     def do_or_does_question(self, pronoun):
         p = ("he", "she")

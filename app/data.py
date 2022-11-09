@@ -3,6 +3,7 @@ import datetime
 from main import bot
 from bot.keyboards import buttons_answer
 from app.generator import Generate
+from app.translate import Translate
 
 INFO_MESSAGE_ID = {}
 INFO_MESSAGE_TIME = {}
@@ -52,8 +53,10 @@ async def napominanie(reminder=3600): # необходим ореализова�
                 continue
             tm = int(datetime.datetime.now().timestamp()) - int(INFO_MESSAGE_TIME[key][-1].timestamp())
             if tm >= reminder:
-                msid = await bot.send_message(key, f"{Generate().offer()}\n"
-                                f"||Tут будет перевод предложения||",
+                word = Generate().offer()
+                word_translate = Translate(word=word).perevod()
+                msid = await bot.send_message(key, f"{word}\n"
+                                f"||{word_translate}||",
                                 parse_mode='MarkdownV2',
                                 reply_markup=buttons_answer())
                 await save_info_messege(msid)

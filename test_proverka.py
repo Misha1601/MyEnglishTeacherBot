@@ -1,6 +1,4 @@
-from app.data import statistics
-from app import data
+from translatepy import Translator
 
-s = data.STAT
-
-print(s)
+translator = Translator()
+print(translator.translate("Hello world", "ru"))
