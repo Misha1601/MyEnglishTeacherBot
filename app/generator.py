@@ -1,6 +1,6 @@
 import random
-from . import word_collection
-# import word_collection
+# from . import word_collection
+import word_collection
 
 
 class Generate:
@@ -33,7 +33,7 @@ class Generate:
         prs = f"{pronoun} {word}".capitalize() if pronoun not in ('he', 'she') else f"{pronoun} {word}s".capitalize()
         prn = f"{self.do_or_does_negation(pronoun)} {word}"
         paq = f"Did {pronoun} {word}?"
-        pas = f"{pronoun} did not {word}d".capitalize()
+        pas = f"{pronoun} {word}d".capitalize()
         pan = f"{pronoun} did not {word}".capitalize()
         return random.choice([fg, fs, fn, prq, prs, prn, paq, pas, pan])
 
