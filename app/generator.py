@@ -1,6 +1,6 @@
 import random
-# from . import word_collection
-import word_collection
+from . import word_collection
+# import word_collection
 
 
 class Generate:

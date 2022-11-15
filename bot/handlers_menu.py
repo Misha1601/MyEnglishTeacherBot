@@ -2,7 +2,7 @@ from aiogram import types
 from main import dp
 from app.data import del_old_messege, save_info_messege, statistics
 from app import data
-from bot.keyboards import buttons_menu, buttons_answer
+from bot.keyboards import buttons_menu, buttons_answer, buttons_no_menu
 from app.generator import Generate
 from app.translate import Translate
 
@@ -15,9 +15,12 @@ async def vibor_product(message: types.Message):
                                 f"||{word_translate}||",
                                 parse_mode='MarkdownV2',
                                 reply_markup=buttons_answer())
+    mes1 = await message.answer(f"В любом обучении главное практика на постоянной основе!",
+                                   reply_markup=buttons_no_menu())
     await message.delete()
     await del_old_messege(mes)
     await save_info_messege(mes)
+    await save_info_messege(mes1)
     await statistics(message=mes, quest=True) # реализовать это в отделный параметр статистики
 
 @dp.message_handler(text="Статистика")

@@ -13,6 +13,12 @@ def buttons_menu():
     resize_keyboard=True)
     return keys_menu
 
+def buttons_no_menu():
+    keys_menu = ReplyKeyboardMarkup(keyboard=[
+        [KeyboardButton(text="Необходимо выбрать один из вариантов ответа под сообщением!")]],
+    resize_keyboard=True)
+    return keys_menu
+
 def buttons_answer():
     key_answer = InlineKeyboardMarkup(row_width=2)
     key_answer.insert(InlineKeyboardButton(text="Ответили ✅", callback_data=play_collback.new(yes_or_no="yes")))

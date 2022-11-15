@@ -1,7 +1,7 @@
 import asyncio
 import datetime
 from main import bot
-from bot.keyboards import buttons_answer
+from bot.keyboards import buttons_answer, buttons_no_menu
 from app.generator import Generate
 from app.translate import Translate
 
@@ -55,12 +55,16 @@ async def napominanie(reminder=3600): # необходим ореализова�
             if tm >= reminder:
                 word = Generate().offer()
                 word_translate = Translate(word=word).perevod()
-                msid = await bot.send_message(key, f"{word}\n"
+                mes = await bot.send_message(key, f"{word}\n"
                                 f"||{word_translate}||",
                                 parse_mode='MarkdownV2',
                                 reply_markup=buttons_answer())
-                await save_info_messege(msid)
-                await statistics(message=msid, quest=True)
+                mes1 = await bot.send_message(key, f"В любом обучении главное практика на постоянной основе!",
+                                   reply_markup=buttons_no_menu())
+                await del_old_messege(mes)
+                await save_info_messege(mes)
+                await save_info_messege(mes1)
+                await statistics(message=mes, quest=True)
                 INFO_MESSAGE_TIME[key].clear()
             else:
                 min_time_sleep.append(tm)
