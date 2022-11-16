@@ -1,6 +1,10 @@
+from aiogram import types
 from main import dp, bot
+from bot.keyboards import buttons_answer, buttons_no_menu
 from app.generator import Generate
 from app.translate import Translate
+from app.data import del_old_messege, save_info_messege, statistics
+
 
 async def play(message: types.Message):
     word = Generate().offer()
