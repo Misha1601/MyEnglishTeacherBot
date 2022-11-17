@@ -6,15 +6,21 @@ from app.translate import Translate
 from app.data import del_old_messege, save_info_messege, statistics
 
 
-async def generate_offer(message: types.Message):
+async def generate_offer(mes_or_key):
     import app.data as data
     word = Generate().offer()
     word_translate = Translate(word=word).perevod()
-    data.WORD[message.chat.id] = [word, word_translate]
+    if str(mes_or_key).isnumeric():
+        data.WORD[mes_or_key] = [word, word_translate]
+    else:
+        data.WORD[mes_or_key.chat.id] = [word, word_translate]
     return (word, word_translate)
 
 async def game(message: types.Message = None, key = None):
-    word = await generate_offer(message)
+    if message:
+        word = await generate_offer(message)
+    else:
+        word = await generate_offer(key)
     if key:
         mes = await bot.send_message(key, f"{word[0]}\n"
                                     f"||Google \- {word[1][1]}\n||"
