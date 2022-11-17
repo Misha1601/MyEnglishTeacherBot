@@ -1,12 +1,11 @@
 import asyncio
 import datetime
 from main import bot
-from bot.keyboards import buttons_answer, buttons_no_menu
-from app.generator import Generate
-from app.translate import Translate
+
 
 INFO_MESSAGE_ID = {}
 INFO_MESSAGE_TIME = {}
+WORD = {}
 STAT = {} # в значении словарь [кол-во play, yes, no]
 
 async def del_old_messege(message):
@@ -53,18 +52,8 @@ async def napominanie(reminder=3600): # необходим ореализова�
                 continue
             tm = int(datetime.datetime.now().timestamp()) - int(INFO_MESSAGE_TIME[key][-1].timestamp())
             if tm >= reminder:
-                word = Generate().offer()
-                word_translate = Translate(word=word).perevod()
-                mes = await bot.send_message(key, f"{word}\n"
-                                f"||{word_translate}||",
-                                parse_mode='MarkdownV2',
-                                reply_markup=buttons_answer())
-                mes1 = await bot.send_message(key, f"В любом обучении главное практика на постоянной основе!",
-                                   reply_markup=buttons_no_menu())
-                await del_old_messege(mes)
-                await save_info_messege(mes)
-                await save_info_messege(mes1)
-                await statistics(message=mes, quest=True)
+                from bot.create_offer_and_send import game
+                await game(key=key)
                 INFO_MESSAGE_TIME[key].clear()
             else:
                 min_time_sleep.append(tm)

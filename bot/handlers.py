@@ -1,9 +1,8 @@
 from aiogram import types
 from aiogram.types import CallbackQuery
-from main import dp, bot
-from bot.keyboards import buttons_answer, buttons_menu, buttons_no_menu
-from app.generator import Generate
-from app.translate import Translate
+from main import dp
+from bot.keyboards import buttons_menu
+from bot.create_offer_and_send import game
 from app.data import del_old_messege, save_info_messege, statistics
 from bot.callback_datas import play_collback
 
@@ -31,19 +30,7 @@ async def info(message: types.Message):
 
 @dp.message_handler(commands="Play")
 async def play(message: types.Message):
-    word = Generate().offer()
-    word_translate = Translate(word=word).perevod()
-    mes = await message.answer(f"{word}\n"
-                                f"||{word_translate}||",
-                                parse_mode='MarkdownV2',
-                                reply_markup=buttons_answer())
-    mes1 = await message.answer(f"В любом обучении главное практика на постоянной основе!",
-                                   reply_markup=buttons_no_menu())
-    await message.delete()
-    await del_old_messege(mes)
-    await save_info_messege(mes)
-    await save_info_messege(mes1)
-    await statistics(message=mes, quest=True)
+    await game(message=message)
 
 @dp.callback_query_handler(play_collback.filter(yes_or_no="yes"))
 async def inline_yes(call: CallbackQuery, callback_data: dict):
