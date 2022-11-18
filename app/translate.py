@@ -16,11 +16,20 @@ class Translate:
         translator_g = GoogleTranslate()
         translator_y = YandexTranslate()
         translator_d = DeeplTranslate()
-        result = translator.translate(self.word, "ru")
-        result_g = translator_g.translate(self.word, "ru")
-        result_y = translator_y.translate(self.word, "ru")
-        result_d = translator_d.translate(self.word, "ru")
-        return (result, result_g, result_y, result_d)
+        # result = translator.translate(self.word, "ru")
+        try:
+            result_g = translator_g.translate(self.word, "ru")
+        except Exception:
+            result_g = "Гугл не смог перевести!"
+        try:
+            result_y = translator_y.translate(self.word, "ru")
+        except Exception:
+            result_y = "Яндекс не смог перевести!"
+        try:
+            result_d = translator_d.translate(self.word, "ru")
+        except Exception:
+            result_d = "DeepL не смог перевести!"
+        return (result_g, result_y, result_d)
 
 
 if __name__ == "__main__":
@@ -28,4 +37,3 @@ if __name__ == "__main__":
     print(a[0])
     print(a[1])
     print(a[2])
-    print(a[3])
