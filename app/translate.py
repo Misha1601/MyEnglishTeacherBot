@@ -20,15 +20,15 @@ class Translate:
         try:
             result_g = translator_g.translate(self.word, "ru")
         except Exception:
-            result_g = "Гугл не смог перевести!"
+            result_g = "Гугл не смог перевести\!"
         try:
             result_y = translator_y.translate(self.word, "ru")
         except Exception:
-            result_y = "Яндекс не смог перевести!"
+            result_y = "Яндекс не смог перевести\!"
         try:
             result_d = translator_d.translate(self.word, "ru")
         except Exception:
-            result_d = "DeepL не смог перевести!"
+            result_d = "DeepL не смог перевести\!"
         return (result_g, result_y, result_d)
 
 

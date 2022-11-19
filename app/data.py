@@ -41,7 +41,7 @@ async def save_info_messege(message):
     if message.date not in INFO_MESSAGE_TIME[message.chat.id]:
         INFO_MESSAGE_TIME[message.chat.id].append(message.date)
 
-async def napominanie(reminder=3600): # необходим ореализовать проверку по ид пользователя
+async def napominanie(reminder=1800): # необходим ореализовать проверку по ид пользователя
     while True:
         if not INFO_MESSAGE_TIME:
             await asyncio.sleep(reminder)
