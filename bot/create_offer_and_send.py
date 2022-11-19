@@ -17,6 +17,11 @@ async def generate_offer(mes_or_key):
     return (word, word_translate)
 
 # вывести в отдельную функцию генерацию ответа offer_and_translate
+async def offer_and_translate(mes_or_key):
+    word = await generate_offer(mes_or_key)
+    offer = f"{word[0]}\n ||Google \- {word[1][0]}||\n||Yandex \- {word[1][1]}||\n||Deepl \- {word[1][2]}||"
+    return offer
+
 
 async def game(message: types.Message = None, key = None): # сделать принимающим 1 параметр, его проверка реализована в генерации
     if message:
