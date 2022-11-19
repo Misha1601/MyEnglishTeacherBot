@@ -12,7 +12,7 @@ class Translate:
         self.word = word
 
     def perevod(self):
-        translator = Translator()
+        # translator = Translator()
         translator_g = GoogleTranslate()
         translator_y = YandexTranslate()
         translator_d = DeeplTranslate()

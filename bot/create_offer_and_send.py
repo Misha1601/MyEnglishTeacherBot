@@ -6,7 +6,7 @@ from app.translate import Translate
 from app.data import del_old_messege, save_info_messege, statistics
 
 
-async def generate_offer(mes_or_key):
+def generate_offer(mes_or_key):
     import app.data as data
     word = Generate().offer()
     word_translate = Translate(word=word).perevod()
@@ -17,31 +17,28 @@ async def generate_offer(mes_or_key):
     return (word, word_translate)
 
 # вывести в отдельную функцию генерацию ответа offer_and_translate
-async def offer_and_translate(mes_or_key):
-    word = await generate_offer(mes_or_key)
+def offer_and_translate(mes_or_key):
+    word = generate_offer(mes_or_key)
     offer = f"{word[0]}\n ||Google \- {word[1][0]}||\n||Yandex \- {word[1][1]}||\n||Deepl \- {word[1][2]}||"
+    # offer = "hello world"
     return offer
 
 
 async def game(message: types.Message = None, key = None): # сделать принимающим 1 параметр, его проверка реализована в генерации
     if message:
-        word = await generate_offer(message)
+        word = offer_and_translate(message)
     else:
-        word = await generate_offer(key)
+        word = offer_and_translate(key)
+    # print(word)
+    # print(type(word))
     if key:
-        mes = await bot.send_message(key, f"{word[0]}\n"
-                                    f"||Google \- {word[1][0]}\n||"
-                                    f"||Yandex \- {word[1][1]}\n||"
-                                    f"||Deepl \- {word[1][2]}\n||",
+        mes = await bot.send_message(key, f"{word}",
                                     parse_mode='MarkdownV2',
                                     reply_markup=buttons_answer())
         mes1 = await bot.send_message(key, f"В любом обучении главное практика на постоянной основе!",
                                        reply_markup=buttons_no_menu())
     else:
-        mes = await message.answer(f"{word[0]}\n"
-                                    f"||Google \- {word[1][0]}||\n"
-                                    f"||Yandex \- {word[1][1]}||\n"
-                                    f"||Deepl \- {word[1][2]}||\n",
+        mes = await message.answer(f"{word}",
                                     parse_mode='MarkdownV2',
                                     reply_markup=buttons_answer())
         mes1 = await message.answer(f"В любом обучении главное практика на постоянной основе!",
