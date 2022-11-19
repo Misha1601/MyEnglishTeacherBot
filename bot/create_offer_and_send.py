@@ -24,26 +24,22 @@ def offer_and_translate(mes_or_key):
     return offer
 
 
-async def game(message: types.Message = None, key = None): # сделать принимающим 1 параметр, его проверка реализована в генерации
-    if message:
-        word = offer_and_translate(message)
-    else:
-        word = offer_and_translate(key)
-    # print(word)
-    # print(type(word))
-    if key:
-        mes = await bot.send_message(key, f"{word}",
+async def game(message_or_key): # сделать принимающим 1 параметр, его проверка реализована в генерации
+    word = offer_and_translate(message_or_key)
+
+    if str(message_or_key).isnumeric():
+        mes = await bot.send_message(message_or_key, f"{word}",
                                     parse_mode='MarkdownV2',
                                     reply_markup=buttons_answer())
-        mes1 = await bot.send_message(key, f"В любом обучении главное практика на постоянной основе\!",
+        mes1 = await bot.send_message(message_or_key, f"В любом обучении главное практика на постоянной основе\!",
                                        reply_markup=buttons_no_menu())
     else:
-        mes = await message.answer(f"{word}",
+        mes = await message_or_key.answer(f"{word}",
                                     parse_mode='MarkdownV2',
                                     reply_markup=buttons_answer())
-        mes1 = await message.answer(f"В любом обучении главное практика на постоянной основе\!",
+        mes1 = await message_or_key.answer(f"В любом обучении главное практика на постоянной основе\!",
                                        reply_markup=buttons_no_menu())
-        await message.delete()
+        await message_or_key.delete()
     await del_old_messege(mes)
     await save_info_messege(mes)
     await save_info_messege(mes1)

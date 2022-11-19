@@ -53,7 +53,7 @@ async def napominanie(reminder=1800): # необходим ореализова�
             tm = int(datetime.datetime.now().timestamp()) - int(INFO_MESSAGE_TIME[key][-1].timestamp())
             if tm >= reminder:
                 from bot.create_offer_and_send import game
-                await game(key=key)
+                await game(key)
                 INFO_MESSAGE_TIME[key].clear()
             else:
                 min_time_sleep.append(tm)

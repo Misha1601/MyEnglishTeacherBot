@@ -1,34 +1,22 @@
-import json
+import asyncio
+import time
 
+async def stroka():
+    a = "hellow 5555"
+    await asyncio.sleep(5)
+    b = "hellow 6666"
+    return a, b
 
-# with open('word_3.json', 'w') as file:
-#     json.dump(gl, file, ensure_ascii=False, indent=4)
+async def stroka2():
+    await asyncio.sleep(3)
+    a = "hellow 3333"
+    return a
 
-a = []
-b = []
+async def main():
+    b = await asyncio.gather(stroka(), stroka2())
+    print(b)
+    print(type(b))
 
-with open('word_3.json') as file:
-    tr3 =json.load(file)
-print(len(tr3))
-# print(tr)
-with open('word_4.json') as file:
-    tr4 =json.load(file)
-print(len(tr4))
-# for key3 in tr3.keys():
-#     for key4 in tr4.keys():
-#         if key3 == key4:
-#             a.append(key3)
-
-print('_______________________-')
-
-for key in tr3.keys():
-    if key in tr4.keys():
-        a.append(key)
-    if key not in tr4.keys():
-        b.append(key)
-        print(key, tr3[key])
-
-
-
-print(len(a))
-print(len(b))
+t = time.time()
+asyncio.run(main())
+print(time.time()-t)

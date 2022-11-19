@@ -8,7 +8,7 @@ from bot.create_offer_and_send import game
 
 @dp.message_handler(text="Потренеруемся ещё")
 async def vibor_product(message: types.Message):
-    await game(message=message)
+    await game(message)
 
 @dp.message_handler(text="Статистика")
 async def vibor_product(message: types.Message):
