@@ -1,7 +1,8 @@
 import sqlite3
+import datetime
 
 class Database:
-    def __init__(self, path_to_db='main_db.db'):
+    def __init__(self, path_to_db='app/main_db.db'):
         self.path_to_db = path_to_db
 
     @property
@@ -34,14 +35,21 @@ class Database:
                 CREATE TABLE Message (
                     id INTEGER PRIMARY KEY,
                     id_chat INTEGER NOT NULL,
-                    id_message INTEGER NOT NULL
+                    id_message STRING NOT NULL,
+                    date DATE NOT NULL,
+                    stat STRING NOT NULL,
+                    state_date int NOT NULL
                 );
         """
         self.execute(sql, commit=True)
+    def search_chat_id():
+        # поиск чата с определенным id
+        pass
 
-    def add_message(self, id_chat: int, id_message: int):
-        sql = "INSERT INTO Message(id_chat, id_message) VALUES(?, ?)"
-        parameters = (id_chat, id_message)
+    def add_message(self, id_chat: int, id_message: int, date: str, stat: str, state_date: int):
+        # если чат уже есть, то обновляем данные
+        sql = "INSERT INTO Message(id_chat, id_message, date, stat, state_date) VALUES(?, ?, ?, ?, ?)"
+        parameters = (id_chat, id_message, date, stat, state_date)
         self.execute(sql, parametrs=parameters, commit=True)
 
     def select_all_message(self):
@@ -52,12 +60,11 @@ class Database:
         return self.execute("SELECT COUNT(*) FROM Message;", fetchone=True)
 
 if __name__=="__main__":
-    db = Database()
+    db = Database(path_to_db='app/main.db')
     try:
         db.create_table_message()
     except:
         print('таблица уже создана')
-    db.add_message(id_chat=12, id_message=22)
-    db.add_message(id_chat=13, id_message=23)
+    db.add_message(id_chat=12, id_message=22, date='', stat='[0,0,0]', state_date=0)
     print(db.select_all_message())
     print(db.count_message())
