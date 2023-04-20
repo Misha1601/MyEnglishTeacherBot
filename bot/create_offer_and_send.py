@@ -31,13 +31,13 @@ async def game(message_or_key): # сделать принимающим 1 пар
         mes = await bot.send_message(message_or_key, f"{word}",
                                     parse_mode='MarkdownV2',
                                     reply_markup=buttons_answer())
-        mes1 = await bot.send_message(message_or_key, f"В любом обучении главное практика на постоянной основе\!",
+        mes1 = await bot.send_message(message_or_key, f"В любом обучении главное практика на постоянной основе!",
                                        reply_markup=buttons_no_menu())
     else:
         mes = await message_or_key.answer(f"{word}",
                                     parse_mode='MarkdownV2',
                                     reply_markup=buttons_answer())
-        mes1 = await message_or_key.answer(f"В любом обучении главное практика на постоянной основе\!",
+        mes1 = await message_or_key.answer(f"В любом обучении главное практика на постоянной основе!",
                                        reply_markup=buttons_no_menu())
         await message_or_key.delete()
     await del_old_messege(mes)
