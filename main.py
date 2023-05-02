@@ -2,7 +2,7 @@ import asyncio
 import logging
 from aiogram import Bot, Dispatcher, executor #, types
 from bot.config import load_config
-from app import data
+from bot import data
 
 
 logging.basicConfig(level=logging.INFO)

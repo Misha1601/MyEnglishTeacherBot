@@ -1,7 +1,7 @@
 from aiogram import types
 from main import dp
-from app.data import del_old_messege, save_info_messege, statistics
-from app import data
+from bot.data import del_old_messege, save_info_messege, statistics
+from bot import data
 from bot.keyboards import buttons_menu
 from bot.create_offer_and_send import game
 
