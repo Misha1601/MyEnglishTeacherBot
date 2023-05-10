@@ -12,6 +12,10 @@ verb = {'3-5':{'name':'Глаголы 3, 4, 5 классов', 'word':{}},
         'nepr':{'name':'Неправильные глаголы', 'word':{}},
         'prav':{'name':'Правильные глаголы', 'word':{}}
         }
+
+verb2 = {
+    'word':{'name':"", "PartOfSpeech":"", "forma":"", "transcription":"","translates":[], "remark":"", "id":[]}
+}
 file_list = os.getcwd()
 print(file_list)
 
