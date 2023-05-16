@@ -4,8 +4,6 @@ import random
 import json
 from main import bot
 from bot.keyboards import buttons_answer, buttons_no_menu
-from app.generator import Generate
-from app.translate import Translate
 from bot.data import del_old_messege, save_info_messege, statistics
 
 file_list = os.getcwd()

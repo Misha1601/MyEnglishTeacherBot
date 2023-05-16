@@ -1,4 +1,5 @@
 import sqlite3
+import datetime
 
 class Database:
     def __init__(self, path_to_db='main_db.db'):
@@ -32,11 +33,15 @@ class Database:
     def create_table_message(self):
         sql = """
                 CREATE TABLE Message (
-                    id INTEGER PRIMARY KEY,
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
                     id_chat INTEGER NOT NULL,
-                    id_message INTEGER NOT NULL
+                    id_message INTEGER NOT NULL,
+                    date datetime default (datetime('now','localtime')),
+                    word TEXT,
+                    data_update datetime,
+                    status TEXT
                 );
-        """
+    """
         self.execute(sql, commit=True)
 
     def add_message(self, id_chat: int, id_message: int):
@@ -51,13 +56,26 @@ class Database:
     def count_message(self):
         return self.execute("SELECT COUNT(*) FROM Message;", fetchone=True)
 
+    def updateStatus(self, id_chat: int, id_message: int, status: str):
+        sql = "update Message set status = ?, data_update = datetime('now', 'localtime') where id_message = ? and id_chat = ?;"
+        parameters = (status, id_message, id_chat)
+        return self.execute(sql, parametrs=parameters, commit=True)
+
+    def dalete(self):
+        sql = "DELETE FROM Message;"
+        return self.execute(sql, commit=True)
+
 if __name__=="__main__":
     db = Database()
     try:
         db.create_table_message()
     except:
-        print('таблица уже создана')
+        print('БД создана')
+
+    # print('таблица уже создана')
     db.add_message(id_chat=12, id_message=22)
     db.add_message(id_chat=13, id_message=23)
-    print(db.select_all_message())
-    print(db.count_message())
+    # print(db.select_all_message())
+    # print(db.count_message())
+    # db.updateStatus(id_chat=13, id_message=23, status='Dalete')
+    # db.dalete()
