@@ -39,7 +39,8 @@ class Database:
                     date datetime default (datetime('now','localtime')),
                     word TEXT,
                     data_update datetime,
-                    status TEXT
+                    status TEXT,
+                    voprosotvet INTEGER
                 );
     """
         self.execute(sql, commit=True)
