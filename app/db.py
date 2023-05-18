@@ -31,6 +31,14 @@ class Database:
         return data
 
     def create_table_message(self):
+        """ id_chat - номер чата
+            id_message - номер сообщения
+            date - дата отправки сообщения
+            word - отправленное слово
+            data_update - дата ответа на сообщение, если было отправлено слово
+            status - 1-правильный ответ, 0-неправильный
+            del - статус удаленного сообщения, 1-удалено
+                                                        """
         sql = """
                 CREATE TABLE Message (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -39,32 +47,55 @@ class Database:
                     date datetime default (datetime('now','localtime')),
                     word TEXT,
                     data_update datetime,
-                    status TEXT,
-                    voprosotvet INTEGER
+                    status INTEGER,
+                    del INTEGER
                 );
     """
         self.execute(sql, commit=True)
 
     def add_message(self, id_chat: int, id_message: int):
+        """Добавление записи об отправленном сообщении пользователю
+        Args:
+            id_chat (int): чат пользователя
+            id_message (int): номер сообщения
+        """
         sql = "INSERT INTO Message(id_chat, id_message) VALUES(?, ?)"
         parameters = (id_chat, id_message)
         self.execute(sql, parametrs=parameters, commit=True)
 
-    def select_all_message(self):
-        sql = "SELECT * FROM Message"
-        return self.execute(sql, fetchall=True)
+    def update(self, id_chat: int, id_message: int, word: str = None, status: bool = None, delete: bool = None):
+        """Обновление БД
+        Args:
+            id_chat (int): чат пользователя
+            id_message (int): номер сообщения
+            word (str, optional): отправляемое слово
+            status (bool, optional): статус, 1-отправлено слово, 0-нет
+            delete (bool, optional): факт удаления ссобщения, 1 удалено
+        """
 
-    def count_message(self):
-        return self.execute("SELECT COUNT(*) FROM Message;", fetchone=True)
-
-    def updateStatus(self, id_chat: int, id_message: int, status: str):
-        sql = "update Message set status = ?, data_update = datetime('now', 'localtime') where id_message = ? and id_chat = ?;"
-        parameters = (status, id_message, id_chat)
+        sql = "update Message set data_update = datetime('now', 'localtime')"
+        if word:
+            sql += ", word = ?"
+        if status:
+            sql += ", status = ?"
+        if delete:
+            sql += ", del = ? "
+        sql += "where id_chat = ? and id_message = ?;"
+        # print(sql)
+        parameters = tuple([i for i in (word, status, delete) if i]) + (id_chat, id_message)
+        # print(parameters)
         return self.execute(sql, parametrs=parameters, commit=True)
 
-    def dalete(self):
-        sql = "DELETE FROM Message;"
-        return self.execute(sql, commit=True)
+    # def select_all_message(self):
+    #     sql = "SELECT * FROM Message"
+    #     return self.execute(sql, fetchall=True)
+
+    # def count_message(self):
+    #     return self.execute("SELECT COUNT(*) FROM Message;", fetchone=True)
+
+    # def del_message(self):
+    #     sql = "DELETE FROM Message where id = 22;"
+    #     return self.execute(sql, commit=True)
 
 if __name__=="__main__":
     db = Database()
@@ -74,9 +105,12 @@ if __name__=="__main__":
         print('БД создана')
 
     # print('таблица уже создана')
-    db.add_message(id_chat=12, id_message=22)
-    db.add_message(id_chat=13, id_message=23)
+    # db.add_message(id_chat=12, id_message=22)
+    # db.add_message(id_chat=13, id_message=23)
     # print(db.select_all_message())
     # print(db.count_message())
-    # db.updateStatus(id_chat=13, id_message=23, status='Dalete')
+    # db.updateStatus(id_chat=13, id_message=23, status='Delete')
     # db.dalete()
+    # print(db.del_message())
+    # print(db.count_message())
+    db.update(id_chat=12, id_message=22, delete=True)
