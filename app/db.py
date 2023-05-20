@@ -70,7 +70,7 @@ class Database:
             id_message (int): номер сообщения
             word (str, optional): отправляемое слово
             status (bool, optional): статус, 1-отправлено слово, 0-нет
-            delete (bool, optional): факт удаления ссобщения, 1 удалено
+            delete (bool, optional): удалить сообщение, 1 удалить
         """
 
         sql = "update Message set data_update = datetime('now', 'localtime')"
@@ -97,6 +97,9 @@ class Database:
     #     sql = "DELETE FROM Message where id = 22;"
     #     return self.execute(sql, commit=True)
 
+    def message_db(self, del_old_messege = None, statistics = None, save_messege = None):
+        pass
+
 if __name__=="__main__":
     db = Database()
     try:
@@ -113,4 +116,4 @@ if __name__=="__main__":
     # db.dalete()
     # print(db.del_message())
     # print(db.count_message())
-    db.update(id_chat=12, id_message=22, delete=True)
+    # db.update(id_chat=12, id_message=22, delete=True)

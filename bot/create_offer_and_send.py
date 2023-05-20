@@ -57,7 +57,6 @@ async def game(message_or_key): # сделать принимающим 1 пар
                                     reply_markup=buttons_answer())
         mes1 = await message_or_key.answer(f"В любом обучении главное практика на постоянной основе!",
                                        reply_markup=buttons_no_menu())
-        await message_or_key.delete()
     await del_old_messege(mes)
     await save_info_messege(mes)
     await save_info_messege(mes1)

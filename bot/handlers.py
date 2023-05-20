@@ -31,6 +31,7 @@ async def info(message: types.Message):
 @dp.message_handler(commands="Play")
 async def play(message: types.Message):
     await game(message)
+    await message.delete()
 
 @dp.callback_query_handler(play_collback.filter(yes_or_no="yes"))
 async def inline_yes(call: CallbackQuery, callback_data: dict):
