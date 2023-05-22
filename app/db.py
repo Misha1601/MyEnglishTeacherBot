@@ -86,19 +86,27 @@ class Database:
         # print(parameters)
         return self.execute(sql, parametrs=parameters, commit=True)
 
-    # def select_all_message(self):
-    #     sql = "SELECT * FROM Message"
-    #     return self.execute(sql, fetchall=True)
+    def select_message(self, id_chat: int, id_message: int):
+        sql = f"SELECT * FROM Message where id_chat = {id_chat} and id_message = {id_message}"
+        return self.execute(sql, fetchall=True)
 
     # def count_message(self):
     #     return self.execute("SELECT COUNT(*) FROM Message;", fetchone=True)
 
     # def del_message(self):
-    #     sql = "DELETE FROM Message where id = 22;"
+    #     sql = f"DELETE FROM Message where id_chat = {id_chat} and id_message = {id_message} and del = None;"
     #     return self.execute(sql, commit=True)
 
-    def message_db(self, del_old_messege = None, statistics = None, save_messege = None):
-        pass
+    def message_db(self, id_chat: int, id_message: int, word: str = None, del_old_messege = None, statistics = None):
+        if not self.select_message(id_chat, id_message):
+            self.add_message(id_chat=id_chat, id_message=id_message)
+        if word:
+            self.update(id_chat=id_chat, id_message=id_message, word=word)
+        if del_old_messege:
+            self.update(id_chat=id_chat, id_message=id_message, delete=del_old_messege)
+        if statistics:
+            self.update(id_chat=id_chat, id_message=id_message, status=statistics)
+
 
 if __name__=="__main__":
     db = Database()
@@ -106,6 +114,7 @@ if __name__=="__main__":
         db.create_table_message()
     except:
         print('БД создана')
+        # pass
 
     # print('таблица уже создана')
     # db.add_message(id_chat=12, id_message=22)
@@ -117,3 +126,4 @@ if __name__=="__main__":
     # print(db.del_message())
     # print(db.count_message())
     # db.update(id_chat=12, id_message=22, delete=True)
+    db.message_db(id_chat= 12, id_message= 44)

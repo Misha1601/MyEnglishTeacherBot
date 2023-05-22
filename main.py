@@ -3,6 +3,7 @@ import logging
 from aiogram import Bot, Dispatcher, executor #, types
 from bot.config import load_config
 from bot import data
+from app import db
 
 
 logging.basicConfig(level=logging.INFO)
@@ -12,6 +13,10 @@ config = load_config(".env")
 bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
 dp = Dispatcher(bot)
 
+try:
+    db.create_table_message()
+except:
+    pass
 
 if __name__=="__main__":
     from bot.handlers import dp # Команда start

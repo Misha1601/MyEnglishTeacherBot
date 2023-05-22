@@ -5,6 +5,7 @@ from bot.keyboards import buttons_menu
 from bot.create_offer_and_send import game
 from bot.data import del_old_messege, save_info_messege, statistics
 from bot.callback_datas import play_collback
+from app import db
 
 
 @dp.message_handler(commands="start")
