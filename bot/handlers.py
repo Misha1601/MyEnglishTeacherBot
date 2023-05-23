@@ -58,7 +58,7 @@ async def inline_yes(call: CallbackQuery, callback_data: dict):
     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
     db.add_message(id_chat=msid.chat['id'], id_message=msid['message_id'], delete=1)
     # если правильный ответ, помечаем 1
-    db.update(id_chat=msid.chat.id, id_message=msid.message_id, status=1)
+    db.update(id_chat=msid.chat.id, id_message=call.message.message_id, status=1)
     # await statistics(message=msid, yes=True)
 
 @dp.callback_query_handler(play_collback.filter(yes_or_no="no"))
@@ -74,5 +74,5 @@ async def inline_no(call: CallbackQuery, callback_data: dict):
     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
     db.add_message(id_chat=msid.chat['id'], id_message=msid['message_id'], delete=1)
     # если правильный ответ, помечаем 1
-    db.update(id_chat=msid.chat.id, id_message=msid.message_id, status=0)
+    db.update(id_chat=msid.chat.id, id_message=call.message.message_id, status=0)
     # await statistics(message=msid, no=True)

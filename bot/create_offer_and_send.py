@@ -5,6 +5,7 @@ import json
 from main import bot
 from bot.keyboards import buttons_answer, buttons_no_menu
 from bot.data import del_old_messege, save_info_messege, statistics
+from main import db
 
 file_list = os.getcwd()
 
@@ -51,16 +52,24 @@ async def game(message_or_key): # сделать принимающим 1 пар
                                     reply_markup=buttons_answer())
         mes1 = await bot.send_message(message_or_key, f"В любом обучении главное практика на постоянной основе!",
                                        reply_markup=buttons_no_menu())
+        # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
+        db.add_message(id_chat=mes1.chat['id'], id_message=mes1['message_id'], delete=1)
+        # добавляем запись со словом
+        db.add_message(id_chat=mes.chat['id'], id_message=mes['message_id'], word=word)
     else:
         mes = await message_or_key.answer(f"{word}",
                                     parse_mode='MarkdownV2',
                                     reply_markup=buttons_answer())
         mes1 = await message_or_key.answer(f"В любом обучении главное практика на постоянной основе!",
                                        reply_markup=buttons_no_menu())
-    await del_old_messege(mes)
-    await save_info_messege(mes)
-    await save_info_messege(mes1)
-    await statistics(message=mes, quest=True)
+        # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
+        db.add_message(id_chat=mes1.chat['id'], id_message=mes1['message_id'], delete=1)
+        # добавляем запись со словом
+        db.add_message(id_chat=mes.chat['id'], id_message=mes['message_id'], word=word)
+    # await del_old_messege(mes)
+    # await save_info_messege(mes)
+    # await save_info_messege(mes1)
+    # await statistics(message=mes, quest=True)
 
 if __name__ == "__main__":
     print(offer_and_translate('123'))
