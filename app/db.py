@@ -74,9 +74,9 @@ class Database:
         """
 
         sql = "update Message set data_update = datetime('now', 'localtime'), status = ?, del = ? where id_chat = ? and id_message = ?;"
-        print(sql)
+        # print(sql)
         parameters = (status, delete, id_chat, id_message)
-        print(parameters)
+        # print(parameters)
         return self.execute(sql, parametrs=parameters, commit=True)
 
     def select_del_message(self, id_chat: int):

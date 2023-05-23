@@ -20,7 +20,7 @@ async def del_old_messege(message):
     # INFO_MESSAGE_ID[message.chat.id].clear()
     list_del_message = db.select_del_message(id_chat=message.chat['id'])
     for i in list_del_message:
-        print(i[0])
+        # print(i[0])
         await bot.delete_message(message.chat.id, message_id=i[0])
         db.update(id_chat=message.chat.id, id_message=i[0], delete=0)
 
