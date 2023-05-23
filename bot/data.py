@@ -1,6 +1,7 @@
 import asyncio
 import datetime
 from main import bot
+from main import db
 
 
 INFO_MESSAGE_ID = {}
@@ -9,13 +10,19 @@ WORD = {}
 STAT = {} # в значении словарь [кол-во play, yes, no]
 
 async def del_old_messege(message):
-    if not INFO_MESSAGE_ID or not INFO_MESSAGE_ID[message.chat.id]:
-        return None
-    element = INFO_MESSAGE_ID[message.chat.id]
-    for i in element:
-        await bot.delete_message(message.chat.id, i)
-        # element.remove(i)
-    INFO_MESSAGE_ID[message.chat.id].clear()
+    # if not INFO_MESSAGE_ID or not INFO_MESSAGE_ID[message.chat.id]:
+    #     return None
+    # element = INFO_MESSAGE_ID[message.chat.id]
+    # for i in element:
+    #     print(i)
+    #     await bot.delete_message(message.chat.id, i)
+    #     # element.remove(i)
+    # INFO_MESSAGE_ID[message.chat.id].clear()
+    list_del_message = db.select_del_message(id_chat=message.chat['id'])
+    for i in list_del_message:
+        print(i[0])
+        await bot.delete_message(message.chat.id, message_id=i[0])
+        db.update(id_chat=message.chat.id, id_message=i[0], delete=0)
 
 async def statistics(message=False, quest=False, yes=False, no=False, stat=False):
     if not STAT.get(message.chat.id):

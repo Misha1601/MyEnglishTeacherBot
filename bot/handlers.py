@@ -5,7 +5,7 @@ from bot.keyboards import buttons_menu
 from bot.create_offer_and_send import game
 from bot.data import del_old_messege, save_info_messege, statistics
 from bot.callback_datas import play_collback
-from app import db
+from main import db
 
 
 @dp.message_handler(commands="start")
@@ -14,10 +14,18 @@ async def start(message: types.Message):
                         "Для получения информации о возможностях бота используйте команду /info\n"
                         "Что бы начать изучение, нажмите /Play",
                         reply_markup=buttons_menu())
+    # удаляем сообщение "start"
     await message.delete()
+    # Удаляем все сообщения с пометкой удаления
     await del_old_messege(msid)
+    # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
+    db.add_message(id_chat=msid.chat['id'], id_message=msid['message_id'], delete=1)
+    # print(msid.chat.id)
+    # print(msid.chat['id'])
+    # print(msid['message_id'])
+    # print(msid.message_id)
+
     await save_info_messege(msid)
-    # await statistics(msid, start=True)
 
 @dp.message_handler(commands="info")
 async def info(message: types.Message):
@@ -25,7 +33,9 @@ async def info(message: types.Message):
                                 "Что бы начать изучение, нажмите /Play",
                                 reply_markup=buttons_menu()) # /start
     await message.delete()
+    # db.message_in_db(id_chat=msid.chat['id'], id_message=msid['message_id'], del_messege=1)
     await del_old_messege(msid)
+    db.add_message(id_chat=msid.chat['id'], id_message=msid['message_id'], delete=1)
     await save_info_messege(msid)
 
 

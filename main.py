@@ -12,6 +12,7 @@ logging.basicConfig(level=logging.INFO)
 config = load_config(".env")
 bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
 dp = Dispatcher(bot)
+db = db.Database()
 
 try:
     db.create_table_message()

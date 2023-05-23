@@ -53,17 +53,17 @@ class Database:
     """
         self.execute(sql, commit=True)
 
-    def add_message(self, id_chat: int, id_message: int):
+    def add_message(self, id_chat: int, id_message: int, word: str = None, status: bool = None, delete: bool = None):
         """Добавление записи об отправленном сообщении пользователю
         Args:
             id_chat (int): чат пользователя
             id_message (int): номер сообщения
         """
-        sql = "INSERT INTO Message(id_chat, id_message) VALUES(?, ?)"
-        parameters = (id_chat, id_message)
+        sql = "INSERT INTO Message(id_chat, id_message, word, status, del) VALUES(?, ?, ?, ?, ?)"
+        parameters = (id_chat, id_message, word, status, delete)
         self.execute(sql, parametrs=parameters, commit=True)
 
-    def update(self, id_chat: int, id_message: int, word: str = None, status: bool = None, delete: bool = None):
+    def update(self, id_chat: int, id_message: int, status: bool = None, delete: bool = None):
         """Обновление БД
         Args:
             id_chat (int): чат пользователя
@@ -73,22 +73,21 @@ class Database:
             delete (bool, optional): удалить сообщение, 1 удалить
         """
 
-        sql = "update Message set data_update = datetime('now', 'localtime')"
-        if word:
-            sql += ", word = ?"
-        if status:
-            sql += ", status = ?"
-        if delete:
-            sql += ", del = ? "
-        sql += "where id_chat = ? and id_message = ?;"
-        # print(sql)
-        parameters = tuple([i for i in (word, status, delete) if i]) + (id_chat, id_message)
-        # print(parameters)
+        sql = "update Message set data_update = datetime('now', 'localtime'), status = ?, del = ? where id_chat = ? and id_message = ?;"
+        print(sql)
+        parameters = (status, delete, id_chat, id_message)
+        print(parameters)
         return self.execute(sql, parametrs=parameters, commit=True)
 
-    def select_message(self, id_chat: int, id_message: int):
-        sql = f"SELECT * FROM Message where id_chat = {id_chat} and id_message = {id_message}"
-        return self.execute(sql, fetchall=True)
+    def select_del_message(self, id_chat: int):
+        sql = "SELECT id_message FROM Message where id_chat = ? and del = 1"
+        parameters = (id_chat,)
+        return self.execute(sql, parameters, fetchall=True)
+
+    # def select_message(self, id_chat: int, id_message: int):
+    #     sql = "SELECT * FROM Message where id_chat = ? and id_message = ?"
+    #     parameters = (id_chat, id_message)
+    #     return self.execute(sql, parameters, fetchall=True)
 
     # def count_message(self):
     #     return self.execute("SELECT COUNT(*) FROM Message;", fetchone=True)
@@ -97,15 +96,21 @@ class Database:
     #     sql = f"DELETE FROM Message where id_chat = {id_chat} and id_message = {id_message} and del = None;"
     #     return self.execute(sql, commit=True)
 
-    def message_db(self, id_chat: int, id_message: int, word: str = None, del_old_messege = None, statistics = None):
-        if not self.select_message(id_chat, id_message):
-            self.add_message(id_chat=id_chat, id_message=id_message)
-        if word:
-            self.update(id_chat=id_chat, id_message=id_message, word=word)
-        if del_old_messege:
-            self.update(id_chat=id_chat, id_message=id_message, delete=del_old_messege)
-        if statistics:
-            self.update(id_chat=id_chat, id_message=id_message, status=statistics)
+    # def message_in_db(self, id_chat: int, id_message: int, clear_del_messege: int = 1, word: str = None, del_messege = None, statistics = None):
+    #     if not self.select_message(id_chat, id_message):
+    #         self.add_message(id_chat=id_chat, id_message=id_message)
+    #     if clear_del_messege:
+    #         self.select_del_message(id_chat=id_chat)
+    #         print('select_del_message')
+    #         self.update(id_chat=id_chat, id_message=id_message, delete=0)
+    #         print('update')
+    #     if word:
+    #         self.update(id_chat=id_chat, id_message=id_message, word=word)
+    #     if del_messege:
+    #         print('del_messege')
+    #         self.update(id_chat=id_chat, id_message=id_message, delete=del_messege)
+    #     if statistics:
+    #         self.update(id_chat=id_chat, id_message=id_message, status=statistics)
 
 
 if __name__=="__main__":
@@ -117,13 +122,14 @@ if __name__=="__main__":
         # pass
 
     # print('таблица уже создана')
-    # db.add_message(id_chat=12, id_message=22)
+    # db.add_message(id_chat=56, id_message=78, delete=1)
     # db.add_message(id_chat=13, id_message=23)
-    # print(db.select_all_message())
+    # print(db.select_del_message(id_chat=56))
     # print(db.count_message())
     # db.updateStatus(id_chat=13, id_message=23, status='Delete')
     # db.dalete()
     # print(db.del_message())
     # print(db.count_message())
-    # db.update(id_chat=12, id_message=22, delete=True)
-    db.message_db(id_chat= 12, id_message= 44)
+    # db.update(id_chat=56, id_message=78, delete=True)
+    # db.message_in_db(id_chat= 12, id_message= 44)
+    # db.message_in_db(id_chat=471378174, id_message=117, del_messege=1)
