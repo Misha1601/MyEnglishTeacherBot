@@ -4,7 +4,7 @@ import random
 import json
 from main import bot
 from bot.keyboards import buttons_answer, buttons_no_menu
-from bot.data import del_old_messege, save_info_messege, statistics
+# from bot.data import del_old_messege, save_info_messege, statistics
 from main import db
 
 file_list = os.getcwd()

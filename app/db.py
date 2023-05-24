@@ -84,8 +84,11 @@ class Database:
         parameters = (id_chat,)
         return self.execute(sql, parameters, fetchall=True)
 
+    def select_all_chat(self):
+        sql = "SELECT DISTINCT id_chat FROM Message where word is not NULL"
+        return self.execute(sql, fetchall=True)
+
     def statistics(self, id_chat: int):
-        # sql = "SELECT id_message FROM Message where id_chat = ? and del = 1"
         sql = "SELECT COUNT(*) FROM Message where id_chat = ? and word is not NULL"
         sql1 = "SELECT COUNT(*) FROM Message where id_chat = ? and word is not NULL and status = 1"
         sql2 = "SELECT COUNT(*) FROM Message where id_chat = ? and word is not NULL and status = 0"
@@ -94,6 +97,21 @@ class Database:
                 self.execute(sql1, parameters, fetchone=True)[0],
                 self.execute(sql2, parameters, fetchone=True)[0])
 
+    def napominanie(self, id_chat: int):
+        # sql = "SELECT date, data_update FROM (SELECT MAX(date) FROM Message where id_chat = ? and word is not NULL)"
+        # parameters = (id_chat,)
+        # date = self.execute(sql, parameters, fetchone=True)
+        # if date[1] > date[0]:
+        #     return date
+
+        sql = "SELECT MAX(data_update) FROM Message where id_chat = ?"
+        parameters = (id_chat,)
+        return self.execute(sql, parameters, fetchone=True)[0]
+
+        # else:
+        #     sql = "SELECT MAX(date) FROM Message where id_chat = ? and word is not NULL"
+        #     parameters = (id_chat,)
+        #     return self.execute(sql, parameters, fetchone=True)[0]
 
     # def select_message(self, id_chat: int, id_message: int):
     #     sql = "SELECT * FROM Message where id_chat = ? and id_message = ?"
@@ -133,7 +151,7 @@ if __name__=="__main__":
         # pass
 
     # print('таблица уже создана')
-    # db.add_message(id_chat=56, id_message=78, delete=1)
+    # db.add_message(id_chat=76, id_message=78, delete=1, word='dfdfdf')
     # db.add_message(id_chat=13, id_message=23)
     # print(db.select_del_message(id_chat=56))
     # print(db.count_message())
@@ -144,4 +162,19 @@ if __name__=="__main__":
     # db.update(id_chat=56, id_message=78, delete=True)
     # db.message_in_db(id_chat= 12, id_message= 44)
     # db.message_in_db(id_chat=471378174, id_message=117, del_messege=1)
-    print(db.statistics(id_chat=471378174))
+    # print(db.napominanie(id_chat=471378174))
+    # print(db.select_all_chat())
+    all_id_chat = db.select_all_chat()
+    for i in all_id_chat:
+        dt = db.napominanie(id_chat=i[0])
+        if dt != None:
+            print((datetime.datetime.now() - datetime.datetime.strptime(dt, "%Y-%m-%d %H:%M:%S")).total_seconds() > 1000)
+        # print(datetime.strptime(db.napominanie(id_chat=i[0]), "%Y-%m-%d %H:%M:%S"))
+        # print(type(db.napominanie(id_chat=i[0])))
+        # date_str = "2023-05-24 15:30:00"
+
+        # # Преобразование строки в объект datetime.datetime
+        # date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+
+        # print(date_obj)
+        # print(type(date_obj))
