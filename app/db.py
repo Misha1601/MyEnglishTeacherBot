@@ -84,6 +84,17 @@ class Database:
         parameters = (id_chat,)
         return self.execute(sql, parameters, fetchall=True)
 
+    def statistics(self, id_chat: int):
+        # sql = "SELECT id_message FROM Message where id_chat = ? and del = 1"
+        sql = "SELECT COUNT(*) FROM Message where id_chat = ? and word is not NULL"
+        sql1 = "SELECT COUNT(*) FROM Message where id_chat = ? and word is not NULL and status = 1"
+        sql2 = "SELECT COUNT(*) FROM Message where id_chat = ? and word is not NULL and status = 0"
+        parameters = (id_chat,)
+        return (self.execute(sql, parameters, fetchone=True)[0],
+                self.execute(sql1, parameters, fetchone=True)[0],
+                self.execute(sql2, parameters, fetchone=True)[0])
+
+
     # def select_message(self, id_chat: int, id_message: int):
     #     sql = "SELECT * FROM Message where id_chat = ? and id_message = ?"
     #     parameters = (id_chat, id_message)
@@ -133,3 +144,4 @@ if __name__=="__main__":
     # db.update(id_chat=56, id_message=78, delete=True)
     # db.message_in_db(id_chat= 12, id_message= 44)
     # db.message_in_db(id_chat=471378174, id_message=117, del_messege=1)
+    print(db.statistics(id_chat=471378174))

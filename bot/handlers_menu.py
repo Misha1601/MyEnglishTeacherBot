@@ -20,11 +20,12 @@ async def vibor_product(message: types.Message):
 @dp.message_handler(text="Статистика")
 async def vibor_product(message: types.Message):
     a = False
-    if a:
+    stat = db.statistics(id_chat=message.chat.id)
+    if any(stat):
         stat1 = [1, 2, 3]
-        mes = await message.answer(f"Всего задно {stat1[0]} вопроса(ов)\n"
-                                   f"Правильно ответили на {stat1[1]} вопроса(ов)\n"
-                                   f"Не правильно на {stat1[2]} вопроса(ов)",
+        mes = await message.answer(f"Всего задно {stat[0]} вопроса(ов)\n"
+                                   f"Правильно ответили на {stat[1]} вопроса(ов)\n"
+                                   f"Не правильно на {stat[2]} вопроса(ов)",
                                    reply_markup=buttons_menu())
         # удаляем сообщение
         await message.delete()

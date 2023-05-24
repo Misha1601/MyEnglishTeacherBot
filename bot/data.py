@@ -33,6 +33,7 @@ async def statistics(message=False, quest=False, yes=False, no=False, stat=False
         STAT[message.chat.id][1] += 1
     if message and no:
         STAT[message.chat.id][2] += 1
+    return db.statistics(id_chat=message.chat.id)
 
 
 async def save_info_messege(message):
