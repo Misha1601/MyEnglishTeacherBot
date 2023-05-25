@@ -14,47 +14,35 @@ async def del_old_messege(message):
 
 async def napominanie(reminder=1800):
     while True:
-        # min_time_sleep = []
-        # for key in INFO_MESSAGE_TIME.keys():
-        #     tm = int(datetime.datetime.now().timestamp()) - int(INFO_MESSAGE_TIME[key][-1].timestamp())
-        #     if tm >= reminder:
-        #         from bot.create_offer_and_send import game
-        #         await game(key)
-        #         INFO_MESSAGE_TIME[key].clear()
-        #     else:
-        #         min_time_sleep.append(tm)
-        # if min_time_sleep:
-        #     if len(min_time_sleep) > 1:
-        #         sleep_min = reminder - max(min_time_sleep)
-        #         await asyncio.sleep(sleep_min)
-        #     else:
-        #         await asyncio.sleep(reminder - int(min_time_sleep[0]))
-        # else:
-        #     await asyncio.sleep(reminder)
-            # -------------------------------------------------------------------------------------
-
-        # Ищем все чаты со словами
-        # пробегаемся по всем чатам ищем максимальную дату
-        #     возвращаем дату обновления или отправки для конкретного чата со словом
-        # если разница дат больше заданного числа, отправляем сообщение
+        # получаем все id чатов
         all_id_chat = db.select_all_chat()
+        # максимальное время засывания для каждого чата
         min_time_sleep = []
         for i in all_id_chat:
+            # последнее максимальное время ответа на сообщение
             dt = db.napominanie(id_chat=i[0])
+            # разница в секундах с последним обновлением
             rasn_sec = int((datetime.datetime.now() - datetime.datetime.strptime(dt, "%Y-%m-%d %H:%M:%S")).total_seconds())
+            # если разница больше заданного времени, отправляем сообщение
             if (rasn_sec > reminder):
                 await game(i[0])
+            # иначе добавляем эту разницу в переменную
             else:
                 min_time_sleep.append(rasn_sec)
 
+        # смотрим список с разницей во времени для всех чатов
         if min_time_sleep:
+            # если больше одного
             if len(min_time_sleep) > 1:
+                # выбираем максимальную разницу во времени, и на него засыпаем, после цикл сбразывается
                 sleep_min = reminder - int(max(min_time_sleep))
                 await asyncio.sleep(sleep_min)
                 continue
             else:
+                # аналогично предыдущему, только для одного чата
                 await asyncio.sleep(reminder - int(min_time_sleep[0]))
                 continue
         else:
+            # если нет ни одного чата, засыпаем
             await asyncio.sleep(reminder)
 
