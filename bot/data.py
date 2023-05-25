@@ -2,13 +2,14 @@ import asyncio
 import datetime
 from main import bot
 from main import db
+from bot.create_offer_and_send import game
 
 
 
-INFO_MESSAGE_ID = {}
-INFO_MESSAGE_TIME = {}
-WORD = {}
-STAT = {} # в значении словарь [кол-во play, yes, no]
+# INFO_MESSAGE_ID = {}
+# INFO_MESSAGE_TIME = {}
+# WORD = {}
+# STAT = {} # в значении словарь [кол-во play, yes, no]
 
 async def del_old_messege(message):
     # if not INFO_MESSAGE_ID or not INFO_MESSAGE_ID[message.chat.id]:
@@ -84,30 +85,6 @@ async def napominanie(reminder=1800): # необходим ореализова�
         for i in all_id_chat:
             dt = db.napominanie(id_chat=i[0])
             if ((datetime.datetime.now() - datetime.datetime.strptime(dt, "%Y-%m-%d %H:%M:%S")).total_seconds() > reminder):
-                from bot.create_offer_and_send import game
+                # from bot.create_offer_and_send import game
                 await game(i[0])
         await asyncio.sleep(reminder)
-
-
-        # if not INFO_MESSAGE_TIME:
-        #     await asyncio.sleep(reminder)
-        #     continue
-        # min_time_sleep = []
-        # for key in INFO_MESSAGE_TIME.keys():
-        #     if not INFO_MESSAGE_TIME[key]:
-        #         continue
-        #     tm = int(datetime.datetime.now().timestamp()) - int(INFO_MESSAGE_TIME[key][-1].timestamp())
-        #     if tm >= reminder:
-        #         from bot.create_offer_and_send import game
-        #         await game(key)
-        #         INFO_MESSAGE_TIME[key].clear()
-        #     else:
-        #         min_time_sleep.append(tm)
-        # if min_time_sleep:
-        #     if len(min_time_sleep) > 1:
-        #         sleep_min = reminder - max(min_time_sleep)
-        #         await asyncio.sleep(sleep_min)
-        #     else:
-        #         await asyncio.sleep(reminder - int(min_time_sleep[0]))
-        # else:
-        #     await asyncio.sleep(reminder)

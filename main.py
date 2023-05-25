@@ -20,10 +20,10 @@ except:
     pass
 
 if __name__=="__main__":
-    from bot.handlers import dp # Команда start
-    from bot.handlers_menu import dp # События на нажатия меню
-    from bot.handlers_user import dp
-    from bot.handlers_echo import dp
+    from bot.handlers import dp
+    # from bot.handlers_menu import dp # События на нажатия меню
+    # from bot.handlers_user import dp
+    # from bot.handlers_echo import dp
 
     loop = asyncio.get_event_loop()
     loop.create_task(data.napominanie())

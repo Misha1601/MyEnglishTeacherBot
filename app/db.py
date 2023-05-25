@@ -164,11 +164,11 @@ if __name__=="__main__":
     # db.message_in_db(id_chat=471378174, id_message=117, del_messege=1)
     # print(db.napominanie(id_chat=471378174))
     # print(db.select_all_chat())
-    all_id_chat = db.select_all_chat()
-    for i in all_id_chat:
-        dt = db.napominanie(id_chat=i[0])
-        if dt != None:
-            print((datetime.datetime.now() - datetime.datetime.strptime(dt, "%Y-%m-%d %H:%M:%S")).total_seconds() > 1000)
+    # all_id_chat = db.select_all_chat()
+    # for i in all_id_chat:
+    #     dt = db.napominanie(id_chat=i[0])
+    #     if dt != None:
+    #         print((datetime.datetime.now() - datetime.datetime.strptime(dt, "%Y-%m-%d %H:%M:%S")).total_seconds() > 1000)
         # print(datetime.strptime(db.napominanie(id_chat=i[0]), "%Y-%m-%d %H:%M:%S"))
         # print(type(db.napominanie(id_chat=i[0])))
         # date_str = "2023-05-24 15:30:00"
@@ -178,3 +178,7 @@ if __name__=="__main__":
 
         # print(date_obj)
         # print(type(date_obj))
+    all_id_chat = db.select_all_chat()
+    print(all_id_chat)
+    for i in all_id_chat:
+        print('all_id_chat')
