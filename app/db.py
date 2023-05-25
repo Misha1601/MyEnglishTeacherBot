@@ -182,3 +182,10 @@ if __name__=="__main__":
     print(all_id_chat)
     for i in all_id_chat:
         print('all_id_chat')
+    for i in all_id_chat:
+        dt = db.napominanie(id_chat=i[0])
+        rasn_sec = int((datetime.datetime.now() - datetime.datetime.strptime(dt, "%Y-%m-%d %H:%M:%S")).total_seconds())
+        if (rasn_sec > 1800):
+            print(rasn_sec)
+    print(int(datetime.datetime.now().timestamp()))
+    print(datetime.datetime.now().timestamp())
