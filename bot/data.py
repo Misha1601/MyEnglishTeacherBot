@@ -1,8 +1,8 @@
 import asyncio
 import datetime
-# from main import bot
-# from main import db
-# from bot.create_offer_and_send import game
+from main import bot
+from main import db
+from bot.create_offer_and_send import game
 
 
 async def del_old_messege(message):
