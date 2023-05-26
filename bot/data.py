@@ -1,8 +1,8 @@
 import asyncio
 import datetime
-from main import bot
-from main import db
-from bot.create_offer_and_send import game
+# from main import bot
+# from main import db
+# from bot.create_offer_and_send import game
 
 
 async def del_old_messege(message):
@@ -14,6 +14,9 @@ async def del_old_messege(message):
 
 async def napominanie(reminder=1800):
     while True:
+        if datetime.datetime.now().hour in (21, 22, 23, 24, 0, 1, 2, 3, 4, 5, 6, 7, 8):
+            await asyncio.sleep(3600)
+            continue
         # получаем все id чатов
         all_id_chat = db.select_all_chat()
         # максимальное время засывания для каждого чата
@@ -53,4 +56,11 @@ async def napominanie(reminder=1800):
         else:
             # если нет ни одного чата, засыпаем
             await asyncio.sleep(reminder)
+
+if __name__=="__main__":
+    print(datetime.datetime.now().hour)
+    if datetime.datetime.now().hour in (21, 22, 23, 24, 0, 1, 2, 3, 4, 5, 6, 7, 8):
+        print("Yes")
+    else:
+        print("No")
 
