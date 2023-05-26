@@ -25,7 +25,15 @@ async def napominanie(reminder=1800):
             rasn_sec = int((datetime.datetime.now() - datetime.datetime.strptime(dt, "%Y-%m-%d %H:%M:%S")).total_seconds())
             # если разница больше заданного времени, отправляем сообщение
             if (rasn_sec > reminder):
-                await game(i[0])
+                # получаем последнюю запись с отправленным словом
+                old_word = db.max_date_update(id_chat=i[0])
+                # если на него отвечали data_update, то отправляем сообщение
+                if old_word[5]:
+                    await game(i[0])
+                # иначе разница должна быть более 6-и часов, 21600 сек
+                else:
+                    if int((datetime.datetime.now() - datetime.datetime.strptime(old_word[3], "%Y-%m-%d %H:%M:%S")).total_seconds()) > 21600:
+                        await game(i[0])
             # иначе добавляем эту разницу в переменную
             else:
                 min_time_sleep.append(rasn_sec)

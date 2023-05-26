@@ -113,6 +113,12 @@ class Database:
         #     parameters = (id_chat,)
         #     return self.execute(sql, parameters, fetchone=True)[0]
 
+    def max_date_update(self, id_chat: int):
+        # sql = "SELECT MAX(data_update) FROM Message where id_chat = ?"
+        sql = "SELECT * FROM Message WHERE id_chat = ? and word is not NULL ORDER BY id DESC LIMIT 1"
+        parameters = (id_chat,)
+        return self.execute(sql, parameters, fetchone=True)
+
     # def select_message(self, id_chat: int, id_message: int):
     #     sql = "SELECT * FROM Message where id_chat = ? and id_message = ?"
     #     parameters = (id_chat, id_message)
@@ -178,14 +184,15 @@ if __name__=="__main__":
 
         # print(date_obj)
         # print(type(date_obj))
-    all_id_chat = db.select_all_chat()
-    print(all_id_chat)
-    for i in all_id_chat:
-        print('all_id_chat')
-    for i in all_id_chat:
-        dt = db.napominanie(id_chat=i[0])
-        rasn_sec = int((datetime.datetime.now() - datetime.datetime.strptime(dt, "%Y-%m-%d %H:%M:%S")).total_seconds())
-        if (rasn_sec > 1800):
-            print(rasn_sec)
-    print(int(datetime.datetime.now().timestamp()))
-    print(datetime.datetime.now().timestamp())
+    # all_id_chat = db.select_all_chat()
+    # print(all_id_chat)
+    # for i in all_id_chat:
+    #     print('all_id_chat')
+    # for i in all_id_chat:
+    #     dt = db.napominanie(id_chat=i[0])
+    #     rasn_sec = int((datetime.datetime.now() - datetime.datetime.strptime(dt, "%Y-%m-%d %H:%M:%S")).total_seconds())
+    #     if (rasn_sec > 1800):
+    #         print(rasn_sec)
+    # print(int(datetime.datetime.now().timestamp()))
+    # print(datetime.datetime.now().timestamp())
+    print(db.max_date_update(id_chat=471378174))

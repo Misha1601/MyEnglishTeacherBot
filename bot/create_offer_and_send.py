@@ -25,6 +25,16 @@ else:
 with open(json_files[0], 'r', encoding='utf-8') as file:
     data1 = json.load(file)
 
+def escape_markdownv2(text):
+    reserved_chars = '\\_*[]()~`>#+-=|{}.!'
+    escaped_text = ''
+    for char in text:
+        if char in reserved_chars:
+            escaped_text += '\\' + char
+        else:
+            escaped_text += char
+    return escaped_text
+
 def generate_offer(mes_or_key):
     word = random.choice(list(data1.keys()))
     word_translate = data1[word]
@@ -33,11 +43,11 @@ def generate_offer(mes_or_key):
 # вывести в отдельную функцию генерацию ответа offer_and_translate
 def offer_and_translate(mes_or_key):
     word = generate_offer(mes_or_key)
-    offer = f"{word[0]}\n ||{word[1]}||"
+    word2 = escape_markdownv2(word[1][1])
+    offer = f"{word[0]}\n ||{word[1][0]}, {word2}||"
     return offer
 
-
-async def game(message_or_key): # сделать принимающим 1 параметр, его проверка реализована в генерации
+async def game(message_or_key):
     word = offer_and_translate(message_or_key)
 
     if str(message_or_key).isnumeric():
