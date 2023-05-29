@@ -117,12 +117,15 @@ async def user_start(message: types.Message):
     chat_id = message.chat.id
     mes = message.chat
     info_message = await message.answer(f"Hello, user! Информация о Вас - {mes}")
+    n = db.select_all_chat()
+    info_message2 = await message.answer(f"Всего пользователей использующих бота - {len(n)}.\nn")
     # Удаляем все сообщения с пометкой удаления
     await del_old_messege(mes)
     # удаляем сообщение
     await message.delete()
     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
     db.add_message(id_chat=info_message.chat['id'], id_message=info_message['message_id'], delete=1)
+    db.add_message(id_chat=info_message2.chat['id'], id_message=info_message2['message_id'], delete=1)
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # Хэндлер, должен быть последним, просто удаляет отправленное сообщение!!!!!!!!!!!!!!!!!!!!
