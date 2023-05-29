@@ -9,19 +9,11 @@ from main import db
 file_list = os.getcwd()
 
 if os.name == 'posix':
-    json_files = [file_list+'/app/word_collection1/word_3-5.json'
-#                   file_list+'/app/word_collection1/word_gl_fras.json',
-#                   file_list+'/app/word_collection1/word_gl_modl.json',
-#                   file_list+'/app/word_collection1/word_gl_nepr.json',
-#                   file_list+'/app/word_collection1/word_gl_pr.json'
-                  ]
+    json_files = [file_list+'/app/word_3-5.json']
 else:
-    json_files = [file_list+'\\app\word_collection1\word_3-5.json'
-#                   file_list+'\\app\word_collection1\word_gl_fras.json',
-#                   file_list+'\\app\word_collection1\word_gl_modl.json',
-#                   file_list+'\\app\word_collection1\word_gl_nepr.json',
-#                   file_list+'\\app\word_collection1\word_gl_pr.json'
-                    ]
+    json_files = [file_list+'\\app\word_3-5.json']
+
+
 with open(json_files[0], 'r', encoding='utf-8') as file:
     data1 = json.load(file)
 
@@ -47,7 +39,7 @@ def offer_and_translate(mes_or_key):
     offer = f"{word[0]}\n ||{word[1][0]}, {word2}||"
     return offer
 
-async def game(message_or_key):
+async def play_game(message_or_key):
     word = offer_and_translate(message_or_key)
 
     if str(message_or_key).isnumeric():

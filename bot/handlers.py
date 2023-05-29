@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram.types import CallbackQuery
 from main import dp
 from bot.keyboards import buttons_menu
-from bot.create_offer_and_send import game
+from bot.game import play_game
 from bot.data import del_old_messege
 from bot.callback_datas import play_collback
 from main import db
@@ -42,7 +42,7 @@ async def play(message: types.Message):
     # Удаляем все сообщения с пометкой удаления
     await del_old_messege(message)
     # запускаем функцию отправки слова
-    await game(message)
+    await play_game(message)
 
 
 @dp.callback_query_handler(play_collback.filter(yes_or_no="yes"))
@@ -86,7 +86,7 @@ async def vibor_product(message: types.Message):
     # Удаляем все сообщения с пометкой удаления
     await del_old_messege(message)
     # запускаем функцию отправки слова
-    await game(message)
+    await play_game(message)
 
 
 @dp.message_handler(text="Статистика")

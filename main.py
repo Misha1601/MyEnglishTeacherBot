@@ -1,6 +1,6 @@
 import asyncio
 import logging
-from aiogram import Bot, Dispatcher, executor #, types
+from aiogram import Bot, Dispatcher, executor
 from bot.config import load_config
 from bot import data
 from app import db

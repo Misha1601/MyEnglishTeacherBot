@@ -75,6 +75,6 @@ if __name__ == "__main__":
     # print(type(a[0]))
     # print(a[1])
     # print(a[2])
-    with open('py111.json', 'w', encoding='utf-8') as outfile:
+    with open('perevod.json', 'w', encoding='utf-8') as outfile:
         # Записываем объединенные данные в виде JSON
         json.dump(get_py_builtins(), outfile, ensure_ascii=False, indent=4)
