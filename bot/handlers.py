@@ -118,7 +118,7 @@ async def user_start(message: types.Message):
     mes = message.chat
     info_message = await message.answer(f"Hello, user! Информация о Вас - {mes}")
     n = db.select_all_chat()
-    info_message2 = await message.answer(f"Всего пользователей использующих бота - {len(n)}.\nn")
+    info_message2 = await message.answer(f"Всего пользователей использующих бота - {len(n)}.\n{n}")
     # Удаляем все сообщения с пометкой удаления
     await del_old_messege(mes)
     # удаляем сообщение
