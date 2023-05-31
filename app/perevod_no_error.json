@@ -1,0 +1,1209 @@
+{
+    "bool": {
+        "description": {
+            "en": "bool(x) -> bool\n\nReturns True when the argument x is true, False otherwise.\nThe builtins True and False are the only two instances of the class bool.\nThe class bool is a subclass of the class int, and cannot be subclassed.",
+            "ru": "bool (x) -> bool\n\nВозвращает true, когда аргумент x истинен, неверно.\nСтроительные и неверные - единственные два экземпляра класса Bool.\nКласс Bool является подклассом класса Int, и не может быть подкласс."
+        },
+        "methods": {
+            "as_integer_ratio": {
+                "en": "Return integer ratio.\n\nReturn a pair of integers, whose ratio is exactly equal to the original int\nand with a positive denominator.\n\n>>> (10).as_integer_ratio()\n(10, 1)\n>>> (-10).as_integer_ratio()\n(-10, 1)\n>>> (0).as_integer_ratio()\n(0, 1)",
+                "ru": "Возвращает целочисленное отношение.\n\nВозвращает пару целых чисел, отношение которых в точности равно исходному int\nи с положительным знаменателем.\n\n>>> (10).as_integer_ratio()\n(10, 1)\n>>> (-10).as_integer_ratio()\n(-10, 1)\n>>> (0).as_integer_ratio()\n(0, 1)"
+            },
+            "bit_count": {
+                "en": "Number of ones in the binary representation of the absolute value of self.\n\nAlso known as the population count.\n\n>>> bin(13)\n'0b1101'\n>>> (13).bit_count()\n3",
+                "ru": "Количество единиц в двоичном представлении абсолютного значения self.\n\nТакже известен как подсчет населения.\n\n>>> корзина(13)\n'0b1101'\n>>> (13).bit_count()\n3"
+            },
+            "bit_length": {
+                "en": "Number of bits necessary to represent self in binary.\n\n>>> bin(37)\n'0b100101'\n>>> (37).bit_length()\n6",
+                "ru": "Количество битов, необходимых для представления себя в двоичном формате.\n\n>>> корзина(37)\n'0b100101'\n>>> (37).bit_length()\n6"
+            },
+            "conjugate": {
+                "en": "Returns self, the complex conjugate of any int.",
+                "ru": "Возвращает себя, сложный сопряжение любого инт."
+            },
+            "denominator": {
+                "en": "the denominator of a rational number in lowest terms",
+                "ru": "знаменатель рационального числа в наименьших условиях"
+            },
+            "from_bytes": {
+                "en": "Return the integer represented by the given array of bytes.\n\n  bytes\n    Holds the array of bytes to convert.  The argument must either\n    support the buffer protocol or be an iterable object producing bytes.\n    Bytes and bytearray are examples of built-in objects that support the\n    buffer protocol.\n  byteorder\n    The byte order used to represent the integer.  If byteorder is 'big',\n    the most significant byte is at the beginning of the byte array.  If\n    byteorder is 'little', the most significant byte is at the end of the\n    byte array.  To request the native byte order of the host system, use\n    `sys.byteorder' as the byte order value.\n  signed\n    Indicates whether two's complement is used to represent the integer.",
+                "ru": "Вернуть целое число, представленное данным массивом байтов.\n\n  байты\n    Удерживает массив байтов для преобразования.Аргумент должен либо\n    Поддерживать буферный протокол или быть итерабильным объектом, производящим байты.\n    Байты и байтоны являются примерами встроенных объектов, которые поддерживают\n    буферный протокол.\n  байт\n    Порядок байта, используемый для представления целого числа.Если байт -заказ «большой»,\n    Самый значительный байт находится в начале массива байтов.Если\n    байт -задержка «мало», наиболее значимый байт находится в конце\n    байт массив.Чтобы запросить нативный порядок байта хост -системы, используйте\n    `sys.byteorder 'как значение заказа байтов.\n  подписанный\n    Указывает, используется ли дополнение двух для представления целого числа."
+            },
+            "imag": {
+                "en": "the imaginary part of a complex number",
+                "ru": "мнимая часть комплексного числа"
+            },
+            "numerator": {
+                "en": "the numerator of a rational number in lowest terms",
+                "ru": "числитель рационального числа в самых низких терминах"
+            },
+            "real": {
+                "en": "the real part of a complex number",
+                "ru": "реальная часть сложного числа"
+            },
+            "to_bytes": {
+                "en": "Return an array of bytes representing an integer.\n\n  length\n    Length of bytes object to use.  An OverflowError is raised if the\n    integer is not representable with the given number of bytes.\n  byteorder\n    The byte order used to represent the integer.  If byteorder is 'big',\n    the most significant byte is at the beginning of the byte array.  If\n    byteorder is 'little', the most significant byte is at the end of the\n    byte array.  To request the native byte order of the host system, use\n    `sys.byteorder' as the byte order value.\n  signed\n    Determines whether two's complement is used to represent the integer.\n    If signed is False and a negative integer is given, an OverflowError\n    is raised.",
+                "ru": "Возвращает массив байтов, представляющий целое число.\n\n  длина\n    Длина используемого объекта в байтах. Ошибка OverflowError возникает, если\n    целое число не может быть представлено с заданным количеством байтов.\n  порядок байтов\n    Порядок байтов, используемый для представления целого числа. Если порядок байтов \"большой\",\n    старший байт находится в начале массива байтов. Если\n    порядок байтов \"маленький\", старший байт находится в конце\n    байтовый массив. Чтобы запросить собственный порядок байтов хост-системы, используйте\n    `sys.byteorder' как значение порядка байтов.\n  подписал\n    Определяет, используется ли дополнение до двух для представления целого числа.\n    Если для signed установлено значение False и задано отрицательное целое число, возникает ошибка OverflowError.\n    Поднялся."
+            }
+        }
+    },
+    "bytearray": {
+        "description": {
+            "en": "bytearray(iterable_of_ints) -> bytearray\nbytearray(string, encoding[, errors]) -> bytearray\nbytearray(bytes_or_buffer) -> mutable copy of bytes_or_buffer\nbytearray(int) -> bytes array of size given by the parameter initialized with null bytes\nbytearray() -> empty bytes array\n\nConstruct a mutable bytearray object from:\n  - an iterable yielding integers in range(256)\n  - a text string encoded using the specified encoding\n  - a bytes or a buffer object\n  - any object implementing the buffer API.\n  - an integer",
+            "ru": "bytearray(iterable_of_ints) -> bytearray\nbytearray(строка, кодировка[, ошибки]) -> bytearray\nbytearray(bytes_or_buffer) -> изменяемая копия bytes_or_buffer\nbytearray(int) -> массив байтов размера, заданного параметром, инициализированным нулевыми байтами\nbytearray() -> пустой массив байтов\n\nСоздайте изменяемый объект bytearray из:\n  - итерируемые целые числа в диапазоне (256)\n  - текстовая строка, закодированная с использованием указанной кодировки\n  - байты или буферный объект\n  - любой объект, реализующий буферный API.\n  - целое число"
+        },
+        "methods": {
+            "append": {
+                "en": "Append a single item to the end of the bytearray.\n\n  item\n    The item to be appended.",
+                "ru": "Добавить один элемент в конец массива байтов.\n\n  элемент\n    Элемент, который необходимо добавить."
+            },
+            "capitalize": {
+                "en": "B.capitalize() -> copy of B\n\nReturn a copy of B with only its first character capitalized (ASCII)\nand the rest lower-cased.",
+                "ru": "B.capitalize() -> копия B\n\nВернуть копию B только с заглавной буквы (ASCII)\nа остальные в нижнем регистре."
+            },
+            "center": {
+                "en": "Return a centered string of length width.\n\nPadding is done using the specified fill character.",
+                "ru": "Возвращает центрированную строку длины ширины.\n\nЗаполнение выполняется с использованием указанного символа заполнения."
+            },
+            "clear": {
+                "en": "Remove all items from the bytearray.",
+                "ru": "Удалите все предметы с байтона."
+            },
+            "copy": {
+                "en": "Return a copy of B.",
+                "ru": "Вернуть копию Б."
+            },
+            "count": {
+                "en": "B.count(sub[, start[, end]]) -> int\n\nReturn the number of non-overlapping occurrences of subsection sub in\nbytes B[start:end].  Optional arguments start and end are interpreted\nas in slice notation.",
+                "ru": "B.count (sub [, start [, end]]) -> int\n\nВернуть количество непересекающихся вхождений подраздела в\nБайты B [Start: End].Необязательные аргументы начинаются и конец интерпретируются\nКак в срезах."
+            },
+            "decode": {
+                "en": "Decode the bytearray using the codec registered for encoding.\n\n  encoding\n    The encoding with which to decode the bytearray.\n  errors\n    The error handling scheme to use for the handling of decoding errors.\n    The default is 'strict' meaning that decoding errors raise a\n    UnicodeDecodeError. Other possible values are 'ignore' and 'replace'\n    as well as any other name registered with codecs.register_error that\n    can handle UnicodeDecodeErrors.",
+                "ru": "Декодируйте бай -лауреат, используя кодек, зарегистрированный для кодирования.\n\n  кодирование\n    Кодирование, с помощью которого можно декодировать бай -лауреат.\n  ошибки\n    Схема обработки ошибок для обработки ошибок декодирования.\n    По умолчанию «строго» означает, что ошибки декодирования повышают\n    UnicodeDecodeError.Другие возможные значения - «игнорировать» и «заменить»\n    а также любое другое имя, зарегистрированное на Codecs.register_error\n    может обрабатывать UnicodeDecodeErrors."
+            },
+            "endswith": {
+                "en": "B.endswith(suffix[, start[, end]]) -> bool\n\nReturn True if B ends with the specified suffix, False otherwise.\nWith optional start, test B beginning at that position.\nWith optional end, stop comparing B at that position.\nsuffix can also be a tuple of bytes to try.",
+                "ru": "B.endswith (суффикс [, start [, end]]) -> bool\n\nВерните True, если B заканчивается указанным суффиксом, неверно в противном случае.\nС необязательным стартом тест b начинается в этой позиции.\nС необязательным концом, прекратите сравнивать B в этой позиции.\nСуффикс также может быть кортежом байтов, чтобы попробовать."
+            },
+            "expandtabs": {
+                "en": "Return a copy where all tab characters are expanded using spaces.\n\nIf tabsize is not given, a tab size of 8 characters is assumed.",
+                "ru": "Вернуть копию, в которой все символы табуляции расширены пробелами.\n\nЕсли размер табуляции не указан, предполагается, что размер табуляции составляет 8 символов."
+            },
+            "extend": {
+                "en": "Append all the items from the iterator or sequence to the end of the bytearray.\n\n  iterable_of_ints\n    The iterable of items to append.",
+                "ru": "Добавьте все элементы итератора или последовательности в конец массива байтов.\n\n  iterable_of_ints\n    Итерация элементов для добавления."
+            },
+            "find": {
+                "en": "B.find(sub[, start[, end]]) -> int\n\nReturn the lowest index in B where subsection sub is found,\nsuch that sub is contained within B[start,end].  Optional\narguments start and end are interpreted as in slice notation.\n\nReturn -1 on failure.",
+                "ru": "B.find(sub[, start[, end]]) -> int\n\nВозвращает наименьший индекс в B, где находится подраздел подраздела,\nтак что sub содержится в B[start,end]. Необязательный\nаргументы start и end интерпретируются как в нотации среза.\n\nВозврат -1 в случае неудачи."
+            },
+            "fromhex": {
+                "en": "Create a bytearray object from a string of hexadecimal numbers.\n\nSpaces between two numbers are accepted.\nExample: bytearray.fromhex('B9 01EF') -> bytearray(b'\\\\xb9\\\\x01\\\\xef')",
+                "ru": "Создайте объект Bytearray из строки шестнадцатеричных чисел.\n\nПространства между двумя числами принимаются.\nПример: bytearray.fromhex ('b9 01ef') -> Bytearray (b '\\\\ xb9 \\\\ x01 \\\\ xef')"
+            },
+            "hex": {
+                "en": "Create a string of hexadecimal numbers from a bytearray object.\n\n  sep\n    An optional single character or byte to separate hex bytes.\n  bytes_per_sep\n    How many bytes between separators.  Positive values count from the\n    right, negative values count from the left.\n\nExample:\n>>> value = bytearray([0xb9, 0x01, 0xef])\n>>> value.hex()\n'b901ef'\n>>> value.hex(':')\n'b9:01:ef'\n>>> value.hex(':', 2)\n'b9:01ef'\n>>> value.hex(':', -2)\n'b901:ef'",
+                "ru": "Создайте строку шестнадцатеричных чисел из объекта bytearray.\n\n  сен\n    Необязательный одиночный символ или байт для разделения шестнадцатеричных байтов.\n  bytes_per_sep\n    Сколько байт между разделителями. Положительные значения отсчитываются от\n    справа, отрицательные значения отсчитываются слева.\n\nПример:\n>>> значение = массив байтов ([0xb9, 0x01, 0xef])\n>>> значение.hex()\n'б901эф'\n>>> значение.hex(':')\n'б9:01:эф'\n>>> значение.hex(':', 2)\n'b9:01ef'\n>>> значение.hex(':', -2)\n'б901:эф'"
+            },
+            "index": {
+                "en": "B.index(sub[, start[, end]]) -> int\n\nReturn the lowest index in B where subsection sub is found,\nsuch that sub is contained within B[start,end].  Optional\narguments start and end are interpreted as in slice notation.\n\nRaises ValueError when the subsection is not found.",
+                "ru": "B.index (sub [, start [, end]]) -> int\n\nВернуть самый низкий индекс в B, где находится подраздела, найдена,\nТакое, что Sub содержится в B [Start, End].Необязательный\nАргументы начинаются и конец интерпретируются как в срезах.\n\nПовышает valueError, когда подраздел не найден."
+            },
+            "insert": {
+                "en": "Insert a single item into the bytearray before the given index.\n\n  index\n    The index where the value is to be inserted.\n  item\n    The item to be inserted.",
+                "ru": "Вставьте один элемент в массив байтов перед заданным индексом.\n\n  индекс\n    Индекс, в который должно быть вставлено значение.\n  элемент\n    Элемент, который необходимо вставить."
+            },
+            "isalnum": {
+                "en": "B.isalnum() -> bool\n\nReturn True if all characters in B are alphanumeric\nand there is at least one character in B, False otherwise.",
+                "ru": "B.isalnum() -> логическое значение\n\nВозвратите True, если все символы в B являются буквенно-цифровыми\nи есть по крайней мере один символ в B, False в противном случае."
+            },
+            "isalpha": {
+                "en": "B.isalpha() -> bool\n\nReturn True if all characters in B are alphabetic\nand there is at least one character in B, False otherwise.",
+                "ru": "B.isalpha() -> логическое значение\n\nВозвратите True, если все символы в B являются буквенными\nи есть по крайней мере один символ в B, False в противном случае."
+            },
+            "isascii": {
+                "en": "B.isascii() -> bool\n\nReturn True if B is empty or all characters in B are ASCII,\nFalse otherwise.",
+                "ru": "B.isascii () -> bool\n\nВернуть True, если B пуст или все символы в B - ASCII,\nНеверно иначе."
+            },
+            "isdigit": {
+                "en": "B.isdigit() -> bool\n\nReturn True if all characters in B are digits\nand there is at least one character in B, False otherwise.",
+                "ru": "B.isdigit () -> логическое значение\n\nВозвратите True, если все символы в B являются цифрами\nи есть по крайней мере один символ в B, False в противном случае."
+            },
+            "islower": {
+                "en": "B.islower() -> bool\n\nReturn True if all cased characters in B are lowercase and there is\nat least one cased character in B, False otherwise.",
+                "ru": "B.islower() -> логическое значение\n\nВозвращает True, если все символы в B строчные и есть\nпо крайней мере один символ в регистре в B, False в противном случае."
+            },
+            "isspace": {
+                "en": "B.isspace() -> bool\n\nReturn True if all characters in B are whitespace\nand there is at least one character in B, False otherwise.",
+                "ru": "B.isspace() -> логическое значение\n\nВозвратите True, если все символы в B являются пробелами\nи есть по крайней мере один символ в B, False в противном случае."
+            },
+            "istitle": {
+                "en": "B.istitle() -> bool\n\nReturn True if B is a titlecased string and there is at least one\ncharacter in B, i.e. uppercase characters may only follow uncased\ncharacters and lowercase characters only cased ones. Return False\notherwise.",
+                "ru": "B.istitle() -> логическое значение\n\nВозвращает True, если B является строкой в ​​заглавном регистре и существует хотя бы один\nсимвол в B, т. е. заглавные символы могут следовать только без регистра\nсимволы и символы нижнего регистра только в регистре. Вернуть ложь\nв противном случае."
+            },
+            "isupper": {
+                "en": "B.isupper() -> bool\n\nReturn True if all cased characters in B are uppercase and there is\nat least one cased character in B, False otherwise.",
+                "ru": "B.isupper () -> bool\n\nВернуть истинность, если все персонажи в B в B являются прописными и есть\nПо крайней мере, один характер в B, неверно."
+            },
+            "join": {
+                "en": "Concatenate any number of bytes/bytearray objects.\n\nThe bytearray whose method is called is inserted in between each pair.\n\nThe result is returned as a new bytearray object.",
+                "ru": "Объедините любое количество объектов bytes/bytearray.\n\nМассив байтов, метод которого вызывается, вставляется между каждой парой.\n\nРезультат возвращается как новый объект bytearray."
+            },
+            "ljust": {
+                "en": "Return a left-justified string of length width.\n\nPadding is done using the specified fill character.",
+                "ru": "Верните левую строку ширины длины.\n\nЗаполнение выполняется с использованием указанного символа заполнения."
+            },
+            "lower": {
+                "en": "B.lower() -> copy of B\n\nReturn a copy of B with all ASCII characters converted to lowercase.",
+                "ru": "B.lower() -> копия B\n\nВернуть копию B со всеми символами ASCII, преобразованными в нижний регистр."
+            },
+            "lstrip": {
+                "en": "Strip leading bytes contained in the argument.\n\nIf the argument is omitted or None, strip leading ASCII whitespace.",
+                "ru": "Удалите ведущие байты, содержащиеся в аргументе.\n\nЕсли аргумент опущен или отсутствует, удаляются начальные пробелы ASCII."
+            },
+            "maketrans": {
+                "en": "Return a translation table useable for the bytes or bytearray translate method.\n\nThe returned table will be one where each byte in frm is mapped to the byte at\nthe same position in to.\n\nThe bytes objects frm and to must be of the same length.",
+                "ru": "Верните таблицу перевода, пригодную для байтов или метода перевода байтов.\n\nВозвращенная таблица будет тем, где каждый байт в FRM отображается на байт в\nТа же позиция в.\n\nБайты объекты FRM и должны иметь одинаковую длину."
+            },
+            "partition": {
+                "en": "Partition the bytearray into three parts using the given separator.\n\nThis will search for the separator sep in the bytearray. If the separator is\nfound, returns a 3-tuple containing the part before the separator, the\nseparator itself, and the part after it as new bytearray objects.\n\nIf the separator is not found, returns a 3-tuple containing the copy of the\noriginal bytearray object and two empty bytearray objects.",
+                "ru": "Разделите массив байтов на три части, используя заданный разделитель.\n\nЭто будет искать разделитель sep в массиве байтов. Если разделитель\nнайден, возвращает тройку, содержащую часть перед разделителем,\nсам разделитель и часть после него как новые объекты bytearray.\n\nЕсли разделитель не найден, возвращает тройку, содержащую копию\nисходный объект bytearray и два пустых объекта bytearray."
+            },
+            "pop": {
+                "en": "Remove and return a single item from B.\n\n  index\n    The index from where to remove the item.\n    -1 (the default value) means remove the last item.\n\nIf no index argument is given, will pop the last item.",
+                "ru": "Удалить и вернуть один элемент из B.\n\n  индекс\n    Индекс, откуда удалить элемент.\n    -1 (значение по умолчанию) означает удаление последнего элемента.\n\nЕсли аргумент индекса не указан, вытолкнет последний элемент."
+            },
+            "remove": {
+                "en": "Remove the first occurrence of a value in the bytearray.\n\n  value\n    The value to remove.",
+                "ru": "Удалите первое вхождение значения в Bytearray.\n\n  ценить\n    Значение для удаления."
+            },
+            "removeprefix": {
+                "en": "Return a bytearray with the given prefix string removed if present.\n\nIf the bytearray starts with the prefix string, return\nbytearray[len(prefix):].  Otherwise, return a copy of the original\nbytearray.",
+                "ru": "Верните Bytearray с помощью данной строки префикса, удаленной, если он присутствует.\n\nЕсли Bytearray начинается со строки префикса, верните\nBytearray [Len (Prefix):].В противном случае верните копию оригинала\nBytearray."
+            },
+            "removesuffix": {
+                "en": "Return a bytearray with the given suffix string removed if present.\n\nIf the bytearray ends with the suffix string and that suffix is not\nempty, return bytearray[:-len(suffix)].  Otherwise, return a copy of\nthe original bytearray.",
+                "ru": "Верните бай -тип с данной суффиксной строкой, удаленной, если он присутствует.\n\nЕсли Bytearray заканчивается строкой суффикса, а это суффикс не\nпусто, вернуть Bytearray [:-Len (суффикс)].В противном случае вернуть копию\nОригинальный Bytearray."
+            },
+            "replace": {
+                "en": "Return a copy with all occurrences of substring old replaced by new.\n\n  count\n    Maximum number of occurrences to replace.\n    -1 (the default value) means replace all occurrences.\n\nIf the optional argument count is given, only the first count occurrences are\nreplaced.",
+                "ru": "Верните копию со всеми событиями подстроения старой, замененной новой.\n\n  считать\n    Максимальное количество случаев для замены.\n    -1 (значение по умолчанию) означает замену всех вхождений.\n\nЕсли дается дополнительное количество аргументов, только первые случаи подсчета\nзаменены."
+            },
+            "reverse": {
+                "en": "Reverse the order of the values in B in place.",
+                "ru": "Поменяйте порядок значений в B на месте."
+            },
+            "rfind": {
+                "en": "B.rfind(sub[, start[, end]]) -> int\n\nReturn the highest index in B where subsection sub is found,\nsuch that sub is contained within B[start,end].  Optional\narguments start and end are interpreted as in slice notation.\n\nReturn -1 on failure.",
+                "ru": "B.rfind(sub[, start[, end]]) -> int\n\nВозвращает самый высокий индекс в B, где найден подраздел подраздела,\nтак что sub содержится в B[start,end]. Необязательный\nаргументы start и end интерпретируются как в нотации среза.\n\nВозврат -1 в случае неудачи."
+            },
+            "rindex": {
+                "en": "B.rindex(sub[, start[, end]]) -> int\n\nReturn the highest index in B where subsection sub is found,\nsuch that sub is contained within B[start,end].  Optional\narguments start and end are interpreted as in slice notation.\n\nRaise ValueError when the subsection is not found.",
+                "ru": "B.rindex(sub[, start[, end]]) -> int\n\nВозвращает самый высокий индекс в B, где найден подраздел подраздела,\nтак что sub содержится в B[start,end]. Необязательный\nаргументы start и end интерпретируются как в нотации среза.\n\nПоднимите ValueError, если подраздел не найден."
+            },
+            "rjust": {
+                "en": "Return a right-justified string of length width.\n\nPadding is done using the specified fill character.",
+                "ru": "Возвращает выровненную по правому краю строку длины ширины.\n\nЗаполнение выполняется с использованием указанного символа заполнения."
+            },
+            "rpartition": {
+                "en": "Partition the bytearray into three parts using the given separator.\n\nThis will search for the separator sep in the bytearray, starting at the end.\nIf the separator is found, returns a 3-tuple containing the part before the\nseparator, the separator itself, and the part after it as new bytearray\nobjects.\n\nIf the separator is not found, returns a 3-tuple containing two empty bytearray\nobjects and the copy of the original bytearray object.",
+                "ru": "Разделите массив байтов на три части, используя заданный разделитель.\n\nЭто будет искать разделитель sep в массиве байтов, начиная с конца.\nЕсли разделитель найден, возвращает тройку, содержащую часть перед\nразделитель, сам разделитель и часть после него как новый массив байтов\nобъекты.\n\nЕсли разделитель не найден, возвращает тройку, содержащую два пустых массива байтов.\nобъекты и копию исходного объекта bytearray."
+            },
+            "rsplit": {
+                "en": "Return a list of the sections in the bytearray, using sep as the delimiter.\n\n  sep\n    The delimiter according which to split the bytearray.\n    None (the default value) means split on ASCII whitespace characters\n    (space, tab, return, newline, formfeed, vertical tab).\n  maxsplit\n    Maximum number of splits to do.\n    -1 (the default value) means no limit.\n\nSplitting is done starting at the end of the bytearray and working to the front.",
+                "ru": "Верните список разделов в Bytearray, используя SEP в качестве разделителя.\n\n  сентябрь\n    Разделитель, согласно которому для разделения байтона.\n    Нет (значение по умолчанию) означает разделение на символах пробелов ASCII\n    (пространство, вкладка, возврат, новая линия, Formfeed, вертикальная вкладка).\n  maxsplit\n    Максимальное количество расколов.\n    -1 (значение по умолчанию) не означает ограничения.\n\nРасщепление делается начиная с конца байтона и работает на фронт."
+            },
+            "rstrip": {
+                "en": "Strip trailing bytes contained in the argument.\n\nIf the argument is omitted or None, strip trailing ASCII whitespace.",
+                "ru": "Удалите конечные байты, содержащиеся в аргументе.\n\nЕсли аргумент опущен или отсутствует, удаляются завершающие пробелы ASCII."
+            },
+            "split": {
+                "en": "Return a list of the sections in the bytearray, using sep as the delimiter.\n\n  sep\n    The delimiter according which to split the bytearray.\n    None (the default value) means split on ASCII whitespace characters\n    (space, tab, return, newline, formfeed, vertical tab).\n  maxsplit\n    Maximum number of splits to do.\n    -1 (the default value) means no limit.",
+                "ru": "Верните список разделов в Bytearray, используя SEP в качестве разделителя.\n\n  сентябрь\n    Разделитель, согласно которому для разделения байтона.\n    Нет (значение по умолчанию) означает разделение на символах пробелов ASCII\n    (пространство, вкладка, возврат, новая линия, Formfeed, вертикальная вкладка).\n  maxsplit\n    Максимальное количество расколов.\n    -1 (значение по умолчанию) не означает ограничения."
+            },
+            "splitlines": {
+                "en": "Return a list of the lines in the bytearray, breaking at line boundaries.\n\nLine breaks are not included in the resulting list unless keepends is given and\ntrue.",
+                "ru": "Возвращает список строк в массиве байтов, разбивая их на границы строк.\n\nРазрывы строк не включаются в результирующий список, если не заданы keepends и\nистинный."
+            },
+            "startswith": {
+                "en": "B.startswith(prefix[, start[, end]]) -> bool\n\nReturn True if B starts with the specified prefix, False otherwise.\nWith optional start, test B beginning at that position.\nWith optional end, stop comparing B at that position.\nprefix can also be a tuple of bytes to try.",
+                "ru": "B.StartSwith (префикс [, start [, end]]) -> bool\n\nВерните True, если B начинается с указанного префикса, false в противном случае.\nС необязательным стартом тест b начинается в этой позиции.\nС необязательным концом, прекратите сравнивать B в этой позиции.\nПрефикс также может быть кортежом байтов, чтобы попробовать."
+            },
+            "strip": {
+                "en": "Strip leading and trailing bytes contained in the argument.\n\nIf the argument is omitted or None, strip leading and trailing ASCII whitespace.",
+                "ru": "Удалите начальные и конечные байты, содержащиеся в аргументе.\n\nЕсли аргумент опущен или отсутствует, удаляются начальные и конечные пробелы ASCII."
+            },
+            "swapcase": {
+                "en": "B.swapcase() -> copy of B\n\nReturn a copy of B with uppercase ASCII characters converted\nto lowercase ASCII and vice versa.",
+                "ru": "B.swapcase () -> Копия B\n\nВерните копию B с конвертированными символами ASCII ASCII\nдля строк ASCII и наоборот."
+            },
+            "title": {
+                "en": "B.title() -> copy of B\n\nReturn a titlecased version of B, i.e. ASCII words start with uppercase\ncharacters, all remaining cased characters have lowercase.",
+                "ru": "B.title() -> копия B\n\nВозвращает версию B в заглавном регистре, т. е. слова ASCII начинаются с прописной буквы.\nсимволы, все остальные символы в нижнем регистре."
+            },
+            "translate": {
+                "en": "Return a copy with each character mapped by the given translation table.\n\n  table\n    Translation table, which must be a bytes object of length 256.\n\nAll characters occurring in the optional argument delete are removed.\nThe remaining characters are mapped through the given translation table.",
+                "ru": "Верните копию с каждым символом, отображаемым данной таблицей переводов.\n\n  стол\n    Таблица перевода, которая должна быть байт -объектом длины 256.\n\nВсе символы, происходящие в необязательном аргументе, удаляются.\nОставшиеся символы отображаются через данную таблицу переводов."
+            },
+            "upper": {
+                "en": "B.upper() -> copy of B\n\nReturn a copy of B with all ASCII characters converted to uppercase.",
+                "ru": "B.upper() -> копия B\n\nВернуть копию B со всеми символами ASCII, преобразованными в верхний регистр."
+            },
+            "zfill": {
+                "en": "Pad a numeric string with zeros on the left, to fill a field of the given width.\n\nThe original string is never truncated.",
+                "ru": "Дополнить числовую строку нулями слева, чтобы заполнить поле заданной ширины.\n\nИсходная строка никогда не усекается."
+            }
+        }
+    },
+    "bytes": {
+        "description": {
+            "en": "bytes(iterable_of_ints) -> bytes\nbytes(string, encoding[, errors]) -> bytes\nbytes(bytes_or_buffer) -> immutable copy of bytes_or_buffer\nbytes(int) -> bytes object of size given by the parameter initialized with null bytes\nbytes() -> empty bytes object\n\nConstruct an immutable array of bytes from:\n  - an iterable yielding integers in range(256)\n  - a text string encoded using the specified encoding\n  - any object implementing the buffer API.\n  - an integer",
+            "ru": "байты (iterable_of_ints) -> байты\nбайты (строка, кодирование [, ошибки]) -> байты\nBytes (bytes_or_buffer) -> Необвитанная копия Bytes_or_buffer\nБайты (int) -> Bytes Объект размера, заданный параметром, инициализированным с нулевыми байтами\nBytes () -> Объект пустых байтов\n\nПостроить неизменную массив байтов из:\n  - итерабируемые доходные целые числа в диапазоне (256)\n  - текстовая строка, закодированная с использованием указанной кодировки\n  - Любой объект, реализующий буферный API.\n  - целое число"
+        },
+        "methods": {
+            "capitalize": {
+                "en": "B.capitalize() -> copy of B\n\nReturn a copy of B with only its first character capitalized (ASCII)\nand the rest lower-cased.",
+                "ru": "B.capitalize() -> копия B\n\nВернуть копию B только с заглавной буквы (ASCII)\nа остальные в нижнем регистре."
+            },
+            "center": {
+                "en": "Return a centered string of length width.\n\nPadding is done using the specified fill character.",
+                "ru": "Возвращает центрированную строку длины ширины.\n\nЗаполнение выполняется с использованием указанного символа заполнения."
+            },
+            "count": {
+                "en": "B.count(sub[, start[, end]]) -> int\n\nReturn the number of non-overlapping occurrences of subsection sub in\nbytes B[start:end].  Optional arguments start and end are interpreted\nas in slice notation.",
+                "ru": "B.count (sub [, start [, end]]) -> int\n\nВернуть количество непересекающихся вхождений подраздела в\nБайты B [Start: End].Необязательные аргументы начинаются и конец интерпретируются\nКак в срезах."
+            },
+            "decode": {
+                "en": "Decode the bytes using the codec registered for encoding.\n\n  encoding\n    The encoding with which to decode the bytes.\n  errors\n    The error handling scheme to use for the handling of decoding errors.\n    The default is 'strict' meaning that decoding errors raise a\n    UnicodeDecodeError. Other possible values are 'ignore' and 'replace'\n    as well as any other name registered with codecs.register_error that\n    can handle UnicodeDecodeErrors.",
+                "ru": "Декодируйте байты, используя кодек, зарегистрированный для кодирования.\n\n  кодирование\n    Кодирование, с помощью которого можно декодировать байты.\n  ошибки\n    Схема обработки ошибок для обработки ошибок декодирования.\n    По умолчанию «строго» означает, что ошибки декодирования повышают\n    UnicodeDecodeError.Другие возможные значения - «игнорировать» и «заменить»\n    а также любое другое имя, зарегистрированное на Codecs.register_error\n    может обрабатывать UnicodeDecodeErrors."
+            },
+            "endswith": {
+                "en": "B.endswith(suffix[, start[, end]]) -> bool\n\nReturn True if B ends with the specified suffix, False otherwise.\nWith optional start, test B beginning at that position.\nWith optional end, stop comparing B at that position.\nsuffix can also be a tuple of bytes to try.",
+                "ru": "B.endswith (суффикс [, start [, end]]) -> bool\n\nВерните True, если B заканчивается указанным суффиксом, неверно в противном случае.\nС необязательным стартом тест b начинается в этой позиции.\nС необязательным концом, прекратите сравнивать B в этой позиции.\nСуффикс также может быть кортежом байтов, чтобы попробовать."
+            },
+            "expandtabs": {
+                "en": "Return a copy where all tab characters are expanded using spaces.\n\nIf tabsize is not given, a tab size of 8 characters is assumed.",
+                "ru": "Вернуть копию, в которой все символы табуляции расширены пробелами.\n\nЕсли размер табуляции не указан, предполагается, что размер табуляции составляет 8 символов."
+            },
+            "find": {
+                "en": "B.find(sub[, start[, end]]) -> int\n\nReturn the lowest index in B where subsection sub is found,\nsuch that sub is contained within B[start,end].  Optional\narguments start and end are interpreted as in slice notation.\n\nReturn -1 on failure.",
+                "ru": "B.find(sub[, start[, end]]) -> int\n\nВозвращает наименьший индекс в B, где находится подраздел подраздела,\nтак что sub содержится в B[start,end]. Необязательный\nаргументы start и end интерпретируются как в нотации среза.\n\nВозврат -1 в случае неудачи."
+            },
+            "fromhex": {
+                "en": "Create a bytes object from a string of hexadecimal numbers.\n\nSpaces between two numbers are accepted.\nExample: bytes.fromhex('B9 01EF') -> b'\\\\xb9\\\\x01\\\\xef'.",
+                "ru": "Создайте объект байтов из строки шестнадцатеричных чисел.\n\nПространства между двумя числами принимаются.\nПример: bytes.fromhex ('b9 01ef') -> b '\\\\ xb9 \\\\ x01 \\\\ xef'."
+            },
+            "hex": {
+                "en": "Create a string of hexadecimal numbers from a bytes object.\n\n  sep\n    An optional single character or byte to separate hex bytes.\n  bytes_per_sep\n    How many bytes between separators.  Positive values count from the\n    right, negative values count from the left.\n\nExample:\n>>> value = b'\\xb9\\x01\\xef'\n>>> value.hex()\n'b901ef'\n>>> value.hex(':')\n'b9:01:ef'\n>>> value.hex(':', 2)\n'b9:01ef'\n>>> value.hex(':', -2)\n'b901:ef'",
+                "ru": "Создайте строку шестнадцатеричных чисел из объекта bytes.\n\n  сен\n    Необязательный одиночный символ или байт для разделения шестнадцатеричных байтов.\n  bytes_per_sep\n    Сколько байт между разделителями. Положительные значения отсчитываются от\n    справа, отрицательные значения отсчитываются слева.\n\nПример:\n>>> значение = b'\\xb9\\x01\\xef'\n>>> значение.hex()\n'б901эф'\n>>> значение.hex(':')\n'б9:01:эф'\n>>> значение.hex(':', 2)\n'b9:01ef'\n>>> значение.hex(':', -2)\n'б901:эф'"
+            },
+            "index": {
+                "en": "B.index(sub[, start[, end]]) -> int\n\nReturn the lowest index in B where subsection sub is found,\nsuch that sub is contained within B[start,end].  Optional\narguments start and end are interpreted as in slice notation.\n\nRaises ValueError when the subsection is not found.",
+                "ru": "B.index (sub [, start [, end]]) -> int\n\nВернуть самый низкий индекс в B, где находится подраздела, найдена,\nТакое, что Sub содержится в B [Start, End].Необязательный\nАргументы начинаются и конец интерпретируются как в срезах.\n\nПовышает valueError, когда подраздел не найден."
+            },
+            "isalnum": {
+                "en": "B.isalnum() -> bool\n\nReturn True if all characters in B are alphanumeric\nand there is at least one character in B, False otherwise.",
+                "ru": "B.isalnum() -> логическое значение\n\nВозвратите True, если все символы в B являются буквенно-цифровыми\nи есть по крайней мере один символ в B, False в противном случае."
+            },
+            "isalpha": {
+                "en": "B.isalpha() -> bool\n\nReturn True if all characters in B are alphabetic\nand there is at least one character in B, False otherwise.",
+                "ru": "B.isalpha() -> логическое значение\n\nВозвратите True, если все символы в B являются буквенными\nи есть по крайней мере один символ в B, False в противном случае."
+            },
+            "isascii": {
+                "en": "B.isascii() -> bool\n\nReturn True if B is empty or all characters in B are ASCII,\nFalse otherwise.",
+                "ru": "B.isascii () -> bool\n\nВернуть True, если B пуст или все символы в B - ASCII,\nНеверно иначе."
+            },
+            "isdigit": {
+                "en": "B.isdigit() -> bool\n\nReturn True if all characters in B are digits\nand there is at least one character in B, False otherwise.",
+                "ru": "B.isdigit () -> логическое значение\n\nВозвратите True, если все символы в B являются цифрами\nи есть по крайней мере один символ в B, False в противном случае."
+            },
+            "islower": {
+                "en": "B.islower() -> bool\n\nReturn True if all cased characters in B are lowercase and there is\nat least one cased character in B, False otherwise.",
+                "ru": "B.islower() -> логическое значение\n\nВозвращает True, если все символы в B строчные и есть\nпо крайней мере один символ в регистре в B, False в противном случае."
+            },
+            "isspace": {
+                "en": "B.isspace() -> bool\n\nReturn True if all characters in B are whitespace\nand there is at least one character in B, False otherwise.",
+                "ru": "B.isspace() -> логическое значение\n\nВозвратите True, если все символы в B являются пробелами\nи есть по крайней мере один символ в B, False в противном случае."
+            },
+            "istitle": {
+                "en": "B.istitle() -> bool\n\nReturn True if B is a titlecased string and there is at least one\ncharacter in B, i.e. uppercase characters may only follow uncased\ncharacters and lowercase characters only cased ones. Return False\notherwise.",
+                "ru": "B.istitle() -> логическое значение\n\nВозвращает True, если B является строкой в ​​заглавном регистре и существует хотя бы один\nсимвол в B, т. е. заглавные символы могут следовать только без регистра\nсимволы и символы нижнего регистра только в регистре. Вернуть ложь\nв противном случае."
+            },
+            "isupper": {
+                "en": "B.isupper() -> bool\n\nReturn True if all cased characters in B are uppercase and there is\nat least one cased character in B, False otherwise.",
+                "ru": "B.isupper () -> bool\n\nВернуть истинность, если все персонажи в B в B являются прописными и есть\nПо крайней мере, один характер в B, неверно."
+            },
+            "join": {
+                "en": "Concatenate any number of bytes objects.\n\nThe bytes whose method is called is inserted in between each pair.\n\nThe result is returned as a new bytes object.\n\nExample: b'.'.join([b'ab', b'pq', b'rs']) -> b'ab.pq.rs'.",
+                "ru": "Объединить любое количество байт -объектов.\n\nБайты, метод которого называется между каждой парой.\n\nРезультат возвращается как новый объект байтов.\n\nПример: b '.'. Join ([b'ab ', b'pq', b'rs ']) -> b'ab.pq.rs'."
+            },
+            "ljust": {
+                "en": "Return a left-justified string of length width.\n\nPadding is done using the specified fill character.",
+                "ru": "Верните левую строку ширины длины.\n\nЗаполнение выполняется с использованием указанного символа заполнения."
+            },
+            "lower": {
+                "en": "B.lower() -> copy of B\n\nReturn a copy of B with all ASCII characters converted to lowercase.",
+                "ru": "B.lower() -> копия B\n\nВернуть копию B со всеми символами ASCII, преобразованными в нижний регистр."
+            },
+            "lstrip": {
+                "en": "Strip leading bytes contained in the argument.\n\nIf the argument is omitted or None, strip leading  ASCII whitespace.",
+                "ru": "Полосы, ведущие байты, содержатся в аргументе.\n\nЕсли аргумент опущен или нет, положите ведущий пробел ASCII."
+            },
+            "maketrans": {
+                "en": "Return a translation table useable for the bytes or bytearray translate method.\n\nThe returned table will be one where each byte in frm is mapped to the byte at\nthe same position in to.\n\nThe bytes objects frm and to must be of the same length.",
+                "ru": "Верните таблицу перевода, пригодную для байтов или метода перевода байтов.\n\nВозвращенная таблица будет тем, где каждый байт в FRM отображается на байт в\nТа же позиция в.\n\nБайты объекты FRM и должны иметь одинаковую длину."
+            },
+            "partition": {
+                "en": "Partition the bytes into three parts using the given separator.\n\nThis will search for the separator sep in the bytes. If the separator is found,\nreturns a 3-tuple containing the part before the separator, the separator\nitself, and the part after it.\n\nIf the separator is not found, returns a 3-tuple containing the original bytes\nobject and two empty bytes objects.",
+                "ru": "Разделите байты на три части, используя заданный разделитель.\n\nЭто будет искать разделитель sep в байтах. Если разделитель найден,\nвозвращает тройку, содержащую часть перед разделителем, разделитель\nсама и часть после нее.\n\nЕсли разделитель не найден, возвращает тройку, содержащую исходные байты.\nобъект и два пустых объекта байта."
+            },
+            "removeprefix": {
+                "en": "Return a bytes object with the given prefix string removed if present.\n\nIf the bytes starts with the prefix string, return bytes[len(prefix):].\nOtherwise, return a copy of the original bytes.",
+                "ru": "Верните объект байтов с данной удаленной строкой префикса, если он присутствует.\n\nЕсли байты начинаются со строки префикса, верните байты [len (prefix):].\nВ противном случае верните копию оригинальных байтов."
+            },
+            "removesuffix": {
+                "en": "Return a bytes object with the given suffix string removed if present.\n\nIf the bytes ends with the suffix string and that suffix is not empty,\nreturn bytes[:-len(prefix)].  Otherwise, return a copy of the original\nbytes.",
+                "ru": "Верните объект байтов с данной суффиксной строкой, удаленной, если он присутствует.\n\nЕсли байты заканчиваются строкой суффикса, и этот суффикс не пуст,\nвернуть байты [:-Len (префикс)].В противном случае верните копию оригинала\nбайты."
+            },
+            "replace": {
+                "en": "Return a copy with all occurrences of substring old replaced by new.\n\n  count\n    Maximum number of occurrences to replace.\n    -1 (the default value) means replace all occurrences.\n\nIf the optional argument count is given, only the first count occurrences are\nreplaced.",
+                "ru": "Верните копию со всеми событиями подстроения старой, замененной новой.\n\n  считать\n    Максимальное количество случаев для замены.\n    -1 (значение по умолчанию) означает замену всех вхождений.\n\nЕсли дается дополнительное количество аргументов, только первые случаи подсчета\nзаменены."
+            },
+            "rfind": {
+                "en": "B.rfind(sub[, start[, end]]) -> int\n\nReturn the highest index in B where subsection sub is found,\nsuch that sub is contained within B[start,end].  Optional\narguments start and end are interpreted as in slice notation.\n\nReturn -1 on failure.",
+                "ru": "B.rfind(sub[, start[, end]]) -> int\n\nВозвращает самый высокий индекс в B, где найден подраздел подраздела,\nтак что sub содержится в B[start,end]. Необязательный\nаргументы start и end интерпретируются как в нотации среза.\n\nВозврат -1 в случае неудачи."
+            },
+            "rindex": {
+                "en": "B.rindex(sub[, start[, end]]) -> int\n\nReturn the highest index in B where subsection sub is found,\nsuch that sub is contained within B[start,end].  Optional\narguments start and end are interpreted as in slice notation.\n\nRaise ValueError when the subsection is not found.",
+                "ru": "B.rindex(sub[, start[, end]]) -> int\n\nВозвращает самый высокий индекс в B, где найден подраздел подраздела,\nтак что sub содержится в B[start,end]. Необязательный\nаргументы start и end интерпретируются как в нотации среза.\n\nПоднимите ValueError, если подраздел не найден."
+            },
+            "rjust": {
+                "en": "Return a right-justified string of length width.\n\nPadding is done using the specified fill character.",
+                "ru": "Возвращает выровненную по правому краю строку длины ширины.\n\nЗаполнение выполняется с использованием указанного символа заполнения."
+            },
+            "rpartition": {
+                "en": "Partition the bytes into three parts using the given separator.\n\nThis will search for the separator sep in the bytes, starting at the end. If\nthe separator is found, returns a 3-tuple containing the part before the\nseparator, the separator itself, and the part after it.\n\nIf the separator is not found, returns a 3-tuple containing two empty bytes\nobjects and the original bytes object.",
+                "ru": "Разделите байты на три части, используя заданный разделитель.\n\nЭто будет искать разделитель sep в байтах, начиная с конца. Если\nразделитель найден, возвращает тройку, содержащую часть перед\nразделитель, сам разделитель и часть после него.\n\nЕсли разделитель не найден, возвращает тройку, содержащую два пустых байта.\nобъекты и исходный объект байтов."
+            },
+            "rsplit": {
+                "en": "Return a list of the sections in the bytes, using sep as the delimiter.\n\n  sep\n    The delimiter according which to split the bytes.\n    None (the default value) means split on ASCII whitespace characters\n    (space, tab, return, newline, formfeed, vertical tab).\n  maxsplit\n    Maximum number of splits to do.\n    -1 (the default value) means no limit.\n\nSplitting is done starting at the end of the bytes and working to the front.",
+                "ru": "Возвращает список разделов в байтах, используя sep в качестве разделителя.\n\n  сен\n    Разделитель, по которому нужно разделить байты.\n    None (значение по умолчанию) означает разделение на пробельные символы ASCII.\n    (пробел, табуляция, возврат, новая строка, перевод страницы, вертикальная табуляция).\n  макссплит\n    Максимальное количество сплитов.\n    -1 (значение по умолчанию) означает отсутствие ограничений.\n\nРазделение выполняется, начиная с конца байтов и продвигаясь вперед."
+            },
+            "rstrip": {
+                "en": "Strip trailing bytes contained in the argument.\n\nIf the argument is omitted or None, strip trailing ASCII whitespace.",
+                "ru": "Удалите конечные байты, содержащиеся в аргументе.\n\nЕсли аргумент опущен или отсутствует, удаляются завершающие пробелы ASCII."
+            },
+            "split": {
+                "en": "Return a list of the sections in the bytes, using sep as the delimiter.\n\n  sep\n    The delimiter according which to split the bytes.\n    None (the default value) means split on ASCII whitespace characters\n    (space, tab, return, newline, formfeed, vertical tab).\n  maxsplit\n    Maximum number of splits to do.\n    -1 (the default value) means no limit.",
+                "ru": "Возвращает список разделов в байтах, используя sep в качестве разделителя.\n\n  сен\n    Разделитель, по которому нужно разделить байты.\n    None (значение по умолчанию) означает разделение на пробельные символы ASCII.\n    (пробел, табуляция, возврат, новая строка, перевод страницы, вертикальная табуляция).\n  макссплит\n    Максимальное количество сплитов.\n    -1 (значение по умолчанию) означает отсутствие ограничений."
+            },
+            "splitlines": {
+                "en": "Return a list of the lines in the bytes, breaking at line boundaries.\n\nLine breaks are not included in the resulting list unless keepends is given and\ntrue.",
+                "ru": "Возвращает список строк в байтах, разрывая границы строк.\n\nРазрывы строк не включаются в результирующий список, если не заданы keepends и\nистинный."
+            },
+            "startswith": {
+                "en": "B.startswith(prefix[, start[, end]]) -> bool\n\nReturn True if B starts with the specified prefix, False otherwise.\nWith optional start, test B beginning at that position.\nWith optional end, stop comparing B at that position.\nprefix can also be a tuple of bytes to try.",
+                "ru": "B.StartSwith (префикс [, start [, end]]) -> bool\n\nВерните True, если B начинается с указанного префикса, false в противном случае.\nС необязательным стартом тест b начинается в этой позиции.\nС необязательным концом, прекратите сравнивать B в этой позиции.\nПрефикс также может быть кортежом байтов, чтобы попробовать."
+            },
+            "strip": {
+                "en": "Strip leading and trailing bytes contained in the argument.\n\nIf the argument is omitted or None, strip leading and trailing ASCII whitespace.",
+                "ru": "Удалите начальные и конечные байты, содержащиеся в аргументе.\n\nЕсли аргумент опущен или отсутствует, удаляются начальные и конечные пробелы ASCII."
+            },
+            "swapcase": {
+                "en": "B.swapcase() -> copy of B\n\nReturn a copy of B with uppercase ASCII characters converted\nto lowercase ASCII and vice versa.",
+                "ru": "B.swapcase () -> Копия B\n\nВерните копию B с конвертированными символами ASCII ASCII\nдля строк ASCII и наоборот."
+            },
+            "title": {
+                "en": "B.title() -> copy of B\n\nReturn a titlecased version of B, i.e. ASCII words start with uppercase\ncharacters, all remaining cased characters have lowercase.",
+                "ru": "B.title() -> копия B\n\nВозвращает версию B в заглавном регистре, т. е. слова ASCII начинаются с прописной буквы.\nсимволы, все остальные символы в нижнем регистре."
+            },
+            "translate": {
+                "en": "Return a copy with each character mapped by the given translation table.\n\n  table\n    Translation table, which must be a bytes object of length 256.\n\nAll characters occurring in the optional argument delete are removed.\nThe remaining characters are mapped through the given translation table.",
+                "ru": "Верните копию с каждым символом, отображаемым данной таблицей переводов.\n\n  стол\n    Таблица перевода, которая должна быть байт -объектом длины 256.\n\nВсе символы, происходящие в необязательном аргументе, удаляются.\nОставшиеся символы отображаются через данную таблицу переводов."
+            },
+            "upper": {
+                "en": "B.upper() -> copy of B\n\nReturn a copy of B with all ASCII characters converted to uppercase.",
+                "ru": "B.upper() -> копия B\n\nВернуть копию B со всеми символами ASCII, преобразованными в верхний регистр."
+            },
+            "zfill": {
+                "en": "Pad a numeric string with zeros on the left, to fill a field of the given width.\n\nThe original string is never truncated.",
+                "ru": "Дополнить числовую строку нулями слева, чтобы заполнить поле заданной ширины.\n\nИсходная строка никогда не усекается."
+            }
+        }
+    },
+    "classmethod": {
+        "description": {
+            "en": "classmethod(function) -> method\n\nConvert a function to be a class method.\n\nA class method receives the class as implicit first argument,\njust like an instance method receives the instance.\nTo declare a class method, use this idiom:\n\n  class C:\n      @classmethod\n      def f(cls, arg1, arg2, ...):\n          ...\n\nIt can be called either on the class (e.g. C.f()) or on an instance\n(e.g. C().f()).  The instance is ignored except for its class.\nIf a class method is called for a derived class, the derived class\nobject is passed as the implied first argument.\n\nClass methods are different than C++ or Java static methods.\nIf you want those, see the staticmethod builtin.",
+            "ru": "метод класса (функция) -> метод\n\nПреобразование функции в метод класса.\n\nМетод класса получает класс как неявный первый аргумент,\nточно так же, как метод экземпляра получает экземпляр.\nЧтобы объявить метод класса, используйте эту идиому:\n\n  класс С:\n      @классметод\n      def f(cls, arg1, arg2, ...):\n          ...\n\nЕго можно вызывать либо в классе (например, C.f()), либо в экземпляре.\n(например, C().f()). Экземпляр игнорируется, за исключением его класса.\nЕсли метод класса вызывается для производного класса, производный класс\nобъект передается как подразумеваемый первый аргумент.\n\nМетоды класса отличаются от статических методов C++ или Java.\nЕсли вам это нужно, посмотрите встроенный статический метод."
+        },
+        "methods": {}
+    },
+    "complex": {
+        "description": {
+            "en": "Create a complex number from a real part and an optional imaginary part.\n\nThis is equivalent to (real + imag*1j) where imag defaults to 0.",
+            "ru": "Создайте комплексное число из действительной части и дополнительной мнимой части.\n\nЭто эквивалентно (real + imag*1j), где imag по умолчанию равен 0."
+        },
+        "methods": {
+            "conjugate": {
+                "en": "Return the complex conjugate of its argument. (3-4j).conjugate() == 3+4j.",
+                "ru": "Верните сложный сопряжение своего аргумента.(3-4J) .conjugate () == 3+4J."
+            },
+            "imag": {
+                "en": "the imaginary part of a complex number",
+                "ru": "мнимая часть комплексного числа"
+            },
+            "real": {
+                "en": "the real part of a complex number",
+                "ru": "реальная часть сложного числа"
+            }
+        }
+    },
+    "dict": {
+        "description": {
+            "en": "dict() -> new empty dictionary\ndict(mapping) -> new dictionary initialized from a mapping object's\n    (key, value) pairs\ndict(iterable) -> new dictionary initialized as if via:\n    d = {}\n    for k, v in iterable:\n        d[k] = v\ndict(**kwargs) -> new dictionary initialized with the name=value pairs\n    in the keyword argument list.  For example:  dict(one=1, two=2)",
+            "ru": "dict () -> новый пустой словарь\nDICT (Картирование) -> Новый словарь, инициализированный из картирования объекта\n    (ключ, значение) Пары\nDICT (итерабильный) -> Новый словарь инициализировался, как если бы через:\n    d = {}\n    для k, v в итерационном:\n        d [k] = V\nDICT (** kwargs) -> Новый словарь, инициализированный с помощью пары name = value\n    В списке аргументов ключевого слова.Например: DICT (один = 1, два = 2)"
+        },
+        "methods": {
+            "clear": {
+                "en": "D.clear() -> None.  Remove all items from D.",
+                "ru": "D.clear () -> Нет.Удалить все предметы из D."
+            },
+            "copy": {
+                "en": "D.copy() -> a shallow copy of D",
+                "ru": "D.copy () -> мелкая копия D"
+            },
+            "fromkeys": {
+                "en": "Create a new dictionary with keys from iterable and values set to value.",
+                "ru": "Создайте новый словарь с ключами от итерационных и значений, установленных в значении."
+            },
+            "get": {
+                "en": "Return the value for key if key is in the dictionary, else default.",
+                "ru": "Верните значение для ключа, если ключ находится в словаре, иначе по умолчанию."
+            },
+            "items": {
+                "en": "D.items() -> a set-like object providing a view on D's items",
+                "ru": "D.items() -> объект, подобный набору, обеспечивающий просмотр элементов D."
+            },
+            "keys": {
+                "en": "D.keys() -> a set-like object providing a view on D's keys",
+                "ru": "D.keys() -> объект, подобный набору, предоставляющий представление о клавишах D."
+            },
+            "pop": {
+                "en": "D.pop(k[,d]) -> v, remove specified key and return the corresponding value.\n\nIf the key is not found, return the default if given; otherwise,\nraise a KeyError.",
+                "ru": "D.pop(k[,d]) -> v, удалить указанный ключ и вернуть соответствующее значение.\n\nЕсли ключ не найден, вернуть значение по умолчанию, если оно задано; в противном случае,\nподнять KeyError."
+            },
+            "popitem": {
+                "en": "Remove and return a (key, value) pair as a 2-tuple.\n\nPairs are returned in LIFO (last-in, first-out) order.\nRaises KeyError if the dict is empty.",
+                "ru": "Удалите и верните (ключ, значение) пары в виде 2-й тупе.\n\nПары возвращаются в порядке Lifo (Lif-In, First Out).\nПоднимает Keyerror, если дикт пуст."
+            },
+            "setdefault": {
+                "en": "Insert key with a value of default if key is not in the dictionary.\n\nReturn the value for key if key is in the dictionary, else default.",
+                "ru": "Вставьте ключ со значением дефолта, если ключ не находится в словаре.\n\nВерните значение для ключа, если ключ находится в словаре, иначе по умолчанию."
+            },
+            "update": {
+                "en": "D.update([E, ]**F) -> None.  Update D from dict/iterable E and F.\nIf E is present and has a .keys() method, then does:  for k in E: D[k] = E[k]\nIf E is present and lacks a .keys() method, then does:  for k, v in E: D[k] = v\nIn either case, this is followed by: for k in F:  D[k] = F[k]",
+                "ru": "D.update([E,]**F) -> Нет. Обновите D из dict/iterable E и F.\nЕсли E присутствует и имеет метод .keys(), то делает: для k в E: D[k] = E[k]\nЕсли E присутствует и не имеет метода .keys(), то имеет: для k, v в E: D[k] = v\nВ любом случае за этим следует: для k в F: D[k] = F[k]"
+            },
+            "values": {
+                "en": "D.values() -> an object providing a view on D's values",
+                "ru": "D.values() -> объект, предоставляющий представление о значениях D"
+            }
+        }
+    },
+    "enumerate": {
+        "description": {
+            "en": "Return an enumerate object.\n\n  iterable\n    an object supporting iteration\n\nThe enumerate object yields pairs containing a count (from start, which\ndefaults to zero) and a value yielded by the iterable argument.\n\nenumerate is useful for obtaining an indexed list:\n    (0, seq[0]), (1, seq[1]), (2, seq[2]), ...",
+            "ru": "Возвращает перечисляемый объект.\n\n  повторяемый\n    объект, поддерживающий итерацию\n\nОбъект перечисления выдает пары, содержащие количество (от начала, которое\nпо умолчанию равно нулю) и значение, получаемое итерируемым аргументом.\n\nenumerate полезен для получения индексированного списка:\n    (0, последовательность [0]), (1, последовательность [1]), (2, последовательность [2]), ..."
+        },
+        "methods": {}
+    },
+    "filter": {
+        "description": {
+            "en": "filter(function or None, iterable) --> filter object\n\nReturn an iterator yielding those items of iterable for which function(item)\nis true. If function is None, return the items that are true.",
+            "ru": "фильтр (функция или нет, итерируемый) --> объект фильтра\n\nВозвращает итератор, выдающий те элементы итерации, для которых функция (элемент)\nправда. Если функция имеет значение None, верните элементы, которые верны."
+        },
+        "methods": {}
+    },
+    "float": {
+        "description": {
+            "en": "Convert a string or number to a floating point number, if possible.",
+            "ru": "Преобразуйте строку или число в число с плавающей запятой, если это возможно."
+        },
+        "methods": {
+            "as_integer_ratio": {
+                "en": "Return integer ratio.\n\nReturn a pair of integers, whose ratio is exactly equal to the original float\nand with a positive denominator.\n\nRaise OverflowError on infinities and a ValueError on NaNs.\n\n>>> (10.0).as_integer_ratio()\n(10, 1)\n>>> (0.0).as_integer_ratio()\n(0, 1)\n>>> (-.25).as_integer_ratio()\n(-1, 4)",
+                "ru": "Возвращение целочисленного соотношения.\n\nВернуть пару целых чисел, чье соотношение точно равно исходному поплавке\nи с положительным знаменателем.\n\nПоднимите OverflowerRor на бесконечности и стоимость NANS.\n\n>>> (10.0) .as_integer_ratio ()\n(10, 1)\n>>> (0.0) .as_integer_ratio ()\n(0, 1)\n>>> (-.25) .as_integer_ratio ()\n(-1, 4)"
+            },
+            "conjugate": {
+                "en": "Return self, the complex conjugate of any float.",
+                "ru": "Возвратите self, комплексное сопряжение любого числа с плавающей запятой."
+            },
+            "fromhex": {
+                "en": "Create a floating-point number from a hexadecimal string.\n\n>>> float.fromhex('0x1.ffffp10')\n2047.984375\n>>> float.fromhex('-0x1p-1074')\n-5e-324",
+                "ru": "Создайте номер с плавающей точкой из шестнадцатеричной строки.\n\n>>> float.fromhex ('0x1.ffffp10')\n2047.984375\n>>> float.fromHex ('-0x1p-1074')\n-5e-324"
+            },
+            "hex": {
+                "en": "Return a hexadecimal representation of a floating-point number.\n\n>>> (-0.1).hex()\n'-0x1.999999999999ap-4'\n>>> 3.14159.hex()\n'0x1.921f9f01b866ep+1'",
+                "ru": "Возвращает шестнадцатеричное представление числа с плавающей запятой.\n\n>>> (-0.1).шестнадцатеричный()\n'-0x1.999999999999ap-4'\n>>> 3.14159.hex()\n'0x1.921f9f01b866ep+1'"
+            },
+            "imag": {
+                "en": "the imaginary part of a complex number",
+                "ru": "мнимая часть комплексного числа"
+            },
+            "is_integer": {
+                "en": "Return True if the float is an integer.",
+                "ru": "Возвратите True, если число с плавающей запятой является целым числом."
+            },
+            "real": {
+                "en": "the real part of a complex number",
+                "ru": "реальная часть сложного числа"
+            }
+        }
+    },
+    "frozenset": {
+        "description": {
+            "en": "frozenset() -> empty frozenset object\nfrozenset(iterable) -> frozenset object\n\nBuild an immutable unordered collection of unique elements.",
+            "ru": "замороженный набор () -> пустой объект замороженного набора\nзамороженный набор (итерируемый) -> объект замороженного набора\n\nСоздайте неизменяемую неупорядоченную коллекцию уникальных элементов."
+        },
+        "methods": {
+            "copy": {
+                "en": "Return a shallow copy of a set.",
+                "ru": "Вернуть мелкую копию набора."
+            },
+            "difference": {
+                "en": "Return the difference of two or more sets as a new set.\n\n(i.e. all elements that are in this set but not the others.)",
+                "ru": "Верните разницу двух или более наборов в качестве нового набора.\n\n(т.е. все элементы, которые есть в этом наборе, но не в других.)"
+            },
+            "intersection": {
+                "en": "Return the intersection of two sets as a new set.\n\n(i.e. all elements that are in both sets.)",
+                "ru": "Верните пересечение двух наборов в качестве нового набора.\n\n(то есть все элементы, которые находятся в обоих наборах.)"
+            },
+            "isdisjoint": {
+                "en": "Return True if two sets have a null intersection.",
+                "ru": "Верните True, если два набора имеют нулевое пересечение."
+            },
+            "issubset": {
+                "en": "Report whether another set contains this set.",
+                "ru": "Сообщите, содержит ли другой набор этот набор."
+            },
+            "issuperset": {
+                "en": "Report whether this set contains another set.",
+                "ru": "Сообщите, содержит ли этот набор другой набор."
+            },
+            "symmetric_difference": {
+                "en": "Return the symmetric difference of two sets as a new set.\n\n(i.e. all elements that are in exactly one of the sets.)",
+                "ru": "Верните симметричную разность двух наборов как новый набор.\n\n(т.е. все элементы, которые находятся ровно в одном из наборов.)"
+            },
+            "union": {
+                "en": "Return the union of sets as a new set.\n\n(i.e. all elements that are in either set.)",
+                "ru": "Вернуть объединение наборов как новый набор.\n\n(т.е. все элементы, которые есть в любом наборе.)"
+            }
+        }
+    },
+    "int": {
+        "description": {
+            "en": "int([x]) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4",
+            "ru": "int([x]) -> целое число\nint(x, база=10) -> целое число\n\nПреобразование числа или строки в целое число или возврат 0, если нет аргументов\nдано. Если x является числом, вернуть x.__int__(). Для плавающей запятой\nчисла, это усекается до нуля.\n\nЕсли x не является числом или если задано основание, то x должен быть строкой,\nbytes или экземпляр bytearray, представляющий целочисленный литерал в\nданная база. Перед литералом может стоять «+» или «-», и он может быть окружен\nпо пробелу. База по умолчанию равна 10. Допустимые базы: 0 и 2-36.\nБаза 0 означает интерпретировать базу из строки как целочисленный литерал.\n>>> int('0b100', основание=0)\n4"
+        },
+        "methods": {
+            "as_integer_ratio": {
+                "en": "Return integer ratio.\n\nReturn a pair of integers, whose ratio is exactly equal to the original int\nand with a positive denominator.\n\n>>> (10).as_integer_ratio()\n(10, 1)\n>>> (-10).as_integer_ratio()\n(-10, 1)\n>>> (0).as_integer_ratio()\n(0, 1)",
+                "ru": "Возвращает целочисленное отношение.\n\nВозвращает пару целых чисел, отношение которых в точности равно исходному int\nи с положительным знаменателем.\n\n>>> (10).as_integer_ratio()\n(10, 1)\n>>> (-10).as_integer_ratio()\n(-10, 1)\n>>> (0).as_integer_ratio()\n(0, 1)"
+            },
+            "bit_count": {
+                "en": "Number of ones in the binary representation of the absolute value of self.\n\nAlso known as the population count.\n\n>>> bin(13)\n'0b1101'\n>>> (13).bit_count()\n3",
+                "ru": "Количество единиц в двоичном представлении абсолютного значения self.\n\nТакже известен как подсчет населения.\n\n>>> корзина(13)\n'0b1101'\n>>> (13).bit_count()\n3"
+            },
+            "bit_length": {
+                "en": "Number of bits necessary to represent self in binary.\n\n>>> bin(37)\n'0b100101'\n>>> (37).bit_length()\n6",
+                "ru": "Количество битов, необходимых для представления себя в двоичном формате.\n\n>>> корзина(37)\n'0b100101'\n>>> (37).bit_length()\n6"
+            },
+            "conjugate": {
+                "en": "Returns self, the complex conjugate of any int.",
+                "ru": "Возвращает себя, сложный сопряжение любого инт."
+            },
+            "denominator": {
+                "en": "the denominator of a rational number in lowest terms",
+                "ru": "знаменатель рационального числа в наименьших условиях"
+            },
+            "from_bytes": {
+                "en": "Return the integer represented by the given array of bytes.\n\n  bytes\n    Holds the array of bytes to convert.  The argument must either\n    support the buffer protocol or be an iterable object producing bytes.\n    Bytes and bytearray are examples of built-in objects that support the\n    buffer protocol.\n  byteorder\n    The byte order used to represent the integer.  If byteorder is 'big',\n    the most significant byte is at the beginning of the byte array.  If\n    byteorder is 'little', the most significant byte is at the end of the\n    byte array.  To request the native byte order of the host system, use\n    `sys.byteorder' as the byte order value.\n  signed\n    Indicates whether two's complement is used to represent the integer.",
+                "ru": "Вернуть целое число, представленное данным массивом байтов.\n\n  байты\n    Удерживает массив байтов для преобразования.Аргумент должен либо\n    Поддерживать буферный протокол или быть итерабильным объектом, производящим байты.\n    Байты и байтоны являются примерами встроенных объектов, которые поддерживают\n    буферный протокол.\n  байт\n    Порядок байта, используемый для представления целого числа.Если байт -заказ «большой»,\n    Самый значительный байт находится в начале массива байтов.Если\n    байт -задержка «мало», наиболее значимый байт находится в конце\n    байт массив.Чтобы запросить нативный порядок байта хост -системы, используйте\n    `sys.byteorder 'как значение заказа байтов.\n  подписанный\n    Указывает, используется ли дополнение двух для представления целого числа."
+            },
+            "imag": {
+                "en": "the imaginary part of a complex number",
+                "ru": "мнимая часть комплексного числа"
+            },
+            "numerator": {
+                "en": "the numerator of a rational number in lowest terms",
+                "ru": "числитель рационального числа в самых низких терминах"
+            },
+            "real": {
+                "en": "the real part of a complex number",
+                "ru": "реальная часть сложного числа"
+            },
+            "to_bytes": {
+                "en": "Return an array of bytes representing an integer.\n\n  length\n    Length of bytes object to use.  An OverflowError is raised if the\n    integer is not representable with the given number of bytes.\n  byteorder\n    The byte order used to represent the integer.  If byteorder is 'big',\n    the most significant byte is at the beginning of the byte array.  If\n    byteorder is 'little', the most significant byte is at the end of the\n    byte array.  To request the native byte order of the host system, use\n    `sys.byteorder' as the byte order value.\n  signed\n    Determines whether two's complement is used to represent the integer.\n    If signed is False and a negative integer is given, an OverflowError\n    is raised.",
+                "ru": "Возвращает массив байтов, представляющий целое число.\n\n  длина\n    Длина используемого объекта в байтах. Ошибка OverflowError возникает, если\n    целое число не может быть представлено с заданным количеством байтов.\n  порядок байтов\n    Порядок байтов, используемый для представления целого числа. Если порядок байтов \"большой\",\n    старший байт находится в начале массива байтов. Если\n    порядок байтов \"маленький\", старший байт находится в конце\n    байтовый массив. Чтобы запросить собственный порядок байтов хост-системы, используйте\n    `sys.byteorder' как значение порядка байтов.\n  подписал\n    Определяет, используется ли дополнение до двух для представления целого числа.\n    Если для signed установлено значение False и задано отрицательное целое число, возникает ошибка OverflowError.\n    Поднялся."
+            }
+        }
+    },
+    "list": {
+        "description": {
+            "en": "Built-in mutable sequence.\n\nIf no argument is given, the constructor creates a new empty list.\nThe argument must be an iterable if specified.",
+            "ru": "Встроенная изменяемая последовательность.\n\nЕсли аргумент не указан, конструктор создает новый пустой список.\nАргумент должен быть итерируемым, если он указан."
+        },
+        "methods": {
+            "append": {
+                "en": "Append object to the end of the list.",
+                "ru": "Добавить объект в конце списка."
+            },
+            "clear": {
+                "en": "Remove all items from list.",
+                "ru": "Удалить все элементы из списка."
+            },
+            "copy": {
+                "en": "Return a shallow copy of the list.",
+                "ru": "Вернуть неглубокую копию списка."
+            },
+            "count": {
+                "en": "Return number of occurrences of value.",
+                "ru": "Возвращает количество вхождений значения."
+            },
+            "extend": {
+                "en": "Extend list by appending elements from the iterable.",
+                "ru": "Расширьте список, добавив элементы из итерации."
+            },
+            "index": {
+                "en": "Return first index of value.\n\nRaises ValueError if the value is not present.",
+                "ru": "Возвращает первый индекс значения.\n\nВызывает ValueError, если значение отсутствует."
+            },
+            "insert": {
+                "en": "Insert object before index.",
+                "ru": "Вставить объект перед индексом."
+            },
+            "pop": {
+                "en": "Remove and return item at index (default last).\n\nRaises IndexError if list is empty or index is out of range.",
+                "ru": "Удалить и вернуть элемент по индексу (по умолчанию последним).\n\nВызывает IndexError, если список пуст или индекс находится за пределами допустимого диапазона."
+            },
+            "remove": {
+                "en": "Remove first occurrence of value.\n\nRaises ValueError if the value is not present.",
+                "ru": "Удалить первое вхождение значения.\n\nВызывает ValueError, если значение отсутствует."
+            },
+            "reverse": {
+                "en": "Reverse *IN PLACE*.",
+                "ru": "Реверс *НА МЕСТЕ*."
+            },
+            "sort": {
+                "en": "Sort the list in ascending order and return None.\n\nThe sort is in-place (i.e. the list itself is modified) and stable (i.e. the\norder of two equal elements is maintained).\n\nIf a key function is given, apply it once to each list item and sort them,\nascending or descending, according to their function values.\n\nThe reverse flag can be set to sort in descending order.",
+                "ru": "Отсортируйте список в порядке возрастания и верните None.\n\nСортировка оперативная (т.е. сам список изменяется) и стабильная (т.е.\nсохраняется порядок двух равных элементов).\n\nЕсли дана ключевая функция, примените ее один раз к каждому элементу списка и отсортируйте их,\nпо возрастанию или по убыванию, в соответствии со значениями их функций.\n\nФлаг реверса может быть установлен для сортировки в порядке убывания."
+            }
+        }
+    },
+    "map": {
+        "description": {
+            "en": "map(func, *iterables) --> map object\n\nMake an iterator that computes the function using arguments from\neach of the iterables.  Stops when the shortest iterable is exhausted.",
+            "ru": "map(func, *iterables) --> объект карты\n\nСоздайте итератор, который вычисляет функцию, используя аргументы из\nкаждый из итераций. Останавливается, когда самая короткая итерация исчерпана."
+        },
+        "methods": {}
+    },
+    "memoryview": {
+        "description": {
+            "en": "Create a new memoryview object which references the given object.",
+            "ru": "Создайте новый объект памяти, который ссылается на заданный объект."
+        },
+        "methods": {
+            "c_contiguous": {
+                "en": "A bool indicating whether the memory is C contiguous.",
+                "ru": "Логическое значение, указывающее, является ли память непрерывной C."
+            },
+            "cast": {
+                "en": "Cast a memoryview to a new format or shape.",
+                "ru": "Отправьте память в новый формат или форму."
+            },
+            "contiguous": {
+                "en": "A bool indicating whether the memory is contiguous.",
+                "ru": "Логическое значение, указывающее, является ли память непрерывной."
+            },
+            "f_contiguous": {
+                "en": "A bool indicating whether the memory is Fortran contiguous.",
+                "ru": "Логическое значение, указывающее, является ли память непрерывной для Fortran."
+            },
+            "format": {
+                "en": "A string containing the format (in struct module style)\n for each element in the view.",
+                "ru": "Строка, содержащая формат (в стиле модуля struct)\n для каждого элемента в представлении."
+            },
+            "hex": {
+                "en": "Return the data in the buffer as a str of hexadecimal numbers.\n\n  sep\n    An optional single character or byte to separate hex bytes.\n  bytes_per_sep\n    How many bytes between separators.  Positive values count from the\n    right, negative values count from the left.\n\nExample:\n>>> value = memoryview(b'\\xb9\\x01\\xef')\n>>> value.hex()\n'b901ef'\n>>> value.hex(':')\n'b9:01:ef'\n>>> value.hex(':', 2)\n'b9:01ef'\n>>> value.hex(':', -2)\n'b901:ef'",
+                "ru": "Верните данные в буфере как STR шестнадцатеричных чисел.\n\n  сентябрь\n    Дополнительный единственный символ или байт для отдельных шестигранных байтов.\n  bytes_per_sep\n    Сколько байтов между сепараторами.Положительные значения учитываются из\n    Правые отрицательные значения учитываются слева.\n\nПример:\n>>> value = memoryView (b '\\ xb9 \\ x01 \\ xef')\n>>> value.hex ()\n'B901EF'\n>>> value.hex (':')\n'b9: 01: ef'\n>>> value.hex (':', 2)\n'b9: 01ef'\n>>> value.hex (':', -2)\n'b901: ef'"
+            },
+            "itemsize": {
+                "en": "The size in bytes of each element of the memoryview.",
+                "ru": "Размер в байтах каждого элемента представления памяти."
+            },
+            "nbytes": {
+                "en": "The amount of space in bytes that the array would use in\n a contiguous representation.",
+                "ru": "Объем пространства в байтах, который массив будет использовать в\n смежное представление."
+            },
+            "ndim": {
+                "en": "An integer indicating how many dimensions of a multi-dimensional\n array the memory represents.",
+                "ru": "Целое число, указывающее, сколько измерений многомерного\n массив, который представляет память."
+            },
+            "obj": {
+                "en": "The underlying object of the memoryview.",
+                "ru": "Базовый объект memoryview."
+            },
+            "readonly": {
+                "en": "A bool indicating whether the memory is read only.",
+                "ru": "Логическое значение, указывающее, доступна ли память только для чтения."
+            },
+            "release": {
+                "en": "Release the underlying buffer exposed by the memoryview object.",
+                "ru": "Освободите базовый буфер, предоставляемый объектом memoryview."
+            },
+            "shape": {
+                "en": "A tuple of ndim integers giving the shape of the memory\n as an N-dimensional array.",
+                "ru": "Кортеж целых чисел ndim, определяющий форму памяти.\n как N-мерный массив."
+            },
+            "strides": {
+                "en": "A tuple of ndim integers giving the size in bytes to access\n each element for each dimension of the array.",
+                "ru": "Кортеж целых чисел ndim, указывающий размер в байтах для доступа\n каждый элемент для каждого измерения массива."
+            },
+            "suboffsets": {
+                "en": "A tuple of integers used internally for PIL-style arrays.",
+                "ru": "Кортеж целых чисел, используемый внутренне для массивов в стиле PIL."
+            },
+            "tobytes": {
+                "en": "Return the data in the buffer as a byte string.\n\nOrder can be {'C', 'F', 'A'}. When order is 'C' or 'F', the data of the\noriginal array is converted to C or Fortran order. For contiguous views,\n'A' returns an exact copy of the physical memory. In particular, in-memory\nFortran order is preserved. For non-contiguous views, the data is converted\nto C first. order=None is the same as order='C'.",
+                "ru": "Возвращает данные в буфере в виде строки байтов.\n\nПорядок может быть {'C', 'F', 'A'}. Когда порядок «C» или «F», данные\nисходный массив преобразуется в порядок C или Fortran. Для смежных видов,\n'A' возвращает точную копию физической памяти. В частности, в памяти\nФортран порядок сохраняется. Для несмежных представлений данные преобразуются\nсначала на С. order=None совпадает с order='C'."
+            },
+            "tolist": {
+                "en": "Return the data in the buffer as a list of elements.",
+                "ru": "Вернуть данные в буфере в качестве списка элементов."
+            },
+            "toreadonly": {
+                "en": "Return a readonly version of the memoryview.",
+                "ru": "Возвращает версию memoryview только для чтения."
+            }
+        }
+    },
+    "object": {
+        "description": {
+            "en": "The base class of the class hierarchy.\n\nWhen called, it accepts no arguments and returns a new featureless\ninstance that has no instance attributes and cannot be given any.\n",
+            "ru": "Базовый класс иерархии классов.\n\nПри вызове он не принимает никаких аргументов и возвращает новый безликий\nэкземпляр, который не имеет атрибутов экземпляра и не может быть задан."
+        },
+        "methods": {}
+    },
+    "property": {
+        "description": {
+            "en": "Property attribute.\n\n  fget\n    function to be used for getting an attribute value\n  fset\n    function to be used for setting an attribute value\n  fdel\n    function to be used for del'ing an attribute\n  doc\n    docstring\n\nTypical use is to define a managed attribute x:\n\nclass C(object):\n    def getx(self): return self._x\n    def setx(self, value): self._x = value\n    def delx(self): del self._x\n    x = property(getx, setx, delx, \"I'm the 'x' property.\")\n\nDecorators make defining new properties or modifying existing ones easy:\n\nclass C(object):\n    @property\n    def x(self):\n        \"I am the 'x' property.\"\n        return self._x\n    @x.setter\n    def x(self, value):\n        self._x = value\n    @x.deleter\n    def x(self):\n        del self._x",
+            "ru": "Атрибут недвижимости.\n\n  фон\n    функция, которая будет использоваться для получения значения атрибута\n  FSET\n    Функция, которая будет использоваться для настройки значения атрибута\n  fdel\n    функция, которая будет использоваться для Del'ing Attribute\n  док\n    Докстронг\n\nТипичное использование - определить управляемый атрибут x:\n\nкласс C (объект):\n    def getx (self): вернуть self._x\n    def setx (self, value): self._x = значение\n    def delx (self): del self._x\n    x = свойство (getx, setx, delx, \"Я свойство\" x '\")\n\nДекораторы делают определение новых свойств или модифицируя существующие легко:\n\nкласс C (объект):\n    @свойство\n    def x (self):\n        «Я собственность« X ».\n        вернуть self._x\n    @x.setter\n    def x (self, value):\n        self._x = значение\n    @x.deleter\n    def x (self):\n        del self._x"
+        },
+        "methods": {
+            "deleter": {
+                "en": "Descriptor to obtain a copy of the property with a different deleter.",
+                "ru": "Дескриптор для получения копии свойства с другим средством удаления."
+            },
+            "fdel": {
+                "en": null,
+                "ru": "Нету описания"
+            },
+            "fget": {
+                "en": null,
+                "ru": "Нету описания"
+            },
+            "fset": {
+                "en": null,
+                "ru": "Нету описания"
+            },
+            "getter": {
+                "en": "Descriptor to obtain a copy of the property with a different getter.",
+                "ru": "Дескриптор для получения копии свойства с другим геттером."
+            },
+            "setter": {
+                "en": "Descriptor to obtain a copy of the property with a different setter.",
+                "ru": "Дескриптор для получения копии свойства с другим установщиком."
+            }
+        }
+    },
+    "range": {
+        "description": {
+            "en": "range(stop) -> range object\nrange(start, stop[, step]) -> range object\n\nReturn an object that produces a sequence of integers from start (inclusive)\nto stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.\nstart defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.\nThese are exactly the valid indices for a list of 4 elements.\nWhen step is given, it specifies the increment (or decrement).",
+            "ru": "диапазон (стоп) -> объект диапазона\nдиапазон (начало, стоп [, шаг]) -> объект диапазона\n\nВозвращает объект, который производит последовательность целых чисел от начала (включительно)\nостанавливать (эксклюзивно) шаг за шагом. range(i, j) дает i, i+1, i+2, ..., j-1.\nstart по умолчанию равен 0, а stop опущен! range(4) производит 0, 1, 2, 3.\nЭто в точности допустимые индексы для списка из 4 элементов.\nКогда указан шаг, он указывает приращение (или уменьшение)."
+        },
+        "methods": {
+            "count": {
+                "en": "rangeobject.count(value) -> integer -- return number of occurrences of value",
+                "ru": "rangeobject.count (значение) -> целое число -возвращаемое число случаев вхождения значения"
+            },
+            "index": {
+                "en": "rangeobject.index(value) -> integer -- return index of value.\nRaise ValueError if the value is not present.",
+                "ru": "rangeobject.index(value) -> integer -- возвращаемый индекс значения.\nПоднимите ValueError, если значение отсутствует."
+            },
+            "start": {
+                "en": null,
+                "ru": "Нету описания"
+            },
+            "step": {
+                "en": null,
+                "ru": "Нету описания"
+            },
+            "stop": {
+                "en": null,
+                "ru": "Нету описания"
+            }
+        }
+    },
+    "reversed": {
+        "description": {
+            "en": "Return a reverse iterator over the values of the given sequence.",
+            "ru": "Возвращает обратный итератор по значениям заданной последовательности."
+        },
+        "methods": {}
+    },
+    "set": {
+        "description": {
+            "en": "set() -> new empty set object\nset(iterable) -> new set object\n\nBuild an unordered collection of unique elements.",
+            "ru": "set () -> новый пустой объект Set\nset (iterable) -> Новый объект SET\n\nСоздайте неупорядоченную коллекцию уникальных элементов."
+        },
+        "methods": {
+            "add": {
+                "en": "Add an element to a set.\n\nThis has no effect if the element is already present.",
+                "ru": "Добавьте элемент в набор.\n\nЭто не имеет никакого эффекта, если элемент уже присутствует."
+            },
+            "clear": {
+                "en": "Remove all elements from this set.",
+                "ru": "Удалите все элементы из этого набора."
+            },
+            "copy": {
+                "en": "Return a shallow copy of a set.",
+                "ru": "Вернуть мелкую копию набора."
+            },
+            "difference": {
+                "en": "Return the difference of two or more sets as a new set.\n\n(i.e. all elements that are in this set but not the others.)",
+                "ru": "Верните разницу двух или более наборов в качестве нового набора.\n\n(т.е. все элементы, которые есть в этом наборе, но не в других.)"
+            },
+            "difference_update": {
+                "en": "Remove all elements of another set from this set.",
+                "ru": "Удалите все элементы другого набора из этого набора."
+            },
+            "discard": {
+                "en": "Remove an element from a set if it is a member.\n\nIf the element is not a member, do nothing.",
+                "ru": "Удалить элемент из набора, если он является членом.\n\nЕсли элемент не является членом, ничего не делайте."
+            },
+            "intersection": {
+                "en": "Return the intersection of two sets as a new set.\n\n(i.e. all elements that are in both sets.)",
+                "ru": "Верните пересечение двух наборов в качестве нового набора.\n\n(то есть все элементы, которые находятся в обоих наборах.)"
+            },
+            "intersection_update": {
+                "en": "Update a set with the intersection of itself and another.",
+                "ru": "Обновите набор с пересечением себя и другого."
+            },
+            "isdisjoint": {
+                "en": "Return True if two sets have a null intersection.",
+                "ru": "Верните True, если два набора имеют нулевое пересечение."
+            },
+            "issubset": {
+                "en": "Report whether another set contains this set.",
+                "ru": "Сообщите, содержит ли другой набор этот набор."
+            },
+            "issuperset": {
+                "en": "Report whether this set contains another set.",
+                "ru": "Сообщите, содержит ли этот набор другой набор."
+            },
+            "pop": {
+                "en": "Remove and return an arbitrary set element.\nRaises KeyError if the set is empty.",
+                "ru": "Удалить и вернуть произвольный элемент набора.\nПовышает Keyerror, если набор пуст."
+            },
+            "remove": {
+                "en": "Remove an element from a set; it must be a member.\n\nIf the element is not a member, raise a KeyError.",
+                "ru": "Удалить элемент из набора;это должен быть участник.\n\nЕсли элемент не является участником, поднимите KeeError."
+            },
+            "symmetric_difference": {
+                "en": "Return the symmetric difference of two sets as a new set.\n\n(i.e. all elements that are in exactly one of the sets.)",
+                "ru": "Верните симметричную разность двух наборов как новый набор.\n\n(т.е. все элементы, которые находятся ровно в одном из наборов.)"
+            },
+            "symmetric_difference_update": {
+                "en": "Update a set with the symmetric difference of itself and another.",
+                "ru": "Обновите набор с симметричной разностью себя и другого."
+            },
+            "union": {
+                "en": "Return the union of sets as a new set.\n\n(i.e. all elements that are in either set.)",
+                "ru": "Вернуть объединение наборов как новый набор.\n\n(т.е. все элементы, которые есть в любом наборе.)"
+            },
+            "update": {
+                "en": "Update a set with the union of itself and others.",
+                "ru": "Обновите набор с объединением себя и других."
+            }
+        }
+    },
+    "slice": {
+        "description": {
+            "en": "slice(stop)\nslice(start, stop[, step])\n\nCreate a slice object.  This is used for extended slicing (e.g. a[0:10:2]).",
+            "ru": "ломтик (стоп)\nсрез (начало, стоп [, шаг])\n\nСоздайте объект среза. Это используется для расширенной нарезки (например, a[0:10:2])."
+        },
+        "methods": {
+            "indices": {
+                "en": "S.indices(len) -> (start, stop, stride)\n\nAssuming a sequence of length len, calculate the start and stop\nindices, and the stride length of the extended slice described by\nS. Out of bounds indices are clipped in a manner consistent with the\nhandling of normal slices.",
+                "ru": "S.Indices (Len) -> (Start, Stop, Speard)\n\nПредполагая последовательность длины LEN, рассчитайте начало и остановите\nИндексы и длину шага расширенного среза, описанного\nS. Вне грани\nобработка нормальных ломтиков."
+            },
+            "start": {
+                "en": null,
+                "ru": "Нету описания"
+            },
+            "step": {
+                "en": null,
+                "ru": "Нету описания"
+            },
+            "stop": {
+                "en": null,
+                "ru": "Нету описания"
+            }
+        }
+    },
+    "staticmethod": {
+        "description": {
+            "en": "staticmethod(function) -> method\n\nConvert a function to be a static method.\n\nA static method does not receive an implicit first argument.\nTo declare a static method, use this idiom:\n\n     class C:\n         @staticmethod\n         def f(arg1, arg2, ...):\n             ...\n\nIt can be called either on the class (e.g. C.f()) or on an instance\n(e.g. C().f()). Both the class and the instance are ignored, and\nneither is passed implicitly as the first argument to the method.\n\nStatic methods in Python are similar to those found in Java or C++.\nFor a more advanced concept, see the classmethod builtin.",
+            "ru": "staticmethod (function) -> Метод\n\nПреобразовать функцию, чтобы быть статическим методом.\n\nСтатический метод не получает неявный первый аргумент.\nЧтобы объявить статический метод, используйте эту идиому:\n\n     Класс C:\n         @staticmethod\n         def f (arg1, arg2, ...):\n             ...\n\nЕго можно назвать либо в классе (например, c.f ()) или в экземпляре\n(например, c (). f ()).И класс, и экземпляр игнорируются, и\nНи один из них не передается неявно в качестве первого аргумента метода.\n\nСтатические методы в Python аналогичны тем, которые обнаружены в Java или C ++.\nДля более продвинутой концепции см. Classmethod Buildin."
+        },
+        "methods": {}
+    },
+    "str": {
+        "description": {
+            "en": "str(object='') -> str\nstr(bytes_or_buffer[, encoding[, errors]]) -> str\n\nCreate a new string object from the given object. If encoding or\nerrors is specified, then the object must expose a data buffer\nthat will be decoded using the given encoding and error handler.\nOtherwise, returns the result of object.__str__() (if defined)\nor repr(object).\nencoding defaults to sys.getdefaultencoding().\nerrors defaults to 'strict'.",
+            "ru": "ул(объект='') -> ул\nstr(bytes_or_buffer[, кодировка[, ошибки]]) -> str\n\nСоздайте новый строковый объект из данного объекта. Если кодировать или\nошибок, то объект должен предоставить буфер данных\nкоторый будет декодирован с использованием данной кодировки и обработчика ошибок.\nВ противном случае возвращает результат object.__str__() (если определено)\nили репр(объект).\nКодировка по умолчанию — sys.getdefaultencoding().\nошибки по умолчанию «строгие»."
+        },
+        "methods": {
+            "capitalize": {
+                "en": "Return a capitalized version of the string.\n\nMore specifically, make the first character have upper case and the rest lower\ncase.",
+                "ru": "Возвращает заглавную версию строки.\n\nВ частности, сделайте первый символ в верхнем регистре, а остальные в нижнем.\nслучай."
+            },
+            "casefold": {
+                "en": "Return a version of the string suitable for caseless comparisons.",
+                "ru": "Верните версию строки, подходящую для безборных сравнений."
+            },
+            "center": {
+                "en": "Return a centered string of length width.\n\nPadding is done using the specified fill character (default is a space).",
+                "ru": "Возвращает центрированную строку длины ширины.\n\nЗаполнение выполняется с использованием указанного символа заполнения (по умолчанию — пробел)."
+            },
+            "count": {
+                "en": "S.count(sub[, start[, end]]) -> int\n\nReturn the number of non-overlapping occurrences of substring sub in\nstring S[start:end].  Optional arguments start and end are\ninterpreted as in slice notation.",
+                "ru": "S.count(sub[, start[, end]]) -> int\n\nВозвращает количество непересекающихся вхождений подстроки sub в\nстрока S[начало:конец]. Необязательные аргументы start и end\nинтерпретируется как в нотации среза."
+            },
+            "encode": {
+                "en": "Encode the string using the codec registered for encoding.\n\n  encoding\n    The encoding in which to encode the string.\n  errors\n    The error handling scheme to use for encoding errors.\n    The default is 'strict' meaning that encoding errors raise a\n    UnicodeEncodeError.  Other possible values are 'ignore', 'replace' and\n    'xmlcharrefreplace' as well as any other name registered with\n    codecs.register_error that can handle UnicodeEncodeErrors.",
+                "ru": "Закодируйте строку, используя кодек, зарегистрированный для кодирования.\n\n  кодирование\n    Кодировка, в которой следует закодировать строку.\n  ошибки\n    Схема обработки ошибок, используемая для кодирования ошибок.\n    По умолчанию используется «строгий», что означает, что ошибки кодирования вызывают\n    UnicodeEncodeError. Другими возможными значениями являются «игнорировать», «заменять» и\n    'xmlcharrefreplace', а также любое другое имя, зарегистрированное в\n    codecs.register_error, который может обрабатывать ошибки UnicodeEncodeError."
+            },
+            "endswith": {
+                "en": "S.endswith(suffix[, start[, end]]) -> bool\n\nReturn True if S ends with the specified suffix, False otherwise.\nWith optional start, test S beginning at that position.\nWith optional end, stop comparing S at that position.\nsuffix can also be a tuple of strings to try.",
+                "ru": "S.endswith(suffix[, start[, end]]) -> bool\n\nВозвращает True, если S заканчивается указанным суффиксом, в противном случае — False.\nС необязательным запуском проверьте S, начиная с этой позиции.\nС необязательным концом прекратите сравнение S в этой позиции.\nсуффикс также может быть кортежем строк, который нужно попробовать."
+            },
+            "expandtabs": {
+                "en": "Return a copy where all tab characters are expanded using spaces.\n\nIf tabsize is not given, a tab size of 8 characters is assumed.",
+                "ru": "Вернуть копию, в которой все символы табуляции расширены пробелами.\n\nЕсли размер табуляции не указан, предполагается, что размер табуляции составляет 8 символов."
+            },
+            "find": {
+                "en": "S.find(sub[, start[, end]]) -> int\n\nReturn the lowest index in S where substring sub is found,\nsuch that sub is contained within S[start:end].  Optional\narguments start and end are interpreted as in slice notation.\n\nReturn -1 on failure.",
+                "ru": "S.find(sub[, start[, end]]) -> int\n\nВозвращает самый низкий индекс в S, где найдена подстрока,\nтак что sub содержится в S[start:end]. Необязательный\nаргументы start и end интерпретируются как в нотации среза.\n\nВозврат -1 в случае неудачи."
+            },
+            "format": {
+                "en": "S.format(*args, **kwargs) -> str\n\nReturn a formatted version of S, using substitutions from args and kwargs.\nThe substitutions are identified by braces ('{' and '}').",
+                "ru": "S.format(*args, **kwargs) -> ул\n\nВернуть отформатированную версию S, используя замены из args и kwargs.\nЗамены обозначаются фигурными скобками ('{' и '}')."
+            },
+            "format_map": {
+                "en": "S.format_map(mapping) -> str\n\nReturn a formatted version of S, using substitutions from mapping.\nThe substitutions are identified by braces ('{' and '}').",
+                "ru": "S.format_map (отображение) -> ул\n\nВерните отформатированную версию S, используя замены из сопоставления.\nЗамены обозначаются фигурными скобками ('{' и '}')."
+            },
+            "index": {
+                "en": "S.index(sub[, start[, end]]) -> int\n\nReturn the lowest index in S where substring sub is found,\nsuch that sub is contained within S[start:end].  Optional\narguments start and end are interpreted as in slice notation.\n\nRaises ValueError when the substring is not found.",
+                "ru": "S.index(sub[, start[, end]]) -> int\n\nВозвращает самый низкий индекс в S, где найдена подстрока,\nтак что sub содержится в S[start:end]. Необязательный\nаргументы start и end интерпретируются как в нотации среза.\n\nВызывает ValueError, когда подстрока не найдена."
+            },
+            "isalnum": {
+                "en": "Return True if the string is an alpha-numeric string, False otherwise.\n\nA string is alpha-numeric if all characters in the string are alpha-numeric and\nthere is at least one character in the string.",
+                "ru": "Верните True, если строка является альфа-нучевой строкой, False в противном случае.\n\nСтрока является альфа-цифровым цифром, если все символы в строке являются альфа-цифровыми и цифровыми и\nВ строке есть хотя бы один символ."
+            },
+            "isalpha": {
+                "en": "Return True if the string is an alphabetic string, False otherwise.\n\nA string is alphabetic if all characters in the string are alphabetic and there\nis at least one character in the string.",
+                "ru": "Возвращает True, если строка представляет собой буквенную строку, и False в противном случае.\n\nСтрока является буквенной, если все символы в строке являются буквенными и\nхотя бы один символ в строке."
+            },
+            "isascii": {
+                "en": "Return True if all characters in the string are ASCII, False otherwise.\n\nASCII characters have code points in the range U+0000-U+007F.\nEmpty string is ASCII too.",
+                "ru": "Возвращает True, если все символы в строке ASCII, в противном случае — False.\n\nСимволы ASCII имеют кодовые точки в диапазоне от U+0000 до U+007F.\nПустая строка тоже ASCII."
+            },
+            "isdecimal": {
+                "en": "Return True if the string is a decimal string, False otherwise.\n\nA string is a decimal string if all characters in the string are decimal and\nthere is at least one character in the string.",
+                "ru": "Возвращает True, если строка представляет собой десятичную строку, в противном случае — False.\n\nСтрока является десятичной строкой, если все символы в строке десятичные и\nв строке есть хотя бы один символ."
+            },
+            "isdigit": {
+                "en": "Return True if the string is a digit string, False otherwise.\n\nA string is a digit string if all characters in the string are digits and there\nis at least one character in the string.",
+                "ru": "Верните True, если строка является строкой цифры, False в противном случае.\n\nСтрока - это цифровая строка, если все символы в строке являются цифрами и там\nпо крайней мере один символ в строке."
+            },
+            "isidentifier": {
+                "en": "Return True if the string is a valid Python identifier, False otherwise.\n\nCall keyword.iskeyword(s) to test whether string s is a reserved identifier,\nsuch as \"def\" or \"class\".",
+                "ru": "Верните True, если строка является допустимым идентификатором Python, в противном случае — False.\n\nВызовите keyword.iskeyword(s), чтобы проверить, является ли строка s зарезервированным идентификатором,\nнапример, \"def\" или \"class\"."
+            },
+            "islower": {
+                "en": "Return True if the string is a lowercase string, False otherwise.\n\nA string is lowercase if all cased characters in the string are lowercase and\nthere is at least one cased character in the string.",
+                "ru": "Верните True, если строка является строчной строкой, false в противном случае.\n\nСтрока является строчной строкой, если все символы в строке являются строчными и\nВ строке есть хотя бы один символ."
+            },
+            "isnumeric": {
+                "en": "Return True if the string is a numeric string, False otherwise.\n\nA string is numeric if all characters in the string are numeric and there is at\nleast one character in the string.",
+                "ru": "Возвращает True, если строка представляет собой числовую строку, в противном случае — False.\n\nСтрока является числовой, если все символы в строке числовые и\nхотя бы один символ в строке."
+            },
+            "isprintable": {
+                "en": "Return True if the string is printable, False otherwise.\n\nA string is printable if all of its characters are considered printable in\nrepr() or if it is empty.",
+                "ru": "Верните True, если строка может печатать, false в противном случае.\n\nСтрока печатается, если все его символы считаются печатными в печати в\nrepr () или если он пуст."
+            },
+            "isspace": {
+                "en": "Return True if the string is a whitespace string, False otherwise.\n\nA string is whitespace if all characters in the string are whitespace and there\nis at least one character in the string.",
+                "ru": "Верните True, если строка является пробелой строкой, false в противном случае.\n\nСтрока - это пробел, если все символы в строке являются пробелами и там\nпо крайней мере один символ в строке."
+            },
+            "istitle": {
+                "en": "Return True if the string is a title-cased string, False otherwise.\n\nIn a title-cased string, upper- and title-case characters may only\nfollow uncased characters and lowercase characters only cased ones.",
+                "ru": "Возвращает True, если строка является строкой с заглавным регистром, в противном случае — False.\n\nВ строке с заглавным регистром символы верхнего и заглавного регистра могут быть только\nследовать за символами без регистра и строчными буквами только за регистром."
+            },
+            "isupper": {
+                "en": "Return True if the string is an uppercase string, False otherwise.\n\nA string is uppercase if all cased characters in the string are uppercase and\nthere is at least one cased character in the string.",
+                "ru": "Возвращает True, если строка является строкой в ​​верхнем регистре, в противном случае — False.\n\nСтрока является прописной, если все символы в строке в верхнем регистре и\nв строке есть хотя бы один символ в регистре."
+            },
+            "join": {
+                "en": "Concatenate any number of strings.\n\nThe string whose method is called is inserted in between each given string.\nThe result is returned as a new string.\n\nExample: '.'.join(['ab', 'pq', 'rs']) -> 'ab.pq.rs'",
+                "ru": "Объединяйте любое количество строк.\n\nСтрока, метод которой вызывается, вставляется между каждой заданной строкой.\nРезультат возвращается в виде новой строки.\n\nПример: '.'.join(['ab', 'pq', 'rs']) -> 'ab.pq.rs'"
+            },
+            "ljust": {
+                "en": "Return a left-justified string of length width.\n\nPadding is done using the specified fill character (default is a space).",
+                "ru": "Возвращает выровненную по левому краю строку длины ширины.\n\nЗаполнение выполняется с использованием указанного символа заполнения (по умолчанию — пробел)."
+            },
+            "lower": {
+                "en": "Return a copy of the string converted to lowercase.",
+                "ru": "Возвращает копию строки, преобразованную в нижний регистр."
+            },
+            "lstrip": {
+                "en": "Return a copy of the string with leading whitespace removed.\n\nIf chars is given and not None, remove characters in chars instead.",
+                "ru": "Верните копию строки с удаленным ведущим пробелом.\n\nЕсли chars дается и нет, вместо этого удалите символы в Chars."
+            },
+            "maketrans": {
+                "en": "Return a translation table usable for str.translate().\n\nIf there is only one argument, it must be a dictionary mapping Unicode\nordinals (integers) or characters to Unicode ordinals, strings or None.\nCharacter keys will be then converted to ordinals.\nIf there are two arguments, they must be strings of equal length, and\nin the resulting dictionary, each character in x will be mapped to the\ncharacter at the same position in y. If there is a third argument, it\nmust be a string, whose characters will be mapped to None in the result.",
+                "ru": "Верните таблицу перевода, используемой для str.translate ().\n\nЕсли есть только один аргумент, это должно быть картирование словаря Unicode\nординалы (целые числа) или символы для ординалов Unicode, строк или ни одного.\nКлючи символов будут затем преобразованы в ординалы.\nЕсли есть два аргумента, они должны быть строками равной длины, и\nВ полученном словаре каждый персонаж в x будет нанесен на карту на\nперсонаж в той же положении в y.Если есть третий аргумент, это\nДолжен быть строка, чьи символы будут нанесены на карту ни на что в результате."
+            },
+            "partition": {
+                "en": "Partition the string into three parts using the given separator.\n\nThis will search for the separator in the string.  If the separator is found,\nreturns a 3-tuple containing the part before the separator, the separator\nitself, and the part after it.\n\nIf the separator is not found, returns a 3-tuple containing the original string\nand two empty strings.",
+                "ru": "Разделите строку на три части, используя заданный разделитель.\n\nЭто будет искать разделитель в строке. Если разделитель найден,\nвозвращает тройку, содержащую часть перед разделителем, разделитель\nсама и часть после нее.\n\nЕсли разделитель не найден, возвращает тройку, содержащую исходную строку.\nи две пустые строки."
+            },
+            "removeprefix": {
+                "en": "Return a str with the given prefix string removed if present.\n\nIf the string starts with the prefix string, return string[len(prefix):].\nOtherwise, return a copy of the original string.",
+                "ru": "Верните STR с помощью заданной строки префикса, удаленной, если он присутствует.\n\nЕсли строка начинается со строки префикса, верните строку [len (prefix):].\nВ противном случае верните копию исходной строки."
+            },
+            "removesuffix": {
+                "en": "Return a str with the given suffix string removed if present.\n\nIf the string ends with the suffix string and that suffix is not empty,\nreturn string[:-len(suffix)]. Otherwise, return a copy of the original\nstring.",
+                "ru": "Возвращает строку с удаленной строкой данного суффикса, если она присутствует.\n\nЕсли строка заканчивается строкой суффикса и этот суффикс не пуст,\nвозвращаемая строка[:-len(суффикс)]. В противном случае верните копию оригинала\nнить."
+            },
+            "replace": {
+                "en": "Return a copy with all occurrences of substring old replaced by new.\n\n  count\n    Maximum number of occurrences to replace.\n    -1 (the default value) means replace all occurrences.\n\nIf the optional argument count is given, only the first count occurrences are\nreplaced.",
+                "ru": "Верните копию со всеми событиями подстроения старой, замененной новой.\n\n  считать\n    Максимальное количество случаев для замены.\n    -1 (значение по умолчанию) означает замену всех вхождений.\n\nЕсли дается дополнительное количество аргументов, только первые случаи подсчета\nзаменены."
+            },
+            "rfind": {
+                "en": "S.rfind(sub[, start[, end]]) -> int\n\nReturn the highest index in S where substring sub is found,\nsuch that sub is contained within S[start:end].  Optional\narguments start and end are interpreted as in slice notation.\n\nReturn -1 on failure.",
+                "ru": "S.rfind (sub [, start [, end]]) -> int\n\nВернуть самый высокий индекс в s, где находится подстроение подстроения,\nТакое, что Sub содержится в S [Start: End].Необязательный\nАргументы начинаются и конец интерпретируются как в срезах.\n\nВозврат -1 при неудаче."
+            },
+            "rindex": {
+                "en": "S.rindex(sub[, start[, end]]) -> int\n\nReturn the highest index in S where substring sub is found,\nsuch that sub is contained within S[start:end].  Optional\narguments start and end are interpreted as in slice notation.\n\nRaises ValueError when the substring is not found.",
+                "ru": "S.rindex(sub[, start[, end]]) -> int\n\nВозвращает самый высокий индекс в S, где найдена подстрока,\nтак что sub содержится в S[start:end]. Необязательный\nаргументы start и end интерпретируются как в нотации среза.\n\nВызывает ValueError, когда подстрока не найдена."
+            },
+            "rjust": {
+                "en": "Return a right-justified string of length width.\n\nPadding is done using the specified fill character (default is a space).",
+                "ru": "Возвращает выровненную по правому краю строку длины ширины.\n\nЗаполнение выполняется с использованием указанного символа заполнения (по умолчанию — пробел)."
+            },
+            "rpartition": {
+                "en": "Partition the string into three parts using the given separator.\n\nThis will search for the separator in the string, starting at the end. If\nthe separator is found, returns a 3-tuple containing the part before the\nseparator, the separator itself, and the part after it.\n\nIf the separator is not found, returns a 3-tuple containing two empty strings\nand the original string.",
+                "ru": "Разделите строку на три части, используя заданный разделитель.\n\nЭто будет искать разделитель в строке, начиная с конца. Если\nразделитель найден, возвращает тройку, содержащую часть перед\nразделитель, сам разделитель и часть после него.\n\nЕсли разделитель не найден, возвращает тройку, содержащую две пустые строки.\nи исходная строка."
+            },
+            "rsplit": {
+                "en": "Return a list of the substrings in the string, using sep as the separator string.\n\n  sep\n    The separator used to split the string.\n\n    When set to None (the default value), will split on any whitespace\n    character (including \\\\n \\\\r \\\\t \\\\f and spaces) and will discard\n    empty strings from the result.\n  maxsplit\n    Maximum number of splits (starting from the left).\n    -1 (the default value) means no limit.\n\nSplitting starts at the end of the string and works to the front.",
+                "ru": "Возвращает список подстрок в строке, используя sep в качестве строки-разделителя.\n\n  сен\n    Разделитель, используемый для разделения строки.\n\n    Если установлено значение «Нет» (значение по умолчанию), разделятся на любые пробелы.\n    символов (включая \\\\n \\\\r \\\\t \\\\f и пробелы) и отбрасывает\n    пустые строки из результата.\n  макссплит\n    Максимальное количество сплитов (начиная слева).\n    -1 (значение по умолчанию) означает отсутствие ограничений.\n\nРазделение начинается с конца строки и идет вперед."
+            },
+            "rstrip": {
+                "en": "Return a copy of the string with trailing whitespace removed.\n\nIf chars is given and not None, remove characters in chars instead.",
+                "ru": "Возвращает копию строки с удаленными пробелами в конце.\n\nЕсли указано chars, а не None, вместо этого удалите символы в chars."
+            },
+            "split": {
+                "en": "Return a list of the substrings in the string, using sep as the separator string.\n\n  sep\n    The separator used to split the string.\n\n    When set to None (the default value), will split on any whitespace\n    character (including \\\\n \\\\r \\\\t \\\\f and spaces) and will discard\n    empty strings from the result.\n  maxsplit\n    Maximum number of splits (starting from the left).\n    -1 (the default value) means no limit.\n\nNote, str.split() is mainly useful for data that has been intentionally\ndelimited.  With natural text that includes punctuation, consider using\nthe regular expression module.",
+                "ru": "Возвращает список подстрок в строке, используя sep в качестве строки-разделителя.\n\n  сен\n    Разделитель, используемый для разделения строки.\n\n    Если установлено значение «Нет» (значение по умолчанию), разделятся на любые пробелы.\n    символов (включая \\\\n \\\\r \\\\t \\\\f и пробелы) и отбрасывает\n    пустые строки из результата.\n  макссплит\n    Максимальное количество сплитов (начиная слева).\n    -1 (значение по умолчанию) означает отсутствие ограничений.\n\nОбратите внимание, что функция str.split() в основном полезна для данных, которые были намеренно\nограниченный. С естественным текстом, включающим знаки препинания, рассмотрите возможность использования\nмодуль регулярных выражений."
+            },
+            "splitlines": {
+                "en": "Return a list of the lines in the string, breaking at line boundaries.\n\nLine breaks are not included in the resulting list unless keepends is given and\ntrue.",
+                "ru": "Возвращает список строк в строке, разрывая границы строк.\n\nРазрывы строк не включаются в результирующий список, если не заданы keepends и\nистинный."
+            },
+            "startswith": {
+                "en": "S.startswith(prefix[, start[, end]]) -> bool\n\nReturn True if S starts with the specified prefix, False otherwise.\nWith optional start, test S beginning at that position.\nWith optional end, stop comparing S at that position.\nprefix can also be a tuple of strings to try.",
+                "ru": "S.StartSwith (префикс [, start [, end]]) -> bool\n\nВерните True, если S начинается с указанного префикса, false в противном случае.\nС необязательным стартом тест S, начинающийся в этой позиции.\nС необязательным концом, прекратите сравнивать S в этой позиции.\nПрефикс также может быть кортежом струн, чтобы попробовать."
+            },
+            "strip": {
+                "en": "Return a copy of the string with leading and trailing whitespace removed.\n\nIf chars is given and not None, remove characters in chars instead.",
+                "ru": "Возвращает копию строки с удаленными начальными и конечными пробелами.\n\nЕсли указано chars, а не None, вместо этого удалите символы в chars."
+            },
+            "swapcase": {
+                "en": "Convert uppercase characters to lowercase and lowercase characters to uppercase.",
+                "ru": "Преобразование символов верхнего регистра в нижний регистр и символов нижнего регистра в верхний регистр."
+            },
+            "title": {
+                "en": "Return a version of the string where each word is titlecased.\n\nMore specifically, words start with uppercased characters and all remaining\ncased characters have lower case.",
+                "ru": "Верните версию строки, где каждое слово установлено.\n\nБолее конкретно, слова начинаются с высококвалентных символов и всех оставшихся\nУкладки персонажей имеют более низкий корпус."
+            },
+            "translate": {
+                "en": "Replace each character in the string using the given translation table.\n\n  table\n    Translation table, which must be a mapping of Unicode ordinals to\n    Unicode ordinals, strings, or None.\n\nThe table must implement lookup/indexing via __getitem__, for instance a\ndictionary or list.  If this operation raises LookupError, the character is\nleft untouched.  Characters mapped to None are deleted.",
+                "ru": "Замените каждый символ в строке, используя данную таблицу перевода.\n\n  стол\n    Таблица перевода, которая должна представлять собой сопоставление порядковых номеров Unicode с\n    Порядковые номера Unicode, строки или None.\n\nВ таблице должен быть реализован поиск/индексация через __getitem__, например\nсловарь или список. Если эта операция вызывает LookupError, символ\nоставили нетронутым. Символы, сопоставленные с None, удаляются."
+            },
+            "upper": {
+                "en": "Return a copy of the string converted to uppercase.",
+                "ru": "Возвращает копию строки, преобразованную в верхний регистр."
+            },
+            "zfill": {
+                "en": "Pad a numeric string with zeros on the left, to fill a field of the given width.\n\nThe string is never truncated.",
+                "ru": "Дополнить числовую строку нулями слева, чтобы заполнить поле заданной ширины.\n\nСтрока никогда не усекается."
+            }
+        }
+    },
+    "super": {
+        "description": {
+            "en": "super() -> same as super(__class__, <first argument>)\nsuper(type) -> unbound super object\nsuper(type, obj) -> bound super object; requires isinstance(obj, type)\nsuper(type, type2) -> bound super object; requires issubclass(type2, type)\nTypical use to call a cooperative superclass method:\nclass C(B):\n    def meth(self, arg):\n        super().meth(arg)\nThis works for class methods too:\nclass C(B):\n    @classmethod\n    def cmeth(cls, arg):\n        super().cmeth(arg)\n",
+            "ru": "Super () -> То же, что и Super (__ class__, <первый аргумент>)\nSuper (Type) -> Unbound Super Object\nSuper (Type, obj) -> Bound Super Object;Требуется ISINSTANCE (OBJ, тип)\nSuper (type, type2) -> Bound Super Object;Требуется IssubClass (Type2, Type)\nТипичное использование для вызова кооперативного метода суперкласса:\nкласс C (B):\n    def Meth (Self, Arg):\n        Super (). Мет (arg)\nЭто работает и для методов класса:\nкласс C (B):\n    @classmethod\n    def Cmeth (cls, arg):\n        Super (). Cmeth (arg)"
+        },
+        "methods": {}
+    },
+    "tuple": {
+        "description": {
+            "en": "Built-in immutable sequence.\n\nIf no argument is given, the constructor returns an empty tuple.\nIf iterable is specified the tuple is initialized from iterable's items.\n\nIf the argument is a tuple, the return value is the same object.",
+            "ru": "Встроенная неизменяемая последовательность.\n\nЕсли аргумент не указан, конструктор возвращает пустой кортеж.\nЕсли указан iterable, кортеж инициализируется из элементов iterable.\n\nЕсли аргумент является кортежем, возвращаемое значение является тем же объектом."
+        },
+        "methods": {
+            "count": {
+                "en": "Return number of occurrences of value.",
+                "ru": "Возвращает количество вхождений значения."
+            },
+            "index": {
+                "en": "Return first index of value.\n\nRaises ValueError if the value is not present.",
+                "ru": "Возвращает первый индекс значения.\n\nВызывает ValueError, если значение отсутствует."
+            }
+        }
+    },
+    "type": {
+        "description": {
+            "en": "type(object) -> the object's type\ntype(name, bases, dict, **kwds) -> a new type",
+            "ru": "тип(объект) -> тип объекта\ntype(name, bases, dict, **kwds) -> новый тип"
+        },
+        "methods": {
+            "mro": {
+                "en": "Return a type's method resolution order.",
+                "ru": "Возвращает порядок разрешения метода типа."
+            }
+        }
+    },
+    "zip": {
+        "description": {
+            "en": "zip(*iterables, strict=False) --> Yield tuples until an input is exhausted.\n\n   >>> list(zip('abcdefg', range(3), range(4)))\n   [('a', 0, 0), ('b', 1, 1), ('c', 2, 2)]\n\nThe zip object yields n-length tuples, where n is the number of iterables\npassed as positional arguments to zip().  The i-th element in every tuple\ncomes from the i-th iterable argument to zip().  This continues until the\nshortest argument is exhausted.\n\nIf strict is true and one of the arguments is exhausted before the others,\nraise a ValueError.",
+            "ru": "Zip (*iterables, strict = false) -> утечь кортежи до тех пор, пока вход не будет исчерпан.\n\n   >>> Список (ZIP ('ABCDEFG', диапазон (3), диапазон (4))))\n   [('a', 0, 0), ('b', 1, 1), ('c', 2, 2)]]\n\nОбъект Zip дает кортежи N-длины, где n-количество итераблев.\nпередано в качестве позиционных аргументов в Zip ().Элемент i-й в каждом кортеже\nпроисходит от итерабильного аргумента до Zip ().Это продолжается до\nСамый короткий аргумент истощен.\n\nЕсли строго верно, а один из аргументов исчерпана перед другими,\nПоднимите стоимость."
+        },
+        "methods": {}
+    }
+}

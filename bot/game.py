@@ -2,20 +2,25 @@ from aiogram import types
 import os
 import random
 import json
-from main import bot
-from bot.keyboards import buttons_answer, buttons_no_menu
-from main import db
+# from main import bot
+# from bot.keyboards import buttons_answer, buttons_no_menu
+# from main import db
 
 file_list = os.getcwd()
 
 if os.name == 'posix':
     json_files = [file_list+'/app/word_3-5.json']
+    json_files2 = [file_list+'/app/perevod_no_error.json']
 else:
     json_files = [file_list+'\\app\word_3-5.json']
+    json_files2 = [file_list+'\\app\perevod_no_error.json']
 
 
 with open(json_files[0], 'r', encoding='utf-8') as file:
     data1 = json.load(file)
+
+with open(json_files2[0], 'r', encoding='utf-8') as file:
+    word_metod = json.load(file)
 
 def escape_markdownv2(text):
     reserved_chars = '\\_*[]()~`>#+-=|{}.!'
@@ -28,15 +33,27 @@ def escape_markdownv2(text):
     return escaped_text
 
 def generate_offer(mes_or_key):
-    word = random.choice(list(data1.keys()))
-    word_translate = data1[word]
-    return (word, word_translate)
+    word = random.choice(list(word_metod.keys()))
+    word_translate_en = word_metod[word]["description"]["en"]
+    word_translate_ru = word_metod[word]["description"]["ru"]
+    metod_word = random.choice(list(word_metod[word]["methods"].keys()))
+    metod_word_en = word_metod[word]["methods"][metod_word]["en"]
+    metod_word_ru = word_metod[word]["methods"][metod_word]["ru"]
+    return (word, word_translate_en, word_translate_ru, metod_word, metod_word_en, metod_word_ru)
 
 # вывести в отдельную функцию генерацию ответа offer_and_translate
 def offer_and_translate(mes_or_key):
     word = generate_offer(mes_or_key)
-    word2 = escape_markdownv2(word[1][1])
-    offer = f"{word[0]}\n ||{word[1][0]}, {word2}||"
+
+    word0 = word[0]
+    word1 = escape_markdownv2(word[1])
+    word2 = escape_markdownv2(word[2])
+    word3 = word[3]
+    word4 = escape_markdownv2(word[4])
+    word5 = escape_markdownv2(word[5])
+
+    offer = f"Что за тип {word0}, что выполняет его метод {word3}\n ||{word1}\n{word2} \n\n{word4}\n{word5}||"
+
     return offer
 
 async def play_game(message_or_key):
@@ -62,3 +79,10 @@ async def play_game(message_or_key):
 
 if __name__ == "__main__":
     print(offer_and_translate('123'))
+    # met = generate_offer('123')
+    # print(met[0])
+    # print(met[1])
+    # print(met[2])
+    # print(met[3])
+    # print(met[4])
+    # print(met[5])
