@@ -104,7 +104,7 @@ async def vibor_product(message: types.Message):
     # удаляем сообщение "Статистика"
     await message.delete()
     # Удаляем все сообщения с пометкой удаления
-    await del_old_messege(mes)
+    await del_old_messege(message)
     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
     db.add_message(id_chat=mes.chat['id'], id_message=mes['message_id'], delete=1)
 
@@ -114,13 +114,12 @@ async def vibor_product(message: types.Message):
 
 @dp.message_handler(commands=["user"])
 async def user_start(message: types.Message):
-    chat_id = message.chat.id
     mes = message.chat
     info_message = await message.answer(f"Hello, user! Информация о Вас - {mes}")
     n = db.select_all_chat()
     info_message2 = await message.answer(f"Всего пользователей использующих бота - {len(n)}.\n{n}")
     # Удаляем все сообщения с пометкой удаления
-    await del_old_messege(mes)
+    await del_old_messege(message)
     # удаляем сообщение
     await message.delete()
     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
