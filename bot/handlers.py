@@ -115,16 +115,14 @@ async def vibor_product(message: types.Message):
 @dp.message_handler(commands=["user"])
 async def user_start(message: types.Message):
     mes = message.chat
-    info_message = await message.answer(f"Hello, user! Информация о Вас - {mes}")
     n = db.select_all_chat()
-    info_message2 = await message.answer(f"Всего пользователей использующих бота - {len(n)}.\n{n}")
+    info_message = await message.answer(f"Hello, user! Информация о Вас - {mes}\nВсего пользователей использующих бота - {len(n)}.\n{n}", reply_markup=buttons_menu())
     # Удаляем все сообщения с пометкой удаления
     await del_old_messege(message)
     # удаляем сообщение
     await message.delete()
     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
     db.add_message(id_chat=info_message.chat['id'], id_message=info_message['message_id'], delete=1)
-    db.add_message(id_chat=info_message2.chat['id'], id_message=info_message2['message_id'], delete=1)
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # Хэндлер, должен быть последним, просто удаляет отправленное сообщение!!!!!!!!!!!!!!!!!!!!
