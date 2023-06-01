@@ -1,4 +1,5 @@
 import sys
+import os
 import pydoc
 
 
@@ -7,13 +8,13 @@ def get_py_modules():
     # print(sys.stdlib_module_names)
     # Извлекаем все встроенные модули Python из sys.modules и создаем словарь
     # с их описанием на английском и русском
-    # for name, obj in sys.modules['builtins']:
-    #     print(name, obj)
-    for i in sys.stdlib_module_names:
-        if i.startswith('_'):
+    for name in sorted(sys.stdlib_module_names):
+    # for name in sorted(sys.builtin_module_names):
+        print(name)
+        if name.startswith('_'):
             continue
-        print(i)
-        if i == 'random':
-            print(help(i))
+        py_modules[name] = name.__doc__
+    print(py_modules)
 
 get_py_modules()
+# print(os.__doc__)
