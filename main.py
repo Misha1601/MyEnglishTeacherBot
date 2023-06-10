@@ -15,7 +15,7 @@ dp = Dispatcher(bot)
 db = db.Database()
 
 try:
-    db.create_table_message()
+    db.create_table()
 except:
     pass
 

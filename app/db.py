@@ -30,7 +30,7 @@ class Database:
         connection.close()
         return data
 
-    def create_table_message(self):
+    def create_table(self):
         """ id_chat - номер чата
             id_message - номер сообщения
             date - дата отправки сообщения
@@ -39,7 +39,7 @@ class Database:
             status - 1-правильный ответ, 0-неправильный
             del - статус удаленного сообщения, 1-удалено
                                                         """
-        sql = """
+        sql_add_tabel_Message = """
                 CREATE TABLE Message (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     id_chat INTEGER NOT NULL,
@@ -50,8 +50,21 @@ class Database:
                     status INTEGER,
                     del INTEGER
                 );
-    """
-        self.execute(sql, commit=True)
+                """
+        sql_add_tabel_Word = """
+                CREATE TABLE Word (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    part_of_speech TEXT,
+                    word TEXT,
+                    word_two_form TEXT,
+                    word_three_form TEXT,
+                    transcription TEXT,
+                    translate TEXT,
+                    note TEXT
+                );
+                """
+        self.execute(sql_add_tabel_Message, commit=True)
+        self.execute(sql_add_tabel_Word, commit=True)
 
     def add_message(self, id_chat: int, id_message: int, word: str = None, status: bool = None, delete: bool = None):
         """Добавление записи об отправленном сообщении пользователю
