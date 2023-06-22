@@ -1,7 +1,193 @@
 1. Подготовить БД со словами
 2. Создать раздел с настройками
-3. Создать в настройках переменную с временем напоминания
+3. Создать в настройках переменную с временем напоминания и с интервалом не беспокоить
 4. реализовать алгоритм запоминания слов (вброс слов по группам)
 5. подключить чат get
 6. реализовать вброс по предложениям
 7. реализовать отличие предложений по сложности
+
+Удаление удаленных веток
+git push origin --delete <удаленная ветка>
+Удаляем ссылки
+git fetch --prune
+
+Изменения для меню настроек, изучить, внедренное удалить
+
+PS C:\projects\MyEnglishTeacherBot> git diff main
+diff --git a/app/db.py b/app/db.py
+index 7d6f407..52ab2c4 100644
+--- a/app/db.py
++++ b/app/db.py
+@@ -55,6 +55,7 @@ class Database:
+                 CREATE TABLE Word (
+                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                     part_of_speech TEXT,
++                    form_part_of_speech TEXT,
+                     word TEXT,
+                     word_two_form TEXT,
+                     word_three_form TEXT,
+diff --git a/bot/callback_datas.py b/bot/callback_datas.py
+index c6187f2..ad077cc 100644
+--- a/bot/callback_datas.py
++++ b/bot/callback_datas.py
+@@ -1,4 +1,4 @@
+ from aiogram.utils.callback_data import CallbackData
+
+
+-play_collback = CallbackData("play_inline", "yes_or_no")
+\ No newline at end of file
++play_collback = CallbackData("play_inline", "yes_or_no", "settings")
+\ No newline at end of file
+diff --git a/bot/handlers.py b/bot/handlers.py
+index fb16c52..aa72922 100644
+--- a/bot/handlers.py
++++ b/bot/handlers.py
+@@ -1,11 +1,12 @@
+ from aiogram import types
+ from aiogram.types import CallbackQuery
+-from main import dp
+-from bot.keyboards import buttons_menu
++from aiogram.dispatcher import FSMContext
++from main import dp, db
++from bot.keyboards import buttons_menu, buttons_settings
+ from bot.create_offer_and_send import game
+ from bot.data import del_old_messege
+ from bot.callback_datas import play_collback
+-from main import db
++from bot.states import Settings
+
+
+ @dp.message_handler(commands="start")
+@@ -44,6 +45,43 @@ async def play(message: types.Message):
+     # запускаем функцию отправки слова
+     await game(message)
+
++@dp.message_handler(commands="settings")
++async def setting_bot(message: types.Message):
++    msid = await message.answer("Основные настройки работы бота",
++                                reply_markup=buttons_settings())
++    # удаляем сообщение "settings"
++    await message.delete()
++    # Удаляем все сообщения с пометкой удаления
++    await del_old_messege(msid)
++    # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
++    db.add_message(id_chat=msid.chat['id'], id_message=msid['message_id'], delete=1)
++
++# @dp.callback_query_handler(play_collback.filter(settings="interval"))
++# async def interval_mes(call: CallbackQuery, callback_data: dict, state: FSMContext):
++#     await call.answer()
++#     await state.set_state(Settings.interval)
++#     msid = await call.message.answer(f"Введите интервал в секундах(время через которое будут приходить сообщения)")
++
++#     # Удаляем все сообщения с пометкой удаления
++#     await del_old_messege(msid)
++#     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
++#     db.add_message(id_chat=msid.chat['id'], id_message=msid['message_id'], delete=1)
++#     # если правильный ответ, помечаем 1
++#     db.update(id_chat=msid.chat.id, id_message=call.message.message_id, status=1)
++
++# @dp.message_handler(Settings.interval)
++# async def interval_promt(message: types.Message, state: FSMContext):
++#     if message.text.isdigit():
++#         msid = await message.answer("Переменная принята")
++#         await state.clear()
++#     else:
++#         msid = await message.answer("Необходимо ввести интервал а цифрах")
++#     # Удаляем все сообщения с пометкой удаления
++#     await del_old_messege(msid)
++#     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
++#     db.add_message(id_chat=msid.chat['id'], id_message=msid['message_id'], delete=1)
++#     # если правильный ответ, помечаем 1
++#     db.update(id_chat=msid.chat.id, id_message=call.message.message_id, status=1)
+
+ @dp.callback_query_handler(play_collback.filter(yes_or_no="yes"))
+ async def inline_yes(call: CallbackQuery, callback_data: dict):
+diff --git a/bot/keyboards.py b/bot/keyboards.py
+index 7c35a17..99a79df 100644
+--- a/bot/keyboards.py
++++ b/bot/keyboards.py
+@@ -24,3 +24,13 @@ def buttons_answer():
+     key_answer.insert(InlineKeyboardButton(text="Ответили ✅", callback_data=play_collback.new(yes_or_no="yes")))
+     key_answer.insert(InlineKeyboardButton(text="Ответили ❌", callback_data=play_collback.new(yes_or_no="no")))
+     return key_answer
++
++def buttons_settings():
++    key_answer = InlineKeyboardMarkup(row_width=2)
++    key_answer.insert(InlineKeyboardButton(text="Интервал сообщений", callback_data=play_collback.new(settings="interval")))
++    # key_answer.insert(InlineKeyboardButton(text="Настройка 1", callback_data="settings1"))
++    # key_answer.insert(InlineKeyboardButton(text="Настройка 2", callback_data="settings2"))
++    # key_answer.insert(InlineKeyboardButton(text="Настройка 3", callback_data="settings3"))
++    key_answer.insert(InlineKeyboardButton(text="🔎 Помощь", callback_data="help"))
++    key_answer.insert(InlineKeyboardButton(text="Закрыть настройки", callback_data="close_settings"))
++    return key_answer
+\ No newline at end of file
+diff --git a/bot/states.py b/bot/states.py
+new file mode 100644
+index 0000000..b957fbc
+--- /dev/null
++++ b/bot/states.py
+@@ -0,0 +1,7 @@
++from aiogram.dispatcher.filters.state import State, StatesGroup
++
++class Settings(StatesGroup):
++    interval = State()
++    settings1 = State()
++    settings2 = State()
++    settings3 = State()
+diff --git a/main.py b/main.py
+index f07e0f7..075c326 100644
+--- a/main.py
++++ b/main.py
+@@ -1,6 +1,7 @@
+ import asyncio
+ import logging
+ from aiogram import Bot, Dispatcher, executor #, types
++from aiogram.contrib.fsm_storage.memory import MemoryStorage
+ from bot.config import load_config
+ from bot import data
+ from app import db
+@@ -11,7 +12,9 @@ logging.basicConfig(level=logging.INFO)
+ # Загружаем из .env настройки, шаблон настроек в .env_shablon
+ config = load_config(".env")
+ bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
+-dp = Dispatcher(bot)
++storage = MemoryStorage()
++dp = Dispatcher(bot, storage=storage)
++Dispatcher.set_current(dp)
+ db = db.Database()
+
+ try:
+diff --git "a/\320\270\320\275\321\201\321\202\321\200\321\203\320\272\321\206\320\270\321\217.txt" "b/\320\270\320\275\321\201\321\202\321\200\321\203\320\272\321\206\320\270\321\217.txt"
+index c677c2f..a587e0d 100644
+--- "a/\320\270\320\275\321\201\321\202\321\200\321\203\320\272\321\206\320\270\321\217.txt"
++++ "b/\320\270\320\275\321\201\321\202\321\200\321\203\320\272\321\206\320\270\321\217.txt"
+@@ -1,7 +1,29 @@
+ 1. Подготовить БД со словами
+ 2. Создать раздел с настройками
++- частота напоминания
++- интервал сна (не беспокоить, обычно ночь)
+ 3. Создать в настройках переменную с временем напоминания
+ 4. реализовать алгоритм запоминания слов (вброс слов по группам)
+ 5. подключить чат get
+ 6. реализовать вброс по предложениям
+ 7. реализовать отличие предложений по сложности
++
++("Повторение - мать учения.",
++    "Никакое знание не приобретается без труда и повторения.",
++    "Упражнение и повторение - единственные способы достижения успеха.",
++    "Раз в день - это не тренировка, это повторение.",
++    "Учиться - это повторять то, что уже известно.",
++    "Повторение - это единственный способ укрепления памяти.",
++    "Повторяться - первый закон памяти.",
++    "Благодаря повторению, мы можем быть уверены в своих знаниях.",
++    "Учиться значит повторять, а повторять - значит усваивать.",
++    "Интеллект - это способность изменять свои потоки мыслей в зависимости от того, сколько раз ты уже повторил какой-то материал.",
++    "Чем больше вы повторяете что-то, тем больше возможностей открыть новые пути.",
++    "Повторяться - нужно, когда дело касается важных вещей.",
++    "Только повторением мы можем создать привычку.",
++    "Каждое повторение делает меня сильнее.",
++    "Повторения создают привычки. А привычки определяют успех или неудачу.",
++    "В теории никакая разница не существует между теорией и практикой, но на практике она есть. Повторение - это мост между теорией и практикой.",
++    "Повторение - это обязательное условие, чтобы выйти на новый уровень.",
++    "Повторение - это дорога к мастерству. Но при этом не забывайте, что важно понимать, что вы повторяете и почему.",
++    "Повторение необходимо для совершенствования. Если вы хотите чего-то достичь, то придется много раз повторять свои действия.")
