@@ -1,41 +1,35 @@
-import random
+def select_word(list_word):
+    yes_list = list_word.copy()
+    no_list = []
+    n = 3 # количество безошибочного повтора слов
+    k = 0 # счетчик повторений
+    while k < n:
+        index = 0
+        k += 1
+        while index < len(yes_list):
+            answer = input(f"Вы запомнили это слово {yes_list[index]}? Ответьте 'да' или 'нет': ").lower()
+            if answer == 'нет':
+                if n > 0:
+                    k = 0
+                no_list.append(yes_list.pop(index))
+            elif answer == 'да':
+                index += 1
+            else:
+                print('Вы не то ввели, давайте повторим ещё раз!')
+        print(yes_list)
+        print(no_list)
 
-# создаем тестовый словарь из списка слов
-dictionary = ['apple', 'banana', 'cat', 'dog', 'elephant']
+        while no_list:
+            print(no_list)
+            answer = input(f"Вы запомнили это слово {no_list[0]} (из списка no_list)? Ответьте 'да' или 'нет': ").lower()
+            if answer == 'да':
+                yes_list.append(no_list.pop(0))
+            elif answer == 'нет':
+                no_list.append(no_list.pop(0))
+            else:
+                print('Вы не то ввели, давайте повторим ещё раз!')
 
-# создаем словарь ответов
-answers = {}
 
-def select_word():
-    # сортируем словарь ответов по возрастанию интервала повторения
-    sorted_answers = sorted(answers.items(), key=lambda x: x[1])
-
-    # выбираем случайное слово из словаря
-    word = random.choice(dictionary)
-
-    # если в ответах уже есть это слово, выбираем его повторно и увеличиваем интервал повторения
-    if word in answers:
-        answers[word] += 1
-    # если в ответах нет этого слова, выбираем его и устанавливаем интервал повторения в 1
-    else:
-        answers[word] = 1
-
-    # если интервал повторения у слова меньше 1, устанавливаем его равным 1
-    if answers[word] < 1:
-        answers[word] = 1
-
-    # устанавливаем вероятность повторения слова (на основе интервала повторения)
-    probability = 1 / answers[word]
-
-    # если загаданное слово должно быть повторено в следующем запросе, выбираем его
-    if random.random() < probability:
-        return word
-    # если слово не должно быть повторено, выбираем слово с самым коротким интервалом повторения
-    else:
-        # выбираем первое слово из отсортированного списка
-        return sorted_answers[0][0]
 
 if __name__ == "__main__":
-    for i in [i for i in range(100)]:
-        print(select_word())
-    print(answers)
+    select_word(['cat', 'dog', 'elephant'])
