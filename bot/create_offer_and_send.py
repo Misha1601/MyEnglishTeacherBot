@@ -4,6 +4,7 @@ import random
 import json
 from main import bot
 from bot.keyboards import buttons_answer, buttons_no_menu, buttons_menu
+from bot.data import del_old_messege
 from main import db
 
 file_list = os.getcwd()
@@ -54,16 +55,18 @@ async def game(message_or_key):
         mes = await bot.send_message(message_or_key, f"{word}",
                                     parse_mode='MarkdownV2',
                                     reply_markup=buttons_answer())
-        mes1 = await bot.send_message(message_or_key, f"В любом обучении главное практика на постоянной основе!",
-                                       reply_markup=buttons_menu())
+        # mes1 = await bot.send_message(message_or_key, f"В любом обучении главное практика на постоянной основе!",
+        #                                reply_markup=buttons_menu())
     else:
         mes = await message_or_key.answer(f"{word}",
                                     parse_mode='MarkdownV2',
                                     reply_markup=buttons_answer())
-        mes1 = await message_or_key.answer(f"В любом обучении главное практика на постоянной основе!",
-                                       reply_markup=buttons_menu())
+        # mes1 = await message_or_key.answer(f"В любом обучении главное практика на постоянной основе!",
+        #                                reply_markup=buttons_menu())
+    # Удаляем все сообщения с пометкой удаления
+    await del_old_messege(message)
     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
-    db.add_message(id_chat=mes1.chat['id'], id_message=mes1['message_id'], delete=1)
+    # db.add_message(id_chat=mes1.chat['id'], id_message=mes1['message_id'], delete=1)
     # добавляем запись со словом
     db.add_message(id_chat=mes.chat['id'], id_message=mes['message_id'], word=word)
 

@@ -35,9 +35,18 @@ async def info(message: types.Message):
     db.add_message(id_chat=msid.chat['id'], id_message=msid['message_id'], delete=1)
 
 
-@dp.message_handler(commands="Play")
+@dp.message_handler(commands="play")
 async def play(message: types.Message):
     # удаляем сообщение "info"
+    await message.delete()
+    # Удаляем все сообщения с пометкой удаления
+    await del_old_messege(message)
+    # запускаем функцию отправки слова
+    await game(message)
+
+@dp.message_handler(commands="next_play")
+async def vibor_product(message: types.Message):
+    # удаляем сообщение
     await message.delete()
     # Удаляем все сообщения с пометкой удаления
     await del_old_messege(message)
@@ -74,20 +83,6 @@ async def inline_no(call: CallbackQuery, callback_data: dict):
     # если правильный ответ, помечаем 1
     db.update(id_chat=call.message.chat.id, id_message=call.message.message_id, status=0)
     # await statistics(message=msid, no=True)
-
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# handlers_menu, хундреры отвечающие за меню!!!!!!!!!!!!!!!!!!!!
-# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-@dp.message_handler(text="Потренеруемся ещё")
-async def vibor_product(message: types.Message):
-    # удаляем сообщение
-    await message.delete()
-    # Удаляем все сообщения с пометкой удаления
-    await del_old_messege(message)
-    # запускаем функцию отправки слова
-    await game(message)
-
 
 @dp.message_handler(text="Статистика")
 async def vibor_product(message: types.Message):
