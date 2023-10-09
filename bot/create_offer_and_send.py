@@ -4,7 +4,6 @@ import random
 import json
 from main import bot
 from bot.keyboards import buttons_answer, buttons_no_menu, buttons_menu
-from bot.data import del_old_messege
 from main import db
 
 file_list = os.getcwd()
@@ -64,7 +63,7 @@ async def game(message_or_key):
         # mes1 = await message_or_key.answer(f"В любом обучении главное практика на постоянной основе!",
         #                                reply_markup=buttons_menu())
     # Удаляем все сообщения с пометкой удаления
-    await del_old_messege(message)
+    # await del_old_messege(message)
     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
     # db.add_message(id_chat=mes1.chat['id'], id_message=mes1['message_id'], delete=1)
     # добавляем запись со словом
