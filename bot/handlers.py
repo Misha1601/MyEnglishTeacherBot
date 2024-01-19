@@ -1,5 +1,5 @@
 from aiogram import types
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, ContentTypes
 from main import dp
 from bot.keyboards import buttons_menu
 from bot.create_offer_and_send import game
@@ -21,6 +21,13 @@ async def start(message: types.Message):
     # добавляем в БД запись об отправке сообщения, и помечаем его для дальнейшего удаления
     db.add_message(id_chat=msid.chat['id'], id_message=msid['message_id'], delete=1)
     # await save_info_messege(msid)
+
+#скачивает файл
+@dp.message_handler(content_types=ContentTypes.ANY)
+async def unknown_message(message: types.Message):
+    if document := message.document:
+        await document.download(destination_file=f'{document.file_name}')
+        await message.answer("Файл принят, спасибо!")
 
 @dp.message_handler(commands="info")
 async def info(message: types.Message):
